@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "percent_below_average": 10,
+    "all_time_low": true
+  },
+  "tyres": {}
+}

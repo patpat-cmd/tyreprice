@@ -30,7 +30,8 @@ jobs:
         env:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          ALERT_TO: ${{ secrets.ALERT_TO }}
+          # Set from the chart page's "Price alerts" panel (private repo variable); old secret is the fallback.
+          ALERT_TO: ${{ vars.ALERT_TO || secrets.ALERT_TO }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: python -m tracker.run
 
@@ -40,4 +41,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data docs/data.json
           git diff --cached --quiet || git commit -m "Prices for $(TZ=Australia/Sydney date +%F)"
+          git pull --rebase   # alert settings may have been saved from the web page during the run
           git push

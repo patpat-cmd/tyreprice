@@ -7,15 +7,28 @@ Checks tyre prices once a day, keeps the history, draws charts, and emails you w
 - **Charts:** `https://<your-github-username>.github.io/<repo-name>/`
 - **History:** `data/prices.csv` (one row per tyre / retailer / day — opens in Excel)
 
+## Setting alerts (on the chart page)
+
+Each tyre card has **"🔔 Alert me at or below $___"** and a **sale alerts** tickbox. **Alert settings** (top right)
+holds the email address(es), the % rule and the all-time-low toggle. The first time, connect a GitHub token:
+
+1. https://github.com/settings/personal-access-tokens/new → *Only select repositories* → `tyreprice`
+2. Repository permissions → **Contents**, **Variables**, **Actions**: *Read and write* → Generate
+3. Paste it into Alert settings → Connect. It's stored only in that browser.
+
+Saving writes target prices to `docs/alerts.json` (public, like the prices) and the email to the private
+`ALERT_TO` Actions variable (not visible to visitors). Changes apply at the next daily check, or press
+**Check prices now**.
+
 ## What triggers an email
 
 Per tyre, using the cheapest price across all retailers that day:
 
 - **10%+ below its 30-day average**, or
 - **a new all-time low** (both only after 7 days of history, so week one is quiet), or
-- **at/below a `target_price`** if you set one in `config.yaml` (works from day one)
+- **at/below your target price** set on the chart page (works from day one)
 
-You won't get re-emailed about the same price within a week — only if it drops further.
+You won't get re-emailed about the same price within a week — only if it drops further or you change the target.
 If a retailer's scraper breaks 3 days in a row you get one warning email (repeats weekly until fixed).
 
 ## Changing what's tracked

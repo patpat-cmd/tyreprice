@@ -28,6 +28,7 @@ PRICES_CSV = ROOT / "data" / "prices.csv"
 ALERT_STATE = ROOT / "data" / "alerts_sent.json"
 HEALTH_STATE = ROOT / "data" / "health.json"
 SITE_DATA = ROOT / "docs" / "data.json"
+ALERT_SETTINGS = ROOT / "docs" / "alerts.json"
 FIELDS = ["date", "size", "tyre_id", "retailer", "price", "description", "url"]
 
 RUNFLAT_RE = re.compile(
@@ -196,7 +197,7 @@ def find_alerts(cfg: dict, history: list[dict], today: str, sent: dict) -> list[
             target = tyre.get("target_price")
             if target and price <= float(target):
                 reasons.append(f"at or below your target price of ${float(target):.0f}")
-            if len(best) >= min_days:
+            if tyre.get("sale_alerts", True) and len(best) >= min_days:
                 recent = [float(r["price"]) for d, r in best.items()
                           if (today_d - dt.date.fromisoformat(d)).days <= window]
                 if recent:
@@ -209,9 +210,11 @@ def find_alerts(cfg: dict, history: list[dict], today: str, sent: dict) -> list[
             if not reasons:
                 continue
             last = sent.get(tyre["id"])
-            if last and (today_d - dt.date.fromisoformat(last["date"])).days < 7 and price >= float(last["price"]):
-                continue  # already told you about this price (or a lower one) this week
+            if (last and (today_d - dt.date.fromisoformat(last["date"])).days < 7 and price >= float(last["price"])
+                    and last.get("target") == target):
+                continue  # already told you about this price (or a lower one) this week, with the same target
             alerts.append({"tyre": tyre["name"], "size": size["label"], "tyre_id": tyre["id"], "price": price,
+                           "target": target,
                            "retailer": now["retailer"], "url": now["url"], "description": now["description"],
                            "reasons": reasons})
     return alerts
@@ -295,10 +298,43 @@ def build_site_data(cfg: dict, history: list[dict], today: str, health: dict) ->
             lows = [float(r["price"]) for r in best.values()]
             tyres.append({"id": tyre["id"], "name": tyre["name"], "series": series, "latest": latest,
                           "latest_date": latest_date, "all_time_low": min(lows) if lows else None,
-                          "target_price": tyre.get("target_price")})
+                          "target_price": tyre.get("target_price"), "sale_alerts": tyre.get("sale_alerts", True)})
         sizes.append({"id": size["id"], "label": size["label"], "tyres": tyres})
     return {"updated": today, "sizes": sizes,
             "health": {k: {"ok": v.get("fails", 0) == 0, "last_ok": v.get("last_ok")} for k, v in health.items()}}
+
+
+# ------------------------------------------------------------------ alert settings from the web page
+def apply_alert_settings(cfg: dict, path: Path = ALERT_SETTINGS) -> None:
+    """docs/alerts.json is written by the 'Price alerts' panel on the chart page. It overrides config.yaml.
+
+    {"rules": {"percent_below_average": 10, "all_time_low": true},
+     "tyres": {"michelin-ps4s": {"target_price": 330, "sale_alerts": true}}}
+    """
+    if not path.exists():
+        return
+    try:
+        s = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        print(f"WARNING: ignoring unreadable {path.name}: {e}", file=sys.stderr)
+        return
+    rules = s.get("rules") or {}
+    alerts = cfg.setdefault("alerts", {})
+    if isinstance(rules.get("percent_below_average"), (int, float)) and 1 <= rules["percent_below_average"] <= 90:
+        alerts["percent_below_average"] = rules["percent_below_average"]
+    if isinstance(rules.get("all_time_low"), bool):
+        alerts["all_time_low"] = rules["all_time_low"]
+    per_tyre = s.get("tyres") or {}
+    for size in cfg["sizes"]:
+        for tyre in size["tyres"]:
+            t = per_tyre.get(tyre["id"])
+            if not isinstance(t, dict):
+                continue
+            if "target_price" in t:
+                tp = t["target_price"]
+                tyre["target_price"] = float(tp) if isinstance(tp, (int, float)) and tp > 0 else None
+            if isinstance(t.get("sale_alerts"), bool):
+                tyre["sale_alerts"] = t["sale_alerts"]
 
 
 # ------------------------------------------------------------------ main
@@ -308,6 +344,7 @@ def main() -> int:
     args = ap.parse_args()
 
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
+    apply_alert_settings(cfg)
     today = dt.datetime.now(ZoneInfo("Australia/Sydney")).date().isoformat()
     health = json.loads(HEALTH_STATE.read_text()) if HEALTH_STATE.exists() else {}
     active = {*R.SIZE_SCRAPERS, *R.TYRE_SCRAPERS, "Costco"}
@@ -338,7 +375,7 @@ def main() -> int:
     if alerts or warnings:
         send_email(*alert_email(alerts, warnings, os.getenv("SITE_URL")))
         for a in alerts:
-            sent[a["tyre_id"]] = {"date": today, "price": a["price"]}
+            sent[a["tyre_id"]] = {"date": today, "price": a["price"], "target": a["target"]}
     ALERT_STATE.write_text(json.dumps(sent, indent=1))
     HEALTH_STATE.write_text(json.dumps(health, indent=1))
     print(f"\nSaved {len(rows)} prices. Alerts: {len(alerts)}. Warnings: {len(warnings)}.")

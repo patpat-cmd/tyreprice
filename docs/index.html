@@ -6,19 +6,29 @@
 <title>Tyre Prices</title>
 <style>
   :root {
-    --bg: #f6f7f9; --card: #fff; --ink: #1b1f24; --muted: #667085; --line: #e4e7ec; --accent: #0b7a53; --warn: #b54708;
+    --bg: #f6f7f9; --card: #fff; --ink: #1b1f24; --muted: #667085; --line: #e4e7ec; --accent: #0b7a53;
+    --accent-ink: #fff; --warn: #b54708; --hit-bg: #e7f6ef; --field: #fff; --target: #c2410c;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
-    :root { --bg: #0f1216; --card: #171b21; --ink: #e6e8eb; --muted: #98a2b3; --line: #2a3038; --accent: #3ccf91; --warn: #f79009; color-scheme: dark; }
+    :root { --bg: #0f1216; --card: #171b21; --ink: #e6e8eb; --muted: #98a2b3; --line: #2a3038; --accent: #3ccf91;
+            --accent-ink: #062b1d; --warn: #f79009; --hit-bg: #12301f; --field: #0f1216; --target: #fb923c; color-scheme: dark; }
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 96px; }
+  header { display: flex; gap: 16px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
   header h1 { margin: 0 0 4px; font-size: 26px; }
   header p { margin: 0; color: var(--muted); }
   .health { margin-top: 10px; font-size: 13px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
   .health .bad { color: var(--warn); font-weight: 600; }
+  button { font: inherit; cursor: pointer; border-radius: 8px; padding: 8px 14px; border: 1px solid var(--line); background: var(--card); color: var(--ink); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  button:disabled { opacity: .55; cursor: default; }
+  input[type=number], input[type=email], input[type=text], input[type=password] {
+    font: inherit; color: var(--ink); background: var(--field); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; min-width: 0;
+  }
+  input:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   h2 { margin: 32px 0 12px; font-size: 19px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); gap: 16px; }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
@@ -33,82 +43,433 @@
   td.p { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
   td .d { color: var(--muted); display: block; }
   a { color: var(--accent); }
-  .none { color: var(--muted); font-style: italic; padding: 20px 0; }
+  .none { color: var(--muted); font-style: italic; padding: 8px 0 4px; }
+
+  .alert-row { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; margin: 4px 0 12px; padding: 10px 12px;
+               border: 1px dashed var(--line); border-radius: 10px; font-size: 14px; }
+  .alert-row.hit { background: var(--hit-bg); border-style: solid; border-color: var(--accent); }
+  .alert-row label { display: inline-flex; align-items: center; gap: 6px; }
+  .alert-row .dollar { position: relative; display: inline-flex; align-items: center; }
+  .alert-row .dollar span { position: absolute; left: 9px; color: var(--muted); pointer-events: none; }
+  .alert-row .dollar input { width: 96px; padding-left: 20px; }
+  .alert-row .status { font-size: 13px; color: var(--muted); }
+  .alert-row.hit .status { color: var(--accent); font-weight: 600; }
+
+  .savebar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--card); border-top: 1px solid var(--line);
+             padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); display: flex; gap: 10px; justify-content: center;
+             align-items: center; flex-wrap: wrap; box-shadow: 0 -4px 16px rgba(0,0,0,.08); }
+  .toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+           background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-size: 14px; max-width: calc(100% - 32px); z-index: 10; }
+  .toast.err { background: var(--warn); color: #fff; }
+
+  dialog { border: 1px solid var(--line); border-radius: 14px; padding: 0; width: min(560px, calc(100% - 32px));
+           background: var(--card); color: var(--ink); }
+  dialog::backdrop { background: rgba(0,0,0,.45); }
+  .dlg { padding: 20px; display: grid; gap: 18px; }
+  .dlg h2 { margin: 0; }
+  .dlg fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; display: grid; gap: 10px; }
+  .dlg legend { padding: 0 6px; font-weight: 600; }
+  .dlg .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .dlg .row input[type=email], .dlg .row input[type=password] { flex: 1 1 220px; }
+  .dlg small, .dlg .help { color: var(--muted); font-size: 13px; }
+  .dlg ol { margin: 4px 0 0; padding-left: 20px; }
+  .dlg .actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+  .conn { font-size: 13px; font-weight: 600; }
+  .conn.ok { color: var(--accent); } .conn.no { color: var(--muted); }
 </style>
 </head>
 <body>
 <main>
   <header>
-    <h1>Tyre Prices · Sydney</h1>
-    <p id="updated">Loading…</p>
-    <div class="health" id="health"></div>
+    <div>
+      <h1>Tyre Prices · Sydney</h1>
+      <p id="updated">Loading…</p>
+      <div class="health" id="health"></div>
+    </div>
+    <button id="open-settings" type="button">🔔 Alert settings</button>
   </header>
   <div id="sizes"></div>
 </main>
+
+<div class="savebar" id="savebar" hidden>
+  <span id="savebar-text">You have unsaved alert changes.</span>
+  <button type="button" id="discard">Discard</button>
+  <button type="button" class="primary" id="save">Save alerts</button>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<dialog id="settings">
+  <form method="dialog" class="dlg" id="settings-form">
+    <h2>Alert settings</h2>
+
+    <fieldset>
+      <legend>Email me at</legend>
+      <div class="row"><input type="email" id="email" multiple placeholder="you@example.com" autocomplete="email"></div>
+      <small>Separate several addresses with commas. Stored as a private GitHub Actions variable — never shown on this public page or in the repo.</small>
+    </fieldset>
+
+    <fieldset>
+      <legend>Sale alerts (for tyres with “sale alerts” ticked)</legend>
+      <label class="row">Alert when the best price is
+        <input type="number" id="pct" min="1" max="90" step="1" style="width:72px"> % below its 30-day average</label>
+      <label class="row"><input type="checkbox" id="atl"> Alert on a new all-time low</label>
+      <small>These start after 7 days of price history. Target prices work immediately.</small>
+    </fieldset>
+
+    <fieldset>
+      <legend>Connect to GitHub <span class="conn no" id="conn">· not connected</span></legend>
+      <div class="help">Saving needs a GitHub token that can only touch this repo. It's kept in this browser only.
+        <ol>
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">new fine-grained token</a>.</li>
+          <li>Repository access → <b>Only select repositories</b> → <b id="repo-name">tyreprice</b>.</li>
+          <li>Repository permissions → <b>Contents</b>, <b>Variables</b> and <b>Actions</b>: <b>Read and write</b>.</li>
+          <li>Generate, then paste it here.</li>
+        </ol>
+      </div>
+      <div class="row">
+        <input type="password" id="token" placeholder="github_pat_…" autocomplete="off" spellcheck="false">
+        <button type="button" id="connect">Connect</button>
+        <button type="button" id="disconnect" hidden>Forget token</button>
+      </div>
+    </fieldset>
+
+    <div class="actions">
+      <button type="button" id="check-now" disabled title="Run the price check on GitHub now">Check prices now</button>
+      <button type="button" id="close">Close</button>
+      <button type="button" class="primary" id="save2">Save</button>
+    </div>
+  </form>
+</dialog>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
+"use strict";
 const COLORS = { "Tyroola": "#2e6ff2", "Tempe Tyres": "#e0532b", "MSWT": "#8e44ad", "Costco": "#0b9e6a",
                  "Bob Jane": "#d4a106", "St George Tyres": "#13a8b8" };
+const REPO = {
+  owner: location.hostname.endsWith(".github.io") ? location.hostname.split(".")[0] : "patpat-cmd",
+  name: (location.hostname.endsWith(".github.io") && location.pathname.split("/").filter(Boolean)[0]) || "tyreprice",
+};
+const SETTINGS_PATH = "docs/alerts.json";
+const TOKEN_KEY = "tyreprice.ghtoken";
+
+const $ = id => document.getElementById(id);
 const money = v => "$" + Math.round(v).toLocaleString("en-AU");
 const fmtDate = ts => new Date(ts).toLocaleDateString("en-AU", { day: "numeric", month: "short" });
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const store = { get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+                set(k, v) { try { v == null ? localStorage.removeItem(k) : localStorage.setItem(k, v); } catch {} } };
 
-fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(render).catch(e => {
-  document.getElementById("updated").textContent = "No data yet - the first daily run hasn't happened. (" + e + ")";
-});
+// ---------------------------------------------------------------- state
+let data = null;                 // docs/data.json (prices)
+let saved = null;                // alert settings as last loaded/saved
+let current = null;              // alert settings being edited
+let savedEmail = "", currentEmail = "";
+let sha = null;                  // blob sha of docs/alerts.json (needed to update it)
+let token = store.get(TOKEN_KEY);
+const charts = {};               // tyre id -> Chart
 
-function render(data) {
-  document.getElementById("updated").textContent =
-    "Price per tyre, checked daily. Last update " + new Date(data.updated).toLocaleDateString("en-AU", { weekday: "long", day: "numeric", month: "long" }) + ".";
-  const h = document.getElementById("health");
+const blankSettings = () => ({ rules: { percent_below_average: 10, all_time_low: true }, tyres: {} });
+const clone = o => JSON.parse(JSON.stringify(o));
+const tyreSet = id => current.tyres[id] || {};
+
+// ---------------------------------------------------------------- GitHub API
+async function gh(path, opts = {}) {
+  const r = await fetch(`https://api.github.com/repos/${REPO.owner}/${REPO.name}${path}`, {
+    ...opts,
+    headers: { Accept: "application/vnd.github+json", Authorization: `Bearer ${token}`, "X-GitHub-Api-Version": "2022-11-28",
+               ...(opts.body ? { "Content-Type": "application/json" } : {}) },
+  });
+  if (!r.ok) {
+    let msg = r.statusText;
+    try { msg = (await r.json()).message || msg; } catch {}
+    const e = new Error(`${r.status}: ${msg}`); e.status = r.status; throw e;
+  }
+  return r.status === 204 ? null : r.json();
+}
+const b64encode = s => btoa(String.fromCharCode(...new TextEncoder().encode(s)));
+const b64decode = s => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g, "")), c => c.charCodeAt(0)));
+
+async function loadFromGitHub() {
+  try {
+    const f = await gh(`/contents/${SETTINGS_PATH}?ref=main`);
+    sha = f.sha;
+    saved = normalise(JSON.parse(b64decode(f.content)));
+  } catch (e) {
+    if (e.status !== 404) throw e;
+    sha = null; saved = blankSettings();
+  }
+  try {
+    savedEmail = (await gh("/actions/variables/ALERT_TO")).value || "";
+  } catch (e) {
+    if (e.status !== 404) throw e;
+    savedEmail = "";
+  }
+}
+
+async function saveToGitHub() {
+  const body = JSON.stringify(current, null, 2) + "\n";
+  if (JSON.stringify(current) !== JSON.stringify(saved)) {
+    const res = await gh(`/contents/${SETTINGS_PATH}`, { method: "PUT", body: JSON.stringify({
+      message: "Update price alerts from web page", content: b64encode(body), branch: "main", ...(sha ? { sha } : {}) }) });
+    sha = res.content.sha;
+  }
+  if (currentEmail !== savedEmail) {
+    try {
+      await gh("/actions/variables/ALERT_TO", { method: "PATCH", body: JSON.stringify({ name: "ALERT_TO", value: currentEmail }) });
+    } catch (e) {
+      if (e.status !== 404) throw e;
+      await gh("/actions/variables", { method: "POST", body: JSON.stringify({ name: "ALERT_TO", value: currentEmail }) });
+    }
+  }
+  saved = clone(current); savedEmail = currentEmail;
+}
+
+function normalise(s) {
+  const out = blankSettings();
+  if (s && s.rules) Object.assign(out.rules, s.rules);
+  if (s && s.tyres) for (const [id, t] of Object.entries(s.tyres)) {
+    const v = {};
+    if (typeof t.target_price === "number" && t.target_price > 0) v.target_price = t.target_price;
+    if (typeof t.sale_alerts === "boolean") v.sale_alerts = t.sale_alerts;
+    if (Object.keys(v).length) out.tyres[id] = v;
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------- boot
+Promise.all([
+  fetch("data.json", { cache: "no-store" }).then(r => r.json()),
+  fetch("alerts.json", { cache: "no-store" }).then(r => r.ok ? r.json() : blankSettings()).catch(blankSettings),
+]).then(async ([d, s]) => {
+  data = d; saved = normalise(s);
+  if (token) {
+    try { await loadFromGitHub(); setConnected(true); }
+    catch (e) { setConnected(false); toast("Couldn't load your alert settings from GitHub (" + e.message + "). Using the published copy.", true); }
+  }
+  current = clone(saved); currentEmail = savedEmail;
+  render();
+}).catch(e => { $("updated").textContent = "No price data yet — the first daily run hasn't happened. (" + e + ")"; });
+
+// ---------------------------------------------------------------- rendering
+function render() {
+  $("updated").textContent = "Price per tyre, checked every morning. Last update " +
+    new Date(data.updated).toLocaleDateString("en-AU", { weekday: "long", day: "numeric", month: "long" }) + ".";
+  const h = $("health"); h.replaceChildren();
   for (const [name, s] of Object.entries(data.health || {}))
     h.append(el("span", s.ok ? "" : "bad", (s.ok ? "✓ " : "⚠ ") + esc(name) + (s.ok ? "" : " (failing, last OK " + esc(s.last_ok || "never") + ")")));
 
-  const root = document.getElementById("sizes");
-  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
-  const gridColor = dark ? "#2a3038" : "#e4e7ec", tickColor = dark ? "#98a2b3" : "#667085";
-
+  for (const id of Object.keys(charts)) { charts[id].destroy(); delete charts[id]; }
+  const root = $("sizes"); root.replaceChildren();
   for (const size of data.sizes) {
     root.append(el("h2", null, esc(size.label)));
-    const grid = el("div", "grid");
-    root.append(grid);
-    for (const t of size.tyres) {
-      const card = el("div", "card");
-      card.append(el("h3", null, esc(t.name)));
-      grid.append(card);
-      if (!t.latest.length) { card.append(el("div", "none", "Not currently listed at any tracked retailer.")); continue; }
-      const b = t.latest[0];
-      card.append(el("div", "best",
-        `<span class="price">${money(b.price)}</span><span>at <a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.retailer)}</a></span>` +
-        `<span class="meta">lowest ever ${money(t.all_time_low)}${t.target_price ? " · target " + money(t.target_price) : ""}</span>`));
-      const wrap = el("div", "chart"); const canvas = document.createElement("canvas"); wrap.append(canvas); card.append(wrap);
-      const tbl = el("table");
-      for (const o of t.latest)
-        tbl.append(el("tr", null, `<td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.retailer)}</a><span class="d">${esc(o.description)}</span></td><td class="p">${money(o.price)}</td>`));
-      card.append(tbl);
-
-      const datasets = Object.entries(t.series).map(([retailer, pts]) => ({
-        label: retailer, data: pts.map(([d, p]) => ({ x: Date.parse(d), y: p })),
-        borderColor: COLORS[retailer] || "#888", backgroundColor: COLORS[retailer] || "#888",
-        borderWidth: 2, pointRadius: pts.length < 2 ? 4 : 0, pointHoverRadius: 5, stepped: "before", tension: 0,
-      }));
-      new Chart(canvas, {
-        type: "line", data: { datasets },
-        options: {
-          maintainAspectRatio: false, animation: false, interaction: { mode: "nearest", axis: "x", intersect: false },
-          scales: {
-            x: { type: "linear", grid: { color: gridColor }, ticks: { color: tickColor, maxTicksLimit: 6, callback: fmtDate } },
-            y: { grid: { color: gridColor }, ticks: { color: tickColor, callback: money } },
-          },
-          plugins: {
-            legend: { labels: { color: tickColor, boxWidth: 12, boxHeight: 2 } },
-            tooltip: { callbacks: { title: i => fmtDate(i[0].parsed.x), label: i => `${i.dataset.label}: ${money(i.parsed.y)}` } },
-          },
-        },
-      });
-    }
+    const grid = el("div", "grid"); root.append(grid);
+    for (const t of size.tyres) grid.append(renderCard(t));
   }
+  updateSavebar();
+}
+
+function renderCard(t) {
+  const card = el("div", "card");
+  card.append(el("h3", null, esc(t.name)));
+  const b = t.latest[0];
+  if (b) {
+    card.append(el("div", "best",
+      `<span class="price">${money(b.price)}</span><span>at <a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.retailer)}</a></span>` +
+      `<span class="meta">lowest ever ${money(t.all_time_low)}</span>`));
+  } else {
+    card.append(el("div", "none", "Not currently listed at any tracked retailer — you'll still be alerted if it appears below your target."));
+  }
+
+  // alert controls
+  const row = el("div", "alert-row");
+  const s = tyreSet(t.id);
+  row.innerHTML =
+    `<label>🔔 Alert me at or below <span class="dollar"><span>$</span><input type="number" min="1" step="1" inputmode="numeric"
+       placeholder="${b ? Math.round(b.price * 0.9) : "price"}" value="${s.target_price ?? ""}" aria-label="Target price for ${esc(t.name)}"></span></label>
+     <label><input type="checkbox" ${s.sale_alerts === false ? "" : "checked"}> sale alerts</label>
+     <span class="status"></span>`;
+  const [priceIn, saleIn] = row.querySelectorAll("input");
+  const status = row.querySelector(".status");
+  const refresh = () => {
+    const tp = tyreSet(t.id).target_price;
+    const hit = tp && b && b.price <= tp;
+    row.classList.toggle("hit", !!hit);
+    status.textContent = !tp ? "" : hit ? "✓ Below your target now" : b ? `${money(b.price - tp)} to go` : "";
+    updateTargetLine(t);
+  };
+  priceIn.addEventListener("input", () => {
+    const v = Math.round(Number(priceIn.value));
+    const ts = { ...tyreSet(t.id) };
+    if (priceIn.value.trim() === "" || !(v > 0)) delete ts.target_price; else ts.target_price = v;
+    setTyre(t.id, ts); refresh();
+  });
+  saleIn.addEventListener("change", () => {
+    const ts = { ...tyreSet(t.id) };
+    if (saleIn.checked) delete ts.sale_alerts; else ts.sale_alerts = false;
+    setTyre(t.id, ts);
+  });
+  card.append(row);
+
+  if (b) {
+    const wrap = el("div", "chart"); const canvas = document.createElement("canvas"); wrap.append(canvas); card.append(wrap);
+    const tbl = el("table");
+    for (const o of t.latest)
+      tbl.append(el("tr", null, `<td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.retailer)}</a><span class="d">${esc(o.description)}</span></td><td class="p">${money(o.price)}</td>`));
+    card.append(tbl);
+    charts[t.id] = makeChart(canvas, t);
+  }
+  queueMicrotask(refresh);
+  return card;
+}
+
+function setTyre(id, ts) {
+  if (Object.keys(ts).length) current.tyres[id] = ts; else delete current.tyres[id];
+  updateSavebar();
+}
+
+function makeChart(canvas, t) {
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const gridColor = dark ? "#2a3038" : "#e4e7ec", tickColor = dark ? "#98a2b3" : "#667085";
+  const datasets = Object.entries(t.series).map(([retailer, pts]) => ({
+    label: retailer, data: pts.map(([d, p]) => ({ x: Date.parse(d), y: p })),
+    borderColor: COLORS[retailer] || "#888", backgroundColor: COLORS[retailer] || "#888",
+    borderWidth: 2, pointRadius: pts.length < 2 ? 4 : 0, pointHoverRadius: 5, stepped: "before", tension: 0,
+  }));
+  const target = getComputedStyle(document.documentElement).getPropertyValue("--target").trim() || "#c2410c";
+  datasets.push({ label: "Your target", data: [], borderColor: target, backgroundColor: target, borderDash: [6, 4],
+                  borderWidth: 2, pointRadius: 0, pointHoverRadius: 0, hidden: true });
+  return new Chart(canvas, {
+    type: "line", data: { datasets },
+    options: {
+      maintainAspectRatio: false, animation: false, interaction: { mode: "nearest", axis: "x", intersect: false },
+      scales: {
+        x: { type: "linear", grid: { color: gridColor }, ticks: { color: tickColor, maxTicksLimit: 6, callback: fmtDate } },
+        y: { grid: { color: gridColor }, ticks: { color: tickColor, callback: money } },
+      },
+      plugins: {
+        legend: { labels: { color: tickColor, boxWidth: 12, boxHeight: 2,
+                            filter: (item, cd) => !cd.datasets[item.datasetIndex].hidden } },
+        tooltip: { filter: i => i.dataset.label !== "Your target",
+                   callbacks: { title: i => fmtDate(i[0].parsed.x), label: i => `${i.dataset.label}: ${money(i.parsed.y)}` } },
+      },
+    },
+  });
+}
+
+function updateTargetLine(t) {
+  const c = charts[t.id]; if (!c) return;
+  const ds = c.data.datasets[c.data.datasets.length - 1];
+  const tp = tyreSet(t.id).target_price;
+  const xs = c.data.datasets.slice(0, -1).flatMap(d => d.data.map(p => p.x));
+  if (!tp || !xs.length) { ds.hidden = true; ds.data = []; c.update(); return; }
+  let lo = Math.min(...xs), hi = Math.max(...xs);
+  if (lo === hi) { lo -= 43200000; hi += 43200000; }
+  ds.data = [{ x: lo, y: tp }, { x: hi, y: tp }]; ds.hidden = false; c.update();
+}
+
+// ---------------------------------------------------------------- saving
+const isDirty = () => JSON.stringify(current) !== JSON.stringify(saved) || currentEmail !== savedEmail;
+function updateSavebar() {
+  if (!current) return;
+  $("savebar").hidden = !isDirty();
+  $("savebar-text").textContent = token ? "You have unsaved alert changes." : "Unsaved alert changes — connect to GitHub to save them.";
+}
+window.addEventListener("beforeunload", e => { if (current && isDirty()) { e.preventDefault(); e.returnValue = ""; } });
+
+async function save() {
+  if (!token) { openSettings(); $("token").focus(); toast("Connect to GitHub first, then press Save.", true); return; }
+  const emails = currentEmail.split(",").map(s => s.trim()).filter(Boolean);
+  if (!emails.length) { openSettings(); $("email").focus(); toast("Add the email address alerts should go to.", true); return; }
+  if (emails.some(e => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))) { openSettings(); $("email").focus(); toast("That email address doesn't look right.", true); return; }
+  currentEmail = emails.join(", ");
+  for (const b of [$("save"), $("save2")]) b.disabled = true;
+  try {
+    await saveToGitHub();
+    updateSavebar();
+    toast("Saved. Alerts use these settings from the next price check.");
+  } catch (e) {
+    if (e.status === 409 || e.status === 422) {
+      toast("The settings changed on GitHub since you loaded them — reloading. Please re-apply your change.", true);
+      await loadFromGitHub(); current = clone(saved); currentEmail = savedEmail; render(); fillSettings();
+    } else {
+      toast("Save failed: " + e.message + (e.status === 403 || e.status === 401 ? " — check the token's permissions." : ""), true);
+    }
+  } finally {
+    for (const b of [$("save"), $("save2")]) b.disabled = false;
+  }
+}
+$("save").addEventListener("click", save);
+$("discard").addEventListener("click", () => { current = clone(saved); currentEmail = savedEmail; render(); fillSettings(); });
+
+// ---------------------------------------------------------------- settings dialog
+const dlg = $("settings");
+$("settings-form").addEventListener("submit", e => e.preventDefault());   // Enter shouldn't close the dialog
+$("token").addEventListener("keydown", e => { if (e.key === "Enter") $("connect").click(); });
+$("repo-name").textContent = `${REPO.owner}/${REPO.name}`;
+function fillSettings() {
+  if (!current) return;
+  $("email").value = currentEmail;
+  $("pct").value = current.rules.percent_below_average;
+  $("atl").checked = current.rules.all_time_low;
+}
+function openSettings() { fillSettings(); if (!dlg.open) dlg.showModal(); }
+$("open-settings").addEventListener("click", openSettings);
+$("close").addEventListener("click", () => dlg.close());
+$("save2").addEventListener("click", async () => { await save(); if (!isDirty()) dlg.close(); });
+$("email").addEventListener("input", e => { currentEmail = e.target.value.trim(); updateSavebar(); });
+$("pct").addEventListener("input", e => {
+  const v = Math.round(Number(e.target.value));
+  if (v >= 1 && v <= 90) { current.rules.percent_below_average = v; updateSavebar(); }
+});
+$("atl").addEventListener("change", e => { current.rules.all_time_low = e.target.checked; updateSavebar(); });
+
+function setConnected(ok) {
+  $("conn").textContent = ok ? `· connected to ${REPO.owner}/${REPO.name}` : "· not connected";
+  $("conn").className = "conn " + (ok ? "ok" : "no");
+  $("disconnect").hidden = !ok; $("connect").hidden = ok; $("token").hidden = ok;
+  $("check-now").disabled = !ok;
+  updateSavebar();
+}
+
+$("connect").addEventListener("click", async () => {
+  const t = $("token").value.trim();
+  if (!t) { $("token").focus(); return; }
+  token = t; $("connect").disabled = true;
+  try {
+    const dirty = current && isDirty();
+    const keep = dirty ? { s: clone(current), e: currentEmail } : null;
+    await loadFromGitHub();
+    store.set(TOKEN_KEY, token); $("token").value = "";
+    setConnected(true);
+    if (keep) { current = keep.s; currentEmail = keep.e || savedEmail; }   // keep edits made before connecting
+    else { current = clone(saved); currentEmail = savedEmail; }
+    render(); fillSettings();
+    toast("Connected." + (savedEmail ? "" : " Now add your email address and Save."));
+  } catch (e) {
+    token = null;
+    toast("Couldn't connect: " + e.message + (e.status === 401 ? " — token not valid." : e.status === 403 || e.status === 404
+      ? " — make sure the token has access to this repo with Contents, Variables and Actions set to Read and write." : ""), true);
+  } finally { $("connect").disabled = false; }
+});
+$("disconnect").addEventListener("click", () => { token = null; store.set(TOKEN_KEY, null); setConnected(false); });
+
+$("check-now").addEventListener("click", async () => {
+  if (isDirty()) { toast("Save your changes first.", true); return; }
+  $("check-now").disabled = true;
+  try {
+    await gh("/actions/workflows/daily.yml/dispatches", { method: "POST", body: JSON.stringify({ ref: "main" }) });
+    toast("Price check started on GitHub — takes about 2 minutes. Any alert email arrives after that; refresh this page to see new prices.");
+  } catch (e) { toast("Couldn't start the check: " + e.message, true); }
+  finally { setTimeout(() => { $("check-now").disabled = !token; }, 5000); }
+});
+
+// ---------------------------------------------------------------- toast
+let toastTimer;
+function toast(msg, err = false) {
+  const t = $("toast"); t.textContent = msg; t.className = "toast" + (err ? " err" : ""); t.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, err ? 9000 : 6000);
 }
 </script>
 </body>
