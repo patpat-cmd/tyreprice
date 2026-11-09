@@ -47,7 +47,8 @@
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
-const COLORS = { "Tyroola": "#2e6ff2", "Tempe Tyres": "#e0532b", "MSWT": "#8e44ad", "Costco": "#0b9e6a" };
+const COLORS = { "Tyroola": "#2e6ff2", "Tempe Tyres": "#e0532b", "MSWT": "#8e44ad", "Costco": "#0b9e6a",
+                 "Bob Jane": "#d4a106", "St George Tyres": "#13a8b8" };
 const money = v => "$" + Math.round(v).toLocaleString("en-AU");
 const fmtDate = ts => new Date(ts).toLocaleDateString("en-AU", { day: "numeric", month: "short" });
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };

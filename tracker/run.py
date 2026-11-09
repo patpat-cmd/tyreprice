@@ -78,6 +78,8 @@ def matches(tyre: dict, o: R.Offer) -> bool:
 def scrape(cfg: dict, health: dict, today: str) -> list[dict]:
     """Returns rows: cheapest matching offer per (tyre, retailer)."""
     rows = []
+    tyre_scraper_hits = {name: 0 for name in R.TYRE_SCRAPERS}
+    tyre_scraper_errors: dict[str, str] = {}
     for size in cfg["sizes"]:
         offers: list[R.Offer] = []
         want_ev = any(t.get("ev_only") for t in size["tyres"])
@@ -101,7 +103,16 @@ def scrape(cfg: dict, health: dict, today: str) -> list[dict]:
                 print(f"  {size['label']:<20} {name:<12} FAILED: {e!r}", file=sys.stderr)
 
         for tyre in size["tyres"]:
-            tyre_offers = [o for o in offers if matches(tyre, o) and o.in_stock is not False]
+            candidates = list(offers)
+            for name, fn in R.TYRE_SCRAPERS.items():
+                try:
+                    got = fn(size, tyre)
+                    tyre_scraper_hits[name] += len(got)
+                    candidates += got
+                except Exception as e:
+                    tyre_scraper_errors[name] = f"{tyre['name']}: {e!r}"
+                    print(f"  {tyre['name']:<42} {name} FAILED: {e!r}", file=sys.stderr)
+            tyre_offers = [o for o in candidates if matches(tyre, o) and o.in_stock is not False]
             for url in tyre.get("costco_urls", []):
                 try:
                     o = R.costco_product(url)
@@ -120,6 +131,12 @@ def scrape(cfg: dict, health: dict, today: str) -> list[dict]:
                 rows.append({"date": today, "size": size["id"], "tyre_id": tyre["id"], "retailer": o.retailer,
                              "price": f"{o.price:.2f}", "description": o.description.split(" /")[0].strip(),
                              "url": o.url})
+    for name, hits in tyre_scraper_hits.items():
+        if name in tyre_scraper_errors or hits == 0:
+            _health_fail(health, name, today, tyre_scraper_errors.get(name, "no tyres found for any search"))
+        else:
+            _health_ok(health, name, today)
+        print(f"  {'per-tyre search':<20} {name:<12} {hits:>4} tyres")
     return rows
 
 

@@ -14,7 +14,7 @@ import re
 import time
 import urllib.robotparser
 from dataclasses import dataclass, field
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -42,6 +42,10 @@ class RobotsDisallowed(Exception):
     pass
 
 
+class BotCheckBlocked(Exception):
+    """The site showed a CAPTCHA / bot check. We never try to get past these - just skip the site today."""
+
+
 def _allowed(url: str) -> bool:
     m = re.match(r"(https?://[^/]+)", url)
     root = m.group(1)
@@ -61,8 +65,11 @@ def fetch(url: str, *, accept: str = "text/html") -> requests.Response:
     if not _allowed(url):
         raise RobotsDisallowed(url)
     resp = requests.get(url, headers={"User-Agent": USER_AGENT, "Accept": accept}, timeout=TIMEOUT)
-    resp.raise_for_status()
     time.sleep(2)  # be polite
+    if resp.status_code in (403, 429) or "captcha" in resp.url.lower() or re.search(
+            r"<title>[^<]*(verify you are human|just a moment|attention required|access denied)", resp.text[:5000], re.I):
+        raise BotCheckBlocked(f"bot check / CAPTCHA shown (HTTP {resp.status_code}) - skipped today")
+    resp.raise_for_status()
     return resp
 
 
@@ -217,8 +224,80 @@ def costco_product(url: str) -> Offer | None:
     return None
 
 
+# ---------------------------------------------------------------- St George Tyres (Arncliffe, Sydney)
+_stg_filters: dict[str, dict[str, str]] = {}
+
+
+def st_george(size: dict, ev_only: bool = False) -> list[Offer]:
+    """Uses the size filters on the /tyres.html category (its /catalogsearch/ is disallowed by robots.txt)."""
+    base = "https://www.stgeorgetyres.com.au/tyres.html"
+    if not _stg_filters:
+        soup = BeautifulSoup(fetch(base).text, "html.parser")
+        for a in soup.select("a[href*='?']"):
+            m = re.search(r"\?(width|profile|diameter)=(\d+)$", a["href"])
+            if m:
+                label = a.get_text(" ", strip=True).split(" ")[0]  # "225 331 items" -> "225"
+                _stg_filters.setdefault(m.group(1), {})[label] = m.group(2)
+    try:
+        q = (f"width={_stg_filters['width'][str(size['width'])]}&profile={_stg_filters['profile'][str(size['profile'])]}"
+             f"&diameter={_stg_filters['diameter'][str(size['rim'])]}")
+    except KeyError:
+        raise RuntimeError(f"size filter not found on St George site for {size['width']}/{size['profile']}R{size['rim']}")
+    offers, seen = [], set()
+    for page in range(1, 16):
+        soup = BeautifulSoup(fetch(f"{base}?{q}&p={page}").text, "html.parser")
+        new = 0
+        for it in soup.select(".product-item-info"):
+            a = it.select_one("a.product-item-link")
+            pr = it.select_one("[data-price-amount]")
+            if not a or a["href"] in seen:
+                continue
+            seen.add(a["href"])
+            new += 1
+            if not pr:  # "call for price" items
+                continue
+            name = a.get_text(" ", strip=True)
+            brand = name.split(" ")[0].title()
+            offers.append(Offer(retailer="St George Tyres", brand=brand,
+                                model=re.sub(r"(?i)^\w+\s+(tyres\s+)?", "", name), description=name,
+                                price=float(pr["data-price-amount"]), url=a["href"]))
+        if not new:
+            break
+    return offers
+
+
+# ---------------------------------------------------------------- Bob Jane T-Marts (Shopify, per-tyre search)
+def bob_jane(size: dict, tyre: dict) -> list[Offer]:
+    """Bob Jane has no size listing we can use, so search per tyre via Shopify's suggest endpoint."""
+    size_txt = f"{size['width']}/{size['profile']}R{size['rim']}"
+    query = f"{tyre.get('search') or tyre['name']} {size_txt}"
+    url = ("https://www.bobjane.com.au/search/suggest.json?" + urlencode(
+        {"q": query, "resources[type]": "product", "resources[limit]": 10}))
+    data = fetch(url, accept="application/json").json()
+    size_re = re.compile(rf"\b{size['width']}/{size['profile']}Z?R{size['rim']}\b", re.I)
+    offers = []
+    for p in data.get("resources", {}).get("results", {}).get("products", []):
+        title = p.get("title", "")
+        if not size_re.search(title) or not p.get("price"):
+            continue
+        labels = [t.split(":", 1)[1] for t in p.get("tags", []) if t.startswith("label:")]
+        offers.append(Offer(
+            retailer="Bob Jane", brand=p.get("vendor", ""), model=title,
+            description=f"{title} {' '.join(labels)}",
+            price=float(p["price"]), url="https://www.bobjane.com.au/products/" + p["handle"],
+            in_stock=p.get("available"), ev="Electric Vehicle" in labels, runflat="Run Flat" in labels,
+        ))
+    return offers
+
+
 SIZE_SCRAPERS = {
     "Tyroola": tyroola,
     "Tempe Tyres": tempe,
     "MSWT": mswt,
+    "St George Tyres": st_george,
+}
+
+# Retailers searched once per tyre (rather than once per size).
+TYRE_SCRAPERS = {
+    "Bob Jane": bob_jane,
 }

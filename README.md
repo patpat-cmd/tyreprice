@@ -3,7 +3,7 @@
 Checks tyre prices once a day, keeps the history, draws charts, and emails you when there's a sale.
 
 - **Runs:** every morning ~7am Sydney time on GitHub Actions (free, PC can be off)
-- **Retailers:** Tyroola, Tempe Tyres, MSWT, Costco (PS4S product page)
+- **Retailers:** Tyroola, Tempe Tyres, MSWT, Bob Jane, St George Tyres, Costco (PS4S product page)
 - **Charts:** `https://<your-github-username>.github.io/<repo-name>/`
 - **History:** `data/prices.csv` (one row per tyre / retailer / day — opens in Excel)
 
@@ -28,9 +28,14 @@ matching ignores case/spaces, so `pilotsport4s` matches "PILOT SPORT 4 S". Run-f
 - **Tempe Tyres** and **MSWT** prices include fitting & balancing.
 - **Tyroola** prices are per tyre delivered; fitting is free on sets of 4 for some promos, otherwise extra.
 - **Costco** needs membership; price shown is the member price.
-- Not included: JAX Tyres (its robots.txt disallows automated access), Tyrepower / Tyreright / Bob Jane
-  (prices load via JavaScript only), Beaurepaires (site unreachable at build time).
-  Scrapers use an honest user-agent, respect robots.txt and make ~25 requests per day in total.
+- **Bob Jane** is searched per tyre (its Shopify search), so it costs ~10 small requests a day.
+- **St George Tyres** (Arncliffe) is read via its size-filtered tyre category; its search pages are off-limits in robots.txt.
+- Not included: JAX Tyres (robots.txt disallows automated access), AC Tyres (shop uses browser
+  fingerprinting / bot checks), Tyrepower / Tyreright (prices load via JavaScript only),
+  Beaurepaires (site unreachable at build time).
+- Scrapers use an honest user-agent, respect robots.txt and make ~50 requests per day in total.
+  If a site shows a CAPTCHA / bot check, it's skipped that day - never bypassed. Tempe Tyres has
+  shown one at times; if it keeps doing so you'll get the "needs attention" email after 3 days.
 
 ## Setup (one-off)
 

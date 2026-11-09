@@ -17,6 +17,7 @@ alerts:
 # A product matches if its brand matches AND any one of the "match" strings appears in its name.
 # Run-flat tyres are always skipped. Add extra words to skip with  exclude: [word, ...]
 # Optional per tyre:  target_price: 300   -> always alert when the best price is at or below this.
+# Optional per tyre:  search: "words"   -> what to type into Bob Jane's search (default: the tyre name).
 # Optional per tyre:  costco_urls: [https://www.costco.com.au/...]   -> also check these Costco product pages.
 
 sizes:
@@ -30,18 +31,22 @@ sizes:
         name: Continental SportContact 7
         brand: continental
         match: [sportcontact7]
+        search: "SportContact 7"
       - id: pirelli-pz5
         name: Pirelli P Zero (PZ5)
         brand: pirelli
         match: [pzeropz5, pz5]
+        search: "P Zero PZ5"
       - id: bridgestone-potenza-sport-evo
         name: Bridgestone Potenza Sport EVO
         brand: bridgestone
         match: [potenzasportevo]
+        search: "Potenza Sport EVO"
       - id: michelin-ps4s
         name: Michelin Pilot Sport 4S
         brand: michelin
         match: [pilotsport4s]
+        search: "Pilot Sport 4S"
         costco_urls:
           - https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191
 
@@ -55,24 +60,30 @@ sizes:
         name: Michelin e.Primacy
         brand: michelin
         match: [eprimacy]
+        search: "e.Primacy"
       - id: pirelli-pzero-elect
         name: Pirelli P Zero Elect
         brand: pirelli
         match: [elect]
+        search: "P Zero Elect"
       - id: conti-ecocontact6
         name: Continental EcoContact 6
         brand: continental
         match: [ecocontact6]
+        search: "EcoContact 6"
       - id: hankook-ion-evo
         name: Hankook iON evo
         brand: hankook
         match: [ionevo]
+        search: "Hankook iON evo"
       - id: bridgestone-turanza6
         name: Bridgestone Turanza 6 ENLITEN
         brand: bridgestone
         match: [turanza6]
+        search: "Turanza 6"
       - id: cheapest-ev
         name: Cheapest EV-rated tyre (major brands)
         ev_only: true
+        search: "EV"
         # Limited to major brands - otherwise this is always an unknown $89 budget tyre.
         brands: [michelin, pirelli, continental, bridgestone, hankook, goodyear, dunlop, yokohama, kumho, toyo, falken, nexen]
