@@ -49,6 +49,12 @@
         "2026-11-09",
         259.0
        ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        351.0
+       ]
       ]
      },
      "latest": [
@@ -69,6 +75,12 @@
        "price": 268.0,
        "url": "https://www.tyroola.com.au/pirelli-pzero-pz5-xl-22540zr18-92y-ty68bfcb3816.html",
        "description": "PIRELLI PZERO PZ5 XL 225/40ZR18 92Y"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 351.0,
+       "url": "https://www.bobjane.com.au/products/pirelli-p-zero-pz5-225-40r18-92y",
+       "description": "Pirelli P Zero (PZ5) 225/40R18 92Y"
       }
      ],
      "latest_date": "2026-11-09",
@@ -84,9 +96,21 @@
         "2026-11-09",
         361.0
        ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        359.0
+       ]
       ]
      },
      "latest": [
+      {
+       "retailer": "Bob Jane",
+       "price": 359.0,
+       "url": "https://www.bobjane.com.au/products/bridgestone-potenza-sport-evo-225-40r18-92y-xl-ev",
+       "description": "Bridgestone POTENZA SPORT EVO 225/40R18 92Y XL EV Electric Vehicle Extra Load"
+      },
       {
        "retailer": "Tempe Tyres",
        "price": 361.0,
@@ -95,7 +119,7 @@
       }
      ],
      "latest_date": "2026-11-09",
-     "all_time_low": 361.0,
+     "all_time_low": 359.0,
      "target_price": null
     },
     {
@@ -118,6 +142,12 @@
        [
         "2026-11-09",
         397.0
+       ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        405.0
        ]
       ],
       "Costco": [
@@ -151,6 +181,12 @@
        "price": 397.0,
        "url": "https://mswt.com.au/tyre/michelin/PILOT-SPORT-4S/225-40R18/576191",
        "description": "MICHELIN PILOT SPORT 4S 225/40R18 92Y"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 405.0,
+       "url": "https://www.bobjane.com.au/products/michelin-pilot-sport-4-s-225-40r18-92y",
+       "description": "Michelin PILOT SPORT 4 S 225/40R18 92Y"
       }
      ],
      "latest_date": "2026-11-09",
@@ -184,6 +220,12 @@
         "2026-11-09",
         375.0
        ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        379.0
+       ]
       ]
      },
      "latest": [
@@ -204,6 +246,12 @@
        "price": 375.0,
        "url": "https://mswt.com.au/tyre/michelin/E-PRIMACY/235-45R18/995827",
        "description": "MICHELIN E.PRIMACY 235/45R18 18R ST"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 379.0,
+       "url": "https://www.bobjane.com.au/products/michelin-e-primacy-235-45r18-98w-volvo-xl-ev",
+       "description": "Michelin E PRIMACY 235/45R18 98W Volvo XL EV Electric Vehicle Extra Load Volvo"
       }
      ],
      "latest_date": "2026-11-09",
@@ -234,6 +282,12 @@
         "2026-11-09",
         307.0
        ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        399.0
+       ]
       ]
      },
      "latest": [
@@ -248,6 +302,12 @@
        "price": 333.0,
        "url": "https://www.tyroola.com.au/continental-ecocontact-6-contiseal-ev-suitable-23545r18-94w-ty69ba56f301.html",
        "description": "CONTINENTAL ECOCONTACT 6 CONTISEAL EV Suitable 235/45R18 94W"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 399.0,
+       "url": "https://www.bobjane.com.au/products/continental-ecocontact-6-235-45r18-101-94w",
+       "description": "Continental EcoContact 6 235/45R18 101/94W"
       }
      ],
      "latest_date": "2026-11-09",
@@ -284,6 +344,12 @@
         "2026-11-09",
         301.0
        ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        349.0
+       ]
       ]
      },
      "latest": [
@@ -298,6 +364,12 @@
        "price": 329.0,
        "url": "https://www.tyroola.com.au/bridgestone-turanza-6-23545r18-94w-ty684f8dbeeb.html",
        "description": "BRIDGESTONE TURANZA 6 235/45R18 94W"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 349.0,
+       "url": "https://www.bobjane.com.au/products/bridgestone-turanza-6-235-45r18-98w",
+       "description": "Bridgestone Turanza 6 235/45R18 98W"
       },
       {
        "retailer": "Tempe Tyres",
@@ -331,6 +403,12 @@
         "2026-11-09",
         229.0
        ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-09",
+        338.0
+       ]
       ]
      },
      "latest": [
@@ -351,6 +429,12 @@
        "price": 229.0,
        "url": "https://mswt.com.au/tyre/continental/PREMIUMCONTACT-C/235-45R18/03156090008",
        "description": "CONTINENTAL PREMIUMCONTACT C 235/45R18 98V (EV Suitable)"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 338.0,
+       "url": "https://www.bobjane.com.au/products/michelin-primacy-5-energy-235-45r18-98w-ev",
+       "description": "Michelin PRIMACY 5 ENERGY 235/45R18 98W EV Electric Vehicle"
       }
      ],
      "latest_date": "2026-11-09",
@@ -374,6 +458,14 @@
    "last_ok": "2026-11-09"
   },
   "Costco": {
+   "ok": true,
+   "last_ok": "2026-11-09"
+  },
+  "St George Tyres": {
+   "ok": false,
+   "last_ok": null
+  },
+  "Bob Jane": {
    "ok": true,
    "last_ok": "2026-11-09"
   }
