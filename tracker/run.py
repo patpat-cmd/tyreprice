@@ -337,11 +337,33 @@ def apply_alert_settings(cfg: dict, path: Path = ALERT_SETTINGS) -> None:
                 tyre["sale_alerts"] = t["sale_alerts"]
 
 
+def send_test_email() -> int:
+    """Sample alert built from the latest real prices, so you can see exactly what an alert looks like."""
+    if not (os.getenv("SMTP_USER") and os.getenv("SMTP_PASSWORD") and os.getenv("ALERT_TO")):
+        print("ERROR: SMTP_USER, SMTP_PASSWORD and ALERT_TO must all be set to send email.", file=sys.stderr)
+        return 1
+    site = json.loads(SITE_DATA.read_text(encoding="utf-8"))
+    alerts = []
+    for size in site["sizes"]:
+        for t in size["tyres"]:
+            if t["latest"] and len(alerts) < 2:
+                b = t["latest"][0]
+                alerts.append({"tyre": t["name"], "size": size["label"], "price": b["price"], "retailer": b["retailer"],
+                               "url": b["url"], "description": b["description"],
+                               "reasons": ["TEST - this is what an alert looks like; no action needed"]})
+    subject, html, text = alert_email(alerts, [], os.getenv("SITE_URL"))
+    send_email("[TEST] " + subject, html, text)
+    return 0
+
+
 # ------------------------------------------------------------------ main
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="scrape and print, write/send nothing")
+    ap.add_argument("--test-email", action="store_true", help="send a sample alert email (no scraping) and exit")
     args = ap.parse_args()
+    if args.test_email:
+        return send_test_email()
 
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     apply_alert_settings(cfg)

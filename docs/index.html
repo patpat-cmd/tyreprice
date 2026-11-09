@@ -134,6 +134,7 @@
     </fieldset>
 
     <div class="actions">
+      <button type="button" id="test-email" disabled title="Send a sample alert to your saved address">Send test email</button>
       <button type="button" id="check-now" disabled title="Run the price check on GitHub now">Check prices now</button>
       <button type="button" id="close">Close</button>
       <button type="button" class="primary" id="save2">Save</button>
@@ -429,7 +430,7 @@ function setConnected(ok) {
   $("conn").textContent = ok ? `· connected to ${REPO.owner}/${REPO.name}` : "· not connected";
   $("conn").className = "conn " + (ok ? "ok" : "no");
   $("disconnect").hidden = !ok; $("connect").hidden = ok; $("token").hidden = ok;
-  $("check-now").disabled = !ok;
+  $("check-now").disabled = !ok; $("test-email").disabled = !ok;
   updateSavebar();
 }
 
@@ -463,6 +464,18 @@ $("check-now").addEventListener("click", async () => {
     toast("Price check started on GitHub — takes about 2 minutes. Any alert email arrives after that; refresh this page to see new prices.");
   } catch (e) { toast("Couldn't start the check: " + e.message, true); }
   finally { setTimeout(() => { $("check-now").disabled = !token; }, 5000); }
+});
+
+$("test-email").addEventListener("click", async () => {
+  if (isDirty()) { toast("Save your changes first — the test goes to your saved address.", true); return; }
+  if (!savedEmail) { toast("Add and save an email address first.", true); return; }
+  $("test-email").disabled = true;
+  try {
+    await gh("/actions/workflows/daily.yml/dispatches", { method: "POST",
+      body: JSON.stringify({ ref: "main", inputs: { test_email: "true" } }) });
+    toast(`Test email on its way to ${savedEmail} — allow about a minute. Check spam if it doesn't show.`);
+  } catch (e) { toast("Couldn't send the test: " + e.message, true); }
+  finally { setTimeout(() => { $("test-email").disabled = !token; }, 5000); }
 });
 
 // ---------------------------------------------------------------- toast

@@ -3,7 +3,12 @@ name: Daily tyre prices
 on:
   schedule:
     - cron: "0 20 * * *"   # 20:00 UTC = 7am Sydney (summer) / 6am (winter)
-  workflow_dispatch:        # "Run workflow" button for a manual run
+  workflow_dispatch:        # "Run workflow" button / "Check prices now" on the chart page
+    inputs:
+      test_email:
+        description: "Only send a test alert email (no price check)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -16,6 +21,12 @@ jobs:
   check-prices:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      SMTP_USER: ${{ secrets.SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+      # Set from the chart page's "Alert settings" panel (private repo variable); old secret is the fallback.
+      ALERT_TO: ${{ vars.ALERT_TO || secrets.ALERT_TO }}
+      SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
     steps:
       - uses: actions/checkout@v4
 
@@ -26,16 +37,16 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      - name: Send test email
+        if: ${{ inputs.test_email }}
+        run: python -m tracker.run --test-email
+
       - name: Check prices, save history, send alerts
-        env:
-          SMTP_USER: ${{ secrets.SMTP_USER }}
-          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
-          # Set from the chart page's "Price alerts" panel (private repo variable); old secret is the fallback.
-          ALERT_TO: ${{ vars.ALERT_TO || secrets.ALERT_TO }}
-          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        if: ${{ !inputs.test_email }}
         run: python -m tracker.run
 
       - name: Commit updated price history
+        if: ${{ !inputs.test_email }}
         run: |
           git config user.name "tyre-price-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
