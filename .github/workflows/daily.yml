@@ -1,0 +1,43 @@
+name: Daily tyre prices
+
+on:
+  schedule:
+    - cron: "0 20 * * *"   # 20:00 UTC = 7am Sydney (summer) / 6am (winter)
+  workflow_dispatch:        # "Run workflow" button for a manual run
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-prices
+  cancel-in-progress: false
+
+jobs:
+  check-prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Check prices, save history, send alerts
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+        run: python -m tracker.run
+
+      - name: Commit updated price history
+        run: |
+          git config user.name "tyre-price-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs/data.json
+          git diff --cached --quiet || git commit -m "Prices for $(TZ=Australia/Sydney date +%F)"
+          git push

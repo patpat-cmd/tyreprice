@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tyre Prices</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --ink: #1b1f24; --muted: #667085; --line: #e4e7ec; --accent: #0b7a53; --warn: #b54708;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0f1216; --card: #171b21; --ink: #e6e8eb; --muted: #98a2b3; --line: #2a3038; --accent: #3ccf91; --warn: #f79009; color-scheme: dark; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1100px; margin: 0 auto; padding: 24px 16px 48px; }
+  header h1 { margin: 0 0 4px; font-size: 26px; }
+  header p { margin: 0; color: var(--muted); }
+  .health { margin-top: 10px; font-size: 13px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+  .health .bad { color: var(--warn); font-weight: 600; }
+  h2 { margin: 32px 0 12px; font-size: 19px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); gap: 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; min-width: 0; }
+  .card h3 { margin: 0; font-size: 16px; }
+  .best { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 6px 0 10px; }
+  .best .price { font-size: 30px; font-weight: 700; color: var(--accent); }
+  .best a { color: inherit; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .chart { position: relative; height: 220px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+  td { padding: 5px 4px; border-top: 1px solid var(--line); vertical-align: top; }
+  td.p { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  td .d { color: var(--muted); display: block; }
+  a { color: var(--accent); }
+  .none { color: var(--muted); font-style: italic; padding: 20px 0; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Tyre Prices · Sydney</h1>
+    <p id="updated">Loading…</p>
+    <div class="health" id="health"></div>
+  </header>
+  <div id="sizes"></div>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const COLORS = { "Tyroola": "#2e6ff2", "Tempe Tyres": "#e0532b", "MSWT": "#8e44ad", "Costco": "#0b9e6a" };
+const money = v => "$" + Math.round(v).toLocaleString("en-AU");
+const fmtDate = ts => new Date(ts).toLocaleDateString("en-AU", { day: "numeric", month: "short" });
+const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+fetch("data.json", { cache: "no-store" }).then(r => r.json()).then(render).catch(e => {
+  document.getElementById("updated").textContent = "No data yet - the first daily run hasn't happened. (" + e + ")";
+});
+
+function render(data) {
+  document.getElementById("updated").textContent =
+    "Price per tyre, checked daily. Last update " + new Date(data.updated).toLocaleDateString("en-AU", { weekday: "long", day: "numeric", month: "long" }) + ".";
+  const h = document.getElementById("health");
+  for (const [name, s] of Object.entries(data.health || {}))
+    h.append(el("span", s.ok ? "" : "bad", (s.ok ? "✓ " : "⚠ ") + esc(name) + (s.ok ? "" : " (failing, last OK " + esc(s.last_ok || "never") + ")")));
+
+  const root = document.getElementById("sizes");
+  const dark = matchMedia("(prefers-color-scheme: dark)").matches;
+  const gridColor = dark ? "#2a3038" : "#e4e7ec", tickColor = dark ? "#98a2b3" : "#667085";
+
+  for (const size of data.sizes) {
+    root.append(el("h2", null, esc(size.label)));
+    const grid = el("div", "grid");
+    root.append(grid);
+    for (const t of size.tyres) {
+      const card = el("div", "card");
+      card.append(el("h3", null, esc(t.name)));
+      grid.append(card);
+      if (!t.latest.length) { card.append(el("div", "none", "Not currently listed at any tracked retailer.")); continue; }
+      const b = t.latest[0];
+      card.append(el("div", "best",
+        `<span class="price">${money(b.price)}</span><span>at <a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.retailer)}</a></span>` +
+        `<span class="meta">lowest ever ${money(t.all_time_low)}${t.target_price ? " · target " + money(t.target_price) : ""}</span>`));
+      const wrap = el("div", "chart"); const canvas = document.createElement("canvas"); wrap.append(canvas); card.append(wrap);
+      const tbl = el("table");
+      for (const o of t.latest)
+        tbl.append(el("tr", null, `<td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.retailer)}</a><span class="d">${esc(o.description)}</span></td><td class="p">${money(o.price)}</td>`));
+      card.append(tbl);
+
+      const datasets = Object.entries(t.series).map(([retailer, pts]) => ({
+        label: retailer, data: pts.map(([d, p]) => ({ x: Date.parse(d), y: p })),
+        borderColor: COLORS[retailer] || "#888", backgroundColor: COLORS[retailer] || "#888",
+        borderWidth: 2, pointRadius: pts.length < 2 ? 4 : 0, pointHoverRadius: 5, stepped: "before", tension: 0,
+      }));
+      new Chart(canvas, {
+        type: "line", data: { datasets },
+        options: {
+          maintainAspectRatio: false, animation: false, interaction: { mode: "nearest", axis: "x", intersect: false },
+          scales: {
+            x: { type: "linear", grid: { color: gridColor }, ticks: { color: tickColor, maxTicksLimit: 6, callback: fmtDate } },
+            y: { grid: { color: gridColor }, ticks: { color: tickColor, callback: money } },
+          },
+          plugins: {
+            legend: { labels: { color: tickColor, boxWidth: 12, boxHeight: 2 } },
+            tooltip: { callbacks: { title: i => fmtDate(i[0].parsed.x), label: i => `${i.dataset.label}: ${money(i.parsed.y)}` } },
+          },
+        },
+      });
+    }
+  }
+}
+</script>
+</body>
+</html>

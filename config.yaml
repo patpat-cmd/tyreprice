@@ -1,0 +1,78 @@
+# Tyre price tracker configuration.
+# Edit this file on GitHub (pencil icon) to add/remove tyres or change alert rules.
+# The alert email address is NOT stored here (the repo is public) - it's the ALERT_TO secret.
+
+alerts:
+  # Alert when today's best price is this % below the average best price of the last N days.
+  percent_below_average: 10
+  average_window_days: 30
+  # Alert when today's best price is the lowest ever seen.
+  all_time_low: true
+  # Don't fire average/all-time-low alerts until we have this many days of history
+  # (stops a flood of "new low!" emails in the first week).
+  min_history_days: 7
+
+# Each tyre: brand + model "match" keywords. Matching ignores case, spaces and punctuation,
+# so "pilotsport4s" matches "PILOT SPORT 4 S" and "Pilot Sport 4S".
+# A product matches if its brand matches AND any one of the "match" strings appears in its name.
+# Run-flat tyres are always skipped. Add extra words to skip with  exclude: [word, ...]
+# Optional per tyre:  target_price: 300   -> always alert when the best price is at or below this.
+# Optional per tyre:  costco_urls: [https://www.costco.com.au/...]   -> also check these Costco product pages.
+
+sizes:
+  - id: sport
+    label: "225/40R18 sporty"
+    width: 225
+    profile: 40
+    rim: 18
+    tyres:
+      - id: conti-sc7
+        name: Continental SportContact 7
+        brand: continental
+        match: [sportcontact7]
+      - id: pirelli-pz5
+        name: Pirelli P Zero (PZ5)
+        brand: pirelli
+        match: [pzeropz5, pz5]
+      - id: bridgestone-potenza-sport-evo
+        name: Bridgestone Potenza Sport EVO
+        brand: bridgestone
+        match: [potenzasportevo]
+      - id: michelin-ps4s
+        name: Michelin Pilot Sport 4S
+        brand: michelin
+        match: [pilotsport4s]
+        costco_urls:
+          - https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191
+
+  - id: ev
+    label: "235/45R18 EV"
+    width: 235
+    profile: 45
+    rim: 18
+    tyres:
+      - id: michelin-eprimacy
+        name: Michelin e.Primacy
+        brand: michelin
+        match: [eprimacy]
+      - id: pirelli-pzero-elect
+        name: Pirelli P Zero Elect
+        brand: pirelli
+        match: [elect]
+      - id: conti-ecocontact6
+        name: Continental EcoContact 6
+        brand: continental
+        match: [ecocontact6]
+      - id: hankook-ion-evo
+        name: Hankook iON evo
+        brand: hankook
+        match: [ionevo]
+      - id: bridgestone-turanza6
+        name: Bridgestone Turanza 6 ENLITEN
+        brand: bridgestone
+        match: [turanza6]
+      - id: cheapest-ev
+        name: Cheapest EV-rated tyre (major brands)
+        ev_only: true
+        # Limited to major brands - otherwise this is always an unknown $89 budget tyre.
+        brands: [michelin, pirelli, continental, bridgestone, hankook, goodyear, dunlop, yokohama, kumho, toyo, falken, nexen]

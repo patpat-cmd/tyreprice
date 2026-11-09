@@ -1,0 +1,381 @@
+{
+ "updated": "2026-11-09",
+ "sizes": [
+  {
+   "id": "sport",
+   "label": "225/40R18 sporty",
+   "tyres": [
+    {
+     "id": "conti-sc7",
+     "name": "Continental SportContact 7",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        249.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tyroola",
+       "price": 249.0,
+       "url": "https://www.tyroola.com.au/continental-contisportcontact-7-xl-22540r18-92y-ty64f001414d.html",
+       "description": "CONTINENTAL CONTISPORTCONTACT 7 XL 225/40R18 92Y"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 249.0,
+     "target_price": null
+    },
+    {
+     "id": "pirelli-pz5",
+     "name": "Pirelli P Zero (PZ5)",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        268.0
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-09",
+        249.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-09",
+        259.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tempe Tyres",
+       "price": 249.0,
+       "url": "https://www.tempetyres.com.au/tyreproducts?pirelli-225/40r18-92y-pzero-pz5-4244200",
+       "description": "Pirelli 225/40R18 92Y PZERO (PZ5)"
+      },
+      {
+       "retailer": "MSWT",
+       "price": 259.0,
+       "url": "https://mswt.com.au/tyre/pirelli/P-ZERO-PZ5/225-40R18/4244200",
+       "description": "PIRELLI P ZERO PZ5 225/40R18 92Y"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 268.0,
+       "url": "https://www.tyroola.com.au/pirelli-pzero-pz5-xl-22540zr18-92y-ty68bfcb3816.html",
+       "description": "PIRELLI PZERO PZ5 XL 225/40ZR18 92Y"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 249.0,
+     "target_price": null
+    },
+    {
+     "id": "bridgestone-potenza-sport-evo",
+     "name": "Bridgestone Potenza Sport EVO",
+     "series": {
+      "Tempe Tyres": [
+       [
+        "2026-11-09",
+        361.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tempe Tyres",
+       "price": 361.0,
+       "url": "https://www.tempetyres.com.au/tyreproducts?bridgestone-225/40r18-92y-potenza-sport-evo-enl-11006947",
+       "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 361.0,
+     "target_price": null
+    },
+    {
+     "id": "michelin-ps4s",
+     "name": "Michelin Pilot Sport 4S",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        369.0
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-09",
+        350.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-09",
+        397.0
+       ]
+      ],
+      "Costco": [
+       [
+        "2026-11-09",
+        359.99
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tempe Tyres",
+       "price": 350.0,
+       "url": "https://www.tempetyres.com.au/tyreproducts?michelin-2254018-92y-pilot-sport-4s-576191",
+       "description": "Michelin 225/40R18 92Y Pilot Sport 4S"
+      },
+      {
+       "retailer": "Costco",
+       "price": 359.99,
+       "url": "https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191",
+       "description": "Michelin 225/40R18 92Y PILOT SPORT 4S"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 369.0,
+       "url": "https://www.tyroola.com.au/michelin-pilot-sport-4-s-xl-22540r18-92y-ty62d50c5336.html",
+       "description": "MICHELIN PILOT SPORT 4 S XL 225/40R18 92Y"
+      },
+      {
+       "retailer": "MSWT",
+       "price": 397.0,
+       "url": "https://mswt.com.au/tyre/michelin/PILOT-SPORT-4S/225-40R18/576191",
+       "description": "MICHELIN PILOT SPORT 4S 225/40R18 92Y"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 350.0,
+     "target_price": null
+    }
+   ]
+  },
+  {
+   "id": "ev",
+   "label": "235/45R18 EV",
+   "tyres": [
+    {
+     "id": "michelin-eprimacy",
+     "name": "Michelin e.Primacy",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        343.0
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-09",
+        370.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-09",
+        375.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tyroola",
+       "price": 343.0,
+       "url": "https://www.tyroola.com.au/michelin-e-primacy-st-xl-vol-volvo-23545r18-98w-ty68a81e9e69.html",
+       "description": "MICHELIN E PRIMACY ST XL VOL Volvo 235/45R18 98W"
+      },
+      {
+       "retailer": "Tempe Tyres",
+       "price": 370.0,
+       "url": "https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98w-e-primacy-st-vol-995827",
+       "description": "Michelin 235/45R18 98W E PRIMACY ST (VOL)"
+      },
+      {
+       "retailer": "MSWT",
+       "price": 375.0,
+       "url": "https://mswt.com.au/tyre/michelin/E-PRIMACY/235-45R18/995827",
+       "description": "MICHELIN E.PRIMACY 235/45R18 18R ST"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 343.0,
+     "target_price": null
+    },
+    {
+     "id": "pirelli-pzero-elect",
+     "name": "Pirelli P Zero Elect",
+     "series": {},
+     "latest": [],
+     "latest_date": null,
+     "all_time_low": null,
+     "target_price": null
+    },
+    {
+     "id": "conti-ecocontact6",
+     "name": "Continental EcoContact 6",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        333.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-09",
+        307.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "MSWT",
+       "price": 307.0,
+       "url": "https://mswt.com.au/tyre/continental/ECOCONTACT-6/235-45R18/03581420000",
+       "description": "CONTINENTAL ECOCONTACT 6 235/45R18 94W ContiSeal"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 333.0,
+       "url": "https://www.tyroola.com.au/continental-ecocontact-6-contiseal-ev-suitable-23545r18-94w-ty69ba56f301.html",
+       "description": "CONTINENTAL ECOCONTACT 6 CONTISEAL EV Suitable 235/45R18 94W"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 307.0,
+     "target_price": null
+    },
+    {
+     "id": "hankook-ion-evo",
+     "name": "Hankook iON evo",
+     "series": {},
+     "latest": [],
+     "latest_date": null,
+     "all_time_low": null,
+     "target_price": null
+    },
+    {
+     "id": "bridgestone-turanza6",
+     "name": "Bridgestone Turanza 6 ENLITEN",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        329.0
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-09",
+        360.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-09",
+        301.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "MSWT",
+       "price": 301.0,
+       "url": "https://mswt.com.au/tyre/bridgestone/TURANZA-6/235-45R18/11005827",
+       "description": "BRIDGESTONE TURANZA 6 235/45R18 98W"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 329.0,
+       "url": "https://www.tyroola.com.au/bridgestone-turanza-6-23545r18-94w-ty684f8dbeeb.html",
+       "description": "BRIDGESTONE TURANZA 6 235/45R18 94W"
+      },
+      {
+       "retailer": "Tempe Tyres",
+       "price": 360.0,
+       "url": "https://www.tempetyres.com.au/tyreproducts?bridgestone-235/45r18-98w-turanza-6-enl-11005827",
+       "description": "Bridgestone 235/45R18 98W TURANZA 6 ENL"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 301.0,
+     "target_price": null
+    },
+    {
+     "id": "cheapest-ev",
+     "name": "Cheapest EV-rated tyre (major brands)",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-09",
+        147.0
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-09",
+        155.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-09",
+        229.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tyroola",
+       "price": 147.0,
+       "url": "https://www.tyroola.com.au/nexen-n-fera-primus-qx-ev-23545r18-98w-ty6a5ecfcb69.html",
+       "description": "NEXEN N FERA PRIMUS QX EV 235/45R18 98W"
+      },
+      {
+       "retailer": "Tempe Tyres",
+       "price": 155.0,
+       "url": "https://www.tempetyres.com.au/tyreproducts?nexen-235/45r18-98w-nf-primus-qx-ev-14196nxc",
+       "description": "Nexen 235/45R18 98W NF PRIMUS QX EV"
+      },
+      {
+       "retailer": "MSWT",
+       "price": 229.0,
+       "url": "https://mswt.com.au/tyre/continental/PREMIUMCONTACT-C/235-45R18/03156090008",
+       "description": "CONTINENTAL PREMIUMCONTACT C 235/45R18 98V (EV Suitable)"
+      }
+     ],
+     "latest_date": "2026-11-09",
+     "all_time_low": 147.0,
+     "target_price": null
+    }
+   ]
+  }
+ ],
+ "health": {
+  "Tyroola": {
+   "ok": true,
+   "last_ok": "2026-11-09"
+  },
+  "Tempe Tyres": {
+   "ok": true,
+   "last_ok": "2026-11-09"
+  },
+  "MSWT": {
+   "ok": true,
+   "last_ok": "2026-11-09"
+  },
+  "Costco": {
+   "ok": true,
+   "last_ok": "2026-11-09"
+  }
+ }
+}
