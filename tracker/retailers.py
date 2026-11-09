@@ -294,7 +294,8 @@ SIZE_SCRAPERS = {
     "Tyroola": tyroola,
     "Tempe Tyres": tempe,
     "MSWT": mswt,
-    "St George Tyres": st_george,
+    # "St George Tyres": st_george,  # disabled: returns HTTP 403 to GitHub's servers (works from home PCs),
+    #                                # and it stocked none of the tracked tyres when checked (Nov 2026).
 }
 
 # Retailers searched once per tyre (rather than once per size).

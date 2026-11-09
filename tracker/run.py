@@ -310,6 +310,8 @@ def main() -> int:
     cfg = yaml.safe_load((ROOT / "config.yaml").read_text(encoding="utf-8"))
     today = dt.datetime.now(ZoneInfo("Australia/Sydney")).date().isoformat()
     health = json.loads(HEALTH_STATE.read_text()) if HEALTH_STATE.exists() else {}
+    active = {*R.SIZE_SCRAPERS, *R.TYRE_SCRAPERS, "Costco"}
+    health = {k: v for k, v in health.items() if k in active}  # forget retailers that were switched off
     sent = json.loads(ALERT_STATE.read_text()) if ALERT_STATE.exists() else {}
 
     print(f"Tyre price run for {today}")

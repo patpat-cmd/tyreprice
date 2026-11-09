@@ -3,7 +3,7 @@
 Checks tyre prices once a day, keeps the history, draws charts, and emails you when there's a sale.
 
 - **Runs:** every morning ~7am Sydney time on GitHub Actions (free, PC can be off)
-- **Retailers:** Tyroola, Tempe Tyres, MSWT, Bob Jane, St George Tyres, Costco (PS4S product page)
+- **Retailers:** Tyroola, Tempe Tyres, MSWT, Bob Jane, Costco (PS4S product page)
 - **Charts:** `https://<your-github-username>.github.io/<repo-name>/`
 - **History:** `data/prices.csv` (one row per tyre / retailer / day — opens in Excel)
 
@@ -29,7 +29,8 @@ matching ignores case/spaces, so `pilotsport4s` matches "PILOT SPORT 4 S". Run-f
 - **Tyroola** prices are per tyre delivered; fitting is free on sets of 4 for some promos, otherwise extra.
 - **Costco** needs membership; price shown is the member price.
 - **Bob Jane** is searched per tyre (its Shopify search), so it costs ~10 small requests a day.
-- **St George Tyres** (Arncliffe) is read via its size-filtered tyre category; its search pages are off-limits in robots.txt.
+- **St George Tyres** (Arncliffe): scraper written (`st_george` in `tracker/retailers.py`) but switched off -
+  the site returns HTTP 403 to GitHub's servers, and it stocked none of the tracked tyres when checked.
 - Not included: JAX Tyres (robots.txt disallows automated access), AC Tyres (shop uses browser
   fingerprinting / bot checks), Tyrepower / Tyreright (prices load via JavaScript only),
   Beaurepaires (site unreachable at build time).
