@@ -1,31 +1,27 @@
 {
  "Tyroola": {
-  "last_ok": "2026-11-09",
+  "last_ok": "2026-11-10",
   "fails": 0,
   "last_error": null
  },
  "Tempe Tyres": {
-  "last_ok": "2026-11-09",
+  "last_ok": "2026-11-10",
   "fails": 0,
   "last_error": null
  },
  "MSWT": {
-  "last_ok": "2026-11-09",
+  "last_ok": "2026-11-10",
   "fails": 0,
-  "last_error": null
+  "last_error": null,
+  "last_fail": "2026-11-10"
  },
  "Costco": {
-  "last_ok": "2026-11-09",
+  "last_ok": "2026-11-10",
   "fails": 0,
   "last_error": null
  },
- "St George Tyres": {
-  "fails": 1,
-  "last_fail": "2026-11-09",
-  "last_error": "235/45R18 EV: BotCheckBlocked('bot check / CAPTCHA shown (HTTP 403) - skipped today')"
- },
  "Bob Jane": {
-  "last_ok": "2026-11-09",
+  "last_ok": "2026-11-10",
   "fails": 0,
   "last_error": null
  }
