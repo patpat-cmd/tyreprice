@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10",
+ "updated": "2026-11-11",
  "sizes": [
   {
    "id": "sport",
@@ -17,6 +17,10 @@
        [
         "2026-11-10",
         249.0
+       ],
+       [
+        "2026-11-11",
+        249.0
        ]
       ]
      },
@@ -28,7 +32,7 @@
        "description": "CONTINENTAL CONTISPORTCONTACT 7 XL 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 249.0,
      "target_price": null,
      "sale_alerts": true
@@ -45,11 +49,19 @@
        [
         "2026-11-10",
         249.0
+       ],
+       [
+        "2026-11-11",
+        249.0
        ]
       ],
       "MSWT": [
        [
         "2026-11-09",
+        259.0
+       ],
+       [
+        "2026-11-11",
         259.0
        ]
       ],
@@ -61,6 +73,10 @@
        [
         "2026-11-10",
         268.0
+       ],
+       [
+        "2026-11-11",
+        268.0
        ]
       ],
       "Bob Jane": [
@@ -71,6 +87,10 @@
        [
         "2026-11-10",
         351.0
+       ],
+       [
+        "2026-11-11",
+        351.0
        ]
       ]
      },
@@ -80,6 +100,12 @@
        "price": 249.0,
        "url": "https://www.tempetyres.com.au/tyreproducts?pirelli-225/40r18-92y-pzero-pz5-4244200",
        "description": "Pirelli 225/40R18 92Y PZERO (PZ5)"
+      },
+      {
+       "retailer": "MSWT",
+       "price": 259.0,
+       "url": "https://mswt.com.au/tyre/pirelli/P-ZERO-PZ5/225-40R18/4244200",
+       "description": "PIRELLI P ZERO PZ5 225/40R18 92Y"
       },
       {
        "retailer": "Tyroola",
@@ -94,7 +120,7 @@
        "description": "Pirelli P Zero (PZ5) 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 249.0,
      "target_price": null,
      "sale_alerts": true
@@ -111,6 +137,10 @@
        [
         "2026-11-10",
         359.0
+       ],
+       [
+        "2026-11-11",
+        359.0
        ]
       ],
       "Tempe Tyres": [
@@ -120,6 +150,10 @@
        ],
        [
         "2026-11-10",
+        361.0
+       ],
+       [
+        "2026-11-11",
         361.0
        ]
       ]
@@ -138,7 +172,7 @@
        "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 359.0,
      "target_price": null,
      "sale_alerts": true
@@ -155,6 +189,10 @@
        [
         "2026-11-10",
         350.0
+       ],
+       [
+        "2026-11-11",
+        350.0
        ]
       ],
       "Costco": [
@@ -164,6 +202,10 @@
        ],
        [
         "2026-11-10",
+        359.99
+       ],
+       [
+        "2026-11-11",
         359.99
        ]
       ],
@@ -175,11 +217,19 @@
        [
         "2026-11-10",
         369.0
+       ],
+       [
+        "2026-11-11",
+        369.0
        ]
       ],
       "MSWT": [
        [
         "2026-11-09",
+        397.0
+       ],
+       [
+        "2026-11-11",
         397.0
        ]
       ],
@@ -190,6 +240,10 @@
        ],
        [
         "2026-11-10",
+        405.0
+       ],
+       [
+        "2026-11-11",
         405.0
        ]
       ]
@@ -214,13 +268,19 @@
        "description": "MICHELIN PILOT SPORT 4 S XL 225/40R18 92Y"
       },
       {
+       "retailer": "MSWT",
+       "price": 397.0,
+       "url": "https://mswt.com.au/tyre/michelin/PILOT-SPORT-4S/225-40R18/576191",
+       "description": "MICHELIN PILOT SPORT 4S 225/40R18 92Y"
+      },
+      {
        "retailer": "Bob Jane",
        "price": 405.0,
        "url": "https://www.bobjane.com.au/products/michelin-pilot-sport-4-s-225-40r18-92y",
        "description": "Michelin PILOT SPORT 4 S 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 350.0,
      "target_price": null,
      "sale_alerts": true
@@ -243,6 +303,10 @@
        [
         "2026-11-10",
         343.0
+       ],
+       [
+        "2026-11-11",
+        343.0
        ]
       ],
       "Tempe Tyres": [
@@ -252,6 +316,10 @@
        ],
        [
         "2026-11-10",
+        370.0
+       ],
+       [
+        "2026-11-11",
         370.0
        ]
       ],
@@ -263,6 +331,10 @@
        [
         "2026-11-10",
         375.0
+       ],
+       [
+        "2026-11-11",
+        375.0
        ]
       ],
       "Bob Jane": [
@@ -272,6 +344,10 @@
        ],
        [
         "2026-11-10",
+        379.0
+       ],
+       [
+        "2026-11-11",
         379.0
        ]
       ]
@@ -302,7 +378,7 @@
        "description": "Michelin E PRIMACY 235/45R18 98W Volvo XL EV Electric Vehicle Extra Load Volvo"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 343.0,
      "target_price": null,
      "sale_alerts": true
@@ -329,6 +405,10 @@
        [
         "2026-11-10",
         307.0
+       ],
+       [
+        "2026-11-11",
+        307.0
        ]
       ],
       "Tyroola": [
@@ -339,6 +419,10 @@
        [
         "2026-11-10",
         333.0
+       ],
+       [
+        "2026-11-11",
+        333.0
        ]
       ],
       "Bob Jane": [
@@ -348,6 +432,10 @@
        ],
        [
         "2026-11-10",
+        399.0
+       ],
+       [
+        "2026-11-11",
         399.0
        ]
       ]
@@ -372,7 +460,7 @@
        "description": "Continental EcoContact 6 235/45R18 101/94W"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 307.0,
      "target_price": null,
      "sale_alerts": true
@@ -399,6 +487,10 @@
        [
         "2026-11-10",
         301.0
+       ],
+       [
+        "2026-11-11",
+        301.0
        ]
       ],
       "Tyroola": [
@@ -408,6 +500,10 @@
        ],
        [
         "2026-11-10",
+        329.0
+       ],
+       [
+        "2026-11-11",
         329.0
        ]
       ],
@@ -419,6 +515,10 @@
        [
         "2026-11-10",
         349.0
+       ],
+       [
+        "2026-11-11",
+        349.0
        ]
       ],
       "Tempe Tyres": [
@@ -428,6 +528,10 @@
        ],
        [
         "2026-11-10",
+        360.0
+       ],
+       [
+        "2026-11-11",
         360.0
        ]
       ]
@@ -458,7 +562,7 @@
        "description": "Bridgestone 235/45R18 98W TURANZA 6 ENL"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 301.0,
      "target_price": null,
      "sale_alerts": true
@@ -475,6 +579,10 @@
        [
         "2026-11-10",
         147.0
+       ],
+       [
+        "2026-11-11",
+        147.0
        ]
       ],
       "Tempe Tyres": [
@@ -484,6 +592,10 @@
        ],
        [
         "2026-11-10",
+        155.0
+       ],
+       [
+        "2026-11-11",
         155.0
        ]
       ],
@@ -495,6 +607,10 @@
        [
         "2026-11-10",
         229.0
+       ],
+       [
+        "2026-11-11",
+        229.0
        ]
       ],
       "Bob Jane": [
@@ -504,6 +620,10 @@
        ],
        [
         "2026-11-10",
+        321.0
+       ],
+       [
+        "2026-11-11",
         321.0
        ]
       ]
@@ -534,7 +654,7 @@
        "description": "Kumho Ecsta PS71 235/45R18 98Y XL EV Electric Vehicle Extra Load"
       }
      ],
-     "latest_date": "2026-11-10",
+     "latest_date": "2026-11-11",
      "all_time_low": 147.0,
      "target_price": null,
      "sale_alerts": true
@@ -545,23 +665,23 @@
  "health": {
   "Tyroola": {
    "ok": true,
-   "last_ok": "2026-11-10"
+   "last_ok": "2026-11-11"
   },
   "Tempe Tyres": {
    "ok": true,
-   "last_ok": "2026-11-10"
+   "last_ok": "2026-11-11"
   },
   "MSWT": {
    "ok": true,
-   "last_ok": "2026-11-10"
+   "last_ok": "2026-11-11"
   },
   "Costco": {
    "ok": true,
-   "last_ok": "2026-11-10"
+   "last_ok": "2026-11-11"
   },
   "Bob Jane": {
    "ok": true,
-   "last_ok": "2026-11-10"
+   "last_ok": "2026-11-11"
   }
  }
 }
