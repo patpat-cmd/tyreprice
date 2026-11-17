@@ -8,11 +8,13 @@
   :root {
     --bg: #f6f7f9; --card: #fff; --ink: #1b1f24; --muted: #667085; --line: #e4e7ec; --accent: #0b7a53;
     --accent-ink: #fff; --warn: #b54708; --hit-bg: #e7f6ef; --field: #fff; --target: #c2410c;
+    --deal: #b42318; --deal-bg: #fef3f2;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root { --bg: #0f1216; --card: #171b21; --ink: #e6e8eb; --muted: #98a2b3; --line: #2a3038; --accent: #3ccf91;
-            --accent-ink: #062b1d; --warn: #f79009; --hit-bg: #12301f; --field: #0f1216; --target: #fb923c; color-scheme: dark; }
+            --accent-ink: #062b1d; --warn: #f79009; --hit-bg: #12301f; --field: #0f1216; --target: #fb923c;
+            --deal: #fda29b; --deal-bg: #3a1513; color-scheme: dark; }
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
@@ -44,6 +46,10 @@
   td .d { color: var(--muted); display: block; }
   a { color: var(--accent); }
   .none { color: var(--muted); font-style: italic; padding: 8px 0 4px; }
+  .deal { display: inline-block; background: var(--deal-bg); color: var(--deal); border: 1px solid currentColor;
+          border-radius: 999px; padding: 1px 8px; font-size: 12px; font-weight: 600; line-height: 1.5; }
+  td .deal { margin-top: 3px; }
+  s.was { color: var(--muted); font-weight: 400; margin-right: 6px; }
 
   .alert-row { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; margin: 4px 0 12px; padding: 10px 12px;
                border: 1px dashed var(--line); border-radius: 10px; font-size: 14px; }
@@ -155,6 +161,7 @@ const SETTINGS_PATH = "docs/alerts.json";
 const TOKEN_KEY = "tyreprice.ghtoken";
 
 const $ = id => document.getElementById(id);
+const discounted = o => o.normal_price != null && o.normal_price - o.price > 0.5;   // deal lowers the price for 4
 const money = v => "$" + Math.round(v).toLocaleString("en-AU");
 const fmtDate = ts => new Date(ts).toLocaleDateString("en-AU", { day: "numeric", month: "short" });
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
@@ -255,7 +262,7 @@ Promise.all([
 
 // ---------------------------------------------------------------- rendering
 function render() {
-  $("updated").textContent = "Price per tyre, checked every morning. Last update " +
+  $("updated").textContent = "Price per tyre when you buy a set of 4 (multi-buy deals included), checked every morning. Last update " +
     new Date(data.updated).toLocaleDateString("en-AU", { weekday: "long", day: "numeric", month: "long" }) + ".";
   const h = $("health"); h.replaceChildren();
   for (const [name, s] of Object.entries(data.health || {}))
@@ -278,7 +285,8 @@ function renderCard(t) {
   if (b) {
     card.append(el("div", "best",
       `<span class="price">${money(b.price)}</span><span>at <a href="${esc(b.url)}" target="_blank" rel="noopener">${esc(b.retailer)}</a></span>` +
-      `<span class="meta">lowest ever ${money(t.all_time_low)}</span>`));
+      `<span class="meta">lowest ever ${money(t.all_time_low)}</span>` +
+      (b.deal ? `<span class="deal" title="Deal price applies when you buy 4">🏷 ${esc(b.deal)}${discounted(b) ? ` · normally ${money(b.normal_price)}` : ""}</span>` : "")));
   } else {
     card.append(el("div", "none", "Not currently listed at any tracked retailer — you'll still be alerted if it appears below your target."));
   }
@@ -317,7 +325,9 @@ function renderCard(t) {
     const wrap = el("div", "chart"); const canvas = document.createElement("canvas"); wrap.append(canvas); card.append(wrap);
     const tbl = el("table");
     for (const o of t.latest)
-      tbl.append(el("tr", null, `<td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.retailer)}</a><span class="d">${esc(o.description)}</span></td><td class="p">${money(o.price)}</td>`));
+      tbl.append(el("tr", null, `<td><a href="${esc(o.url)}" target="_blank" rel="noopener">${esc(o.retailer)}</a><span class="d">${esc(o.description)}</span>` +
+        (o.deal ? `<span class="deal">🏷 ${esc(o.deal)}</span>` : "") +
+        `</td><td class="p">${discounted(o) ? `<s class="was" title="Price for 1-3 tyres">${money(o.normal_price)}</s>` : ""}${money(o.price)}</td>`));
     card.append(tbl);
     charts[t.id] = makeChart(canvas, t);
   }

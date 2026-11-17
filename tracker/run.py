@@ -29,13 +29,20 @@ ALERT_STATE = ROOT / "data" / "alerts_sent.json"
 HEALTH_STATE = ROOT / "data" / "health.json"
 SITE_DATA = ROOT / "docs" / "data.json"
 ALERT_SETTINGS = ROOT / "docs" / "alerts.json"
-FIELDS = ["date", "size", "tyre_id", "retailer", "price", "description", "url"]
+# price = normal price per tyre; price4 = per tyre when buying 4 under a multi-buy deal (blank if none).
+FIELDS = ["date", "size", "tyre_id", "retailer", "price", "description", "url", "price4", "deal"]
 
 RUNFLAT_RE = re.compile(
     r"run\s*-?\s*flat|\bssr|\brft\b|\brof\b|\bzps?\b|\br-f\b|\d{2}z?rf\d{2}|self.?support|\brsc\b|\bmoe\b|\bdsst\b|\bemt\b",
     re.I,
 )
 EV_WORDS = {"ev", "elect", "ion", "t0", "t1", "t2", "acoustic", "econtact", "eprimacy"}
+
+
+def eff(r: dict) -> float:
+    """Per-tyre price when buying a set of 4 - deals included. Everything is ranked/charted/alerted on this."""
+    p, p4 = float(r["price"]), r.get("price4")
+    return min(p, float(p4)) if p4 else p
 
 
 # ------------------------------------------------------------------ matching
@@ -126,12 +133,13 @@ def scrape(cfg: dict, health: dict, today: str) -> list[dict]:
                     _health_fail(health, "Costco", today, repr(e))
             best: dict[str, R.Offer] = {}
             for o in tyre_offers:
-                if o.retailer not in best or o.price < best[o.retailer].price:
+                if o.retailer not in best or o.set_price < best[o.retailer].set_price:
                     best[o.retailer] = o
             for o in best.values():
                 rows.append({"date": today, "size": size["id"], "tyre_id": tyre["id"], "retailer": o.retailer,
                              "price": f"{o.price:.2f}", "description": o.description.split(" /")[0].strip(),
-                             "url": o.url})
+                             "url": o.url, "price4": f"{o.set_price:.2f}" if o.set_price < o.price else "",
+                             "deal": o.deal or ""})
     for name, hits in tyre_scraper_hits.items():
         if name in tyre_scraper_errors or hits == 0:
             _health_fail(health, name, today, tyre_scraper_errors.get(name, "no tyres found for any search"))
@@ -163,7 +171,7 @@ def load_history() -> list[dict]:
 
 def save_history(rows: list[dict]) -> None:
     PRICES_CSV.parent.mkdir(exist_ok=True)
-    rows = sorted(rows, key=lambda r: (r["date"], r["size"], r["tyre_id"], float(r["price"])))
+    rows = sorted(rows, key=lambda r: (r["date"], r["size"], r["tyre_id"], eff(r)))
     with PRICES_CSV.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
@@ -173,7 +181,7 @@ def save_history(rows: list[dict]) -> None:
 def daily_best(history: list[dict], tyre_id: str) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for r in history:
-        if r["tyre_id"] == tyre_id and (r["date"] not in out or float(r["price"]) < float(out[r["date"]]["price"])):
+        if r["tyre_id"] == tyre_id and (r["date"] not in out or eff(r) < eff(out[r["date"]])):
             out[r["date"]] = r
     return out
 
@@ -192,19 +200,19 @@ def find_alerts(cfg: dict, history: list[dict], today: str, sent: dict) -> list[
             if today not in best:
                 continue
             now = best.pop(today)
-            price = float(now["price"])
+            price = eff(now)
             reasons = []
             target = tyre.get("target_price")
             if target and price <= float(target):
                 reasons.append(f"at or below your target price of ${float(target):.0f}")
             if tyre.get("sale_alerts", True) and len(best) >= min_days:
-                recent = [float(r["price"]) for d, r in best.items()
+                recent = [eff(r) for d, r in best.items()
                           if (today_d - dt.date.fromisoformat(d)).days <= window]
                 if recent:
                     avg = statistics.mean(recent)
                     if price <= avg * (1 - pct / 100):
                         reasons.append(f"{(1 - price / avg) * 100:.0f}% below its {window}-day average of ${avg:.0f}")
-                prev_low = min(float(r["price"]) for r in best.values())
+                prev_low = min(eff(r) for r in best.values())
                 if a.get("all_time_low", True) and price < prev_low:
                     reasons.append(f"new all-time low (previous low ${prev_low:.0f})")
             if not reasons:
@@ -216,6 +224,7 @@ def find_alerts(cfg: dict, history: list[dict], today: str, sent: dict) -> list[
             alerts.append({"tyre": tyre["name"], "size": size["label"], "tyre_id": tyre["id"], "price": price,
                            "target": target,
                            "retailer": now["retailer"], "url": now["url"], "description": now["description"],
+                           "deal": now.get("deal") or "", "normal_price": float(now["price"]),
                            "reasons": reasons})
     return alerts
 
@@ -258,16 +267,21 @@ def alert_email(alerts: list[dict], warnings: list[str], site_url: str | None) -
         subject = "Tyre tracker: a price source needs attention"
     rows_html, rows_text = [], []
     for a in alerts:
+        deal = a.get("deal") or ""
+        has_deal = deal and a.get("normal_price", a["price"]) > a["price"] + 0.005
+        deal_html = (f"<br><small style='color:#b42318'><b>{escape(deal)}</b>"
+                     + (f" - normally ${a['normal_price']:.0f} each" if has_deal else "") + "</small>") if deal else ""
+        deal_text = f" ({deal}" + (f"; normally ${a['normal_price']:.0f} each)" if has_deal else ")") if deal else ""
         rows_html.append(
             f"<tr><td><b>{escape(a['tyre'])}</b><br><small>{escape(a['size'])}</small></td>"
-            f"<td style='font-size:20px'><b>${a['price']:.0f}</b></td>"
+            f"<td style='font-size:20px'><b>${a['price']:.0f}</b>{deal_html}</td>"
             f"<td><a href='{escape(a['url'])}'>{escape(a['retailer'])}</a><br><small>{escape(a['description'])}</small></td>"
             f"<td>{'<br>'.join(escape(r) for r in a['reasons'])}</td></tr>")
-        rows_text.append(f"- {a['tyre']} ({a['size']}): ${a['price']:.0f} at {a['retailer']} - "
+        rows_text.append(f"- {a['tyre']} ({a['size']}): ${a['price']:.0f} at {a['retailer']}{deal_text} - "
                          f"{'; '.join(a['reasons'])}\n  {a['url']}")
     html = ""
     if alerts:
-        html += ("<p>Price drops on tyres you're tracking (price per tyre):</p>"
+        html += ("<p>Price drops on tyres you're tracking (price per tyre when buying a set of 4, deals included):</p>"
                  "<table cellpadding='8' style='border-collapse:collapse' border='1'>"
                  "<tr><th>Tyre</th><th>Price</th><th>Where</th><th>Why</th></tr>" + "".join(rows_html) + "</table>")
     if warnings:
@@ -289,13 +303,14 @@ def build_site_data(cfg: dict, history: list[dict], today: str, health: dict) ->
             rows = [r for r in history if r["tyre_id"] == tyre["id"]]
             series: dict[str, list] = {}
             for r in sorted(rows, key=lambda r: r["date"]):
-                series.setdefault(r["retailer"], []).append([r["date"], float(r["price"])])
+                series.setdefault(r["retailer"], []).append([r["date"], eff(r)])
             latest_date = max((r["date"] for r in rows), default=None)
-            latest = sorted(({"retailer": r["retailer"], "price": float(r["price"]), "url": r["url"],
+            latest = sorted(({"retailer": r["retailer"], "price": eff(r), "normal_price": float(r["price"]),
+                              "deal": r.get("deal") or None, "url": r["url"],
                               "description": r["description"]} for r in rows if r["date"] == latest_date),
                             key=lambda x: x["price"])
             best = daily_best(history, tyre["id"])
-            lows = [float(r["price"]) for r in best.values()]
+            lows = [eff(r) for r in best.values()]
             tyres.append({"id": tyre["id"], "name": tyre["name"], "series": series, "latest": latest,
                           "latest_date": latest_date, "all_time_low": min(lows) if lows else None,
                           "target_price": tyre.get("target_price"), "sale_alerts": tyre.get("sale_alerts", True)})
@@ -349,6 +364,7 @@ def send_test_email() -> int:
             if t["latest"] and len(alerts) < 2:
                 b = t["latest"][0]
                 alerts.append({"tyre": t["name"], "size": size["label"], "price": b["price"], "retailer": b["retailer"],
+                               "deal": b.get("deal") or "", "normal_price": b.get("normal_price", b["price"]),
                                "url": b["url"], "description": b["description"],
                                "reasons": ["TEST - this is what an alert looks like; no action needed"]})
     subject, html, text = alert_email(alerts, [], os.getenv("SITE_URL"))
@@ -380,8 +396,9 @@ def main() -> int:
     print("\nToday's best prices:")
     for size in cfg["sizes"]:
         for tyre in size["tyres"]:
-            mine = sorted((r for r in rows if r["tyre_id"] == tyre["id"]), key=lambda r: float(r["price"]))
-            where = ", ".join(f"{r['retailer']} ${float(r['price']):.0f}" for r in mine) or "not found anywhere"
+            mine = sorted((r for r in rows if r["tyre_id"] == tyre["id"]), key=eff)
+            where = ", ".join(f"{r['retailer']} ${eff(r):.0f}" + (f" [{r['deal']}]" if r["deal"] else "")
+                              for r in mine) or "not found anywhere"
             print(f"  {tyre['name']:<42} {where}")
 
     alerts = find_alerts(cfg, history, today, sent)

@@ -36,6 +36,31 @@ class Offer:
     ev: bool = False
     runflat: bool = False
     extra: dict = field(default_factory=dict)
+    deal: str | None = None  # multi-buy promo text, e.g. "Buy 3 get 1 free", "Save 20% on 4 tyres"
+    price4: float | None = None  # AUD per tyre when buying a set of 4 with that deal (None = no discount)
+
+    @property
+    def set_price(self) -> float:
+        """What one tyre effectively costs when you buy 4 - the number we rank and chart by."""
+        return self.price4 if self.price4 and self.price4 < self.price else self.price
+
+
+def deal_price4(text: str, price: float) -> float | None:
+    """Per-tyre price when buying 4, worked out from promo wording. None if it doesn't lower the price
+    (gift cards, free fitting, wording we don't understand)."""
+    t = (text or "").lower()
+    if m := re.search(r"buy\s*(\d)\D{0,6}get\s*(\d)\s*(?:free|for\s*\$?0)", t):  # buy 3 get 1 free
+        paid, free = int(m[1]), int(m[2])
+        return round(price * paid / (paid + free), 2) if paid + free == 4 else None
+    if m := re.search(r"\b4\s*for\s*(?:the\s*price\s*of\s*)?(\d)\b", t):  # 4 for 3
+        return round(price * int(m[1]) / 4, 2) if int(m[1]) < 4 else None
+    if m := re.search(r"(\d{1,2}(?:\.\d+)?)\s*%\s*off|save\s*(\d{1,2}(?:\.\d+)?)\s*%", t):  # save 45% / 45% off
+        pct = float(m[1] or m[2])
+        return round(price * (1 - pct / 100), 2) if 0 < pct < 90 else None
+    if "gift" not in t and (m := re.search(r"\$\s*(\d+)\s*(?:off|cash\s*back|instant|discount)|save\s*\$\s*(\d+)", t)):
+        off = float(m[1] or m[2])  # dollars off a set of 4
+        return round(price - off / 4, 2) if off < price * 4 else None
+    return None
 
 
 class RobotsDisallowed(Exception):
@@ -94,7 +119,9 @@ def tyroola(size: dict, ev_only: bool = False) -> list[Offer]:
                 continue
             desc = f"{p.get('manufacturer', '')} {p.get('profile', '')} {p.get('dimensions', '')}"
             slug = p.get("url", "")
+            deal, price4 = _tyroola_deal(p.get("badges") or [], p["price"] / 100)
             offers.append(Offer(
+                deal=deal, price4=price4,
                 retailer="Tyroola",
                 brand=p.get("manufacturer", ""),
                 model=p.get("profileText") or p.get("profile", ""),
@@ -111,6 +138,21 @@ def tyroola(size: dict, ev_only: bool = False) -> list[Offer]:
             break
         page += 1
     return offers
+
+
+def _tyroola_deal(badges: list, price: float) -> tuple[str | None, float | None]:
+    """Tyroola badges look like {"text": "Save 20% on 4 tyres", "type": "save-percent", "discountValue": 20,
+    "matchedProdQtyMultiplier": 4}. Types seen: save-percent, instant-cash (cents off the set), gift-card."""
+    for b in badges:
+        if not isinstance(b, dict) or not b.get("text") or (b.get("matchedProdQtyMultiplier") or 4) > 4:
+            continue
+        text, kind, val = b["text"].strip(), b.get("type"), b.get("discountValue") or 0
+        if kind == "save-percent" and 0 < val < 90:
+            return text, round(price * (1 - val / 100), 2)
+        if kind == "instant-cash" and 0 < val / 100 < price * 4:
+            return text, round(price - val / 100 / 4, 2)
+        return text, deal_price4(text, price)
+    return None, None
 
 
 # ---------------------------------------------------------------- Tempe Tyres (Sydney)
