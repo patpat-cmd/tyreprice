@@ -44,9 +44,10 @@ matching ignores case/spaces, so `pilotsport4s` matches "PILOT SPORT 4 S". Run-f
 - **Bob Jane** is searched per tyre (its Shopify search), so it costs ~10 small requests a day.
 - **St George Tyres** (Arncliffe): scraper written (`st_george` in `tracker/retailers.py`) but switched off -
   the site returns HTTP 403 to GitHub's servers, and it stocked none of the tracked tyres when checked.
-- Not included: JAX Tyres (robots.txt disallows automated access), AC Tyres (shop uses browser
-  fingerprinting / bot checks), Tyrepower / Tyreright (prices load via JavaScript only),
-  Beaurepaires (site unreachable at build time).
+- **AC Tyres** uses the site's own product-list API for its Sydney store. Its scripts fingerprint visitors for
+  analytics but don't block bots - they send searches tagged `operator: "#"`, and so do we. Prices exclude fitting.
+- Not included: JAX Tyres (robots.txt disallows automated access), Tyrepower (quote-only, no prices online),
+  Tyreright (prices load via JavaScript only), Beaurepaires (site unreachable at build time).
 - Scrapers use an honest user-agent, respect robots.txt and make ~50 requests per day in total.
   If a site shows a CAPTCHA / bot check, it's skipped that day - never bypassed. Tempe Tyres has
   shown one at times; if it keeps doing so you'll get the "needs attention" email after 3 days.
