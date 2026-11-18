@@ -254,9 +254,23 @@
         "2026-11-19",
         351.0
        ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        214.0
+       ]
       ]
      },
      "latest": [
+      {
+       "retailer": "AC Tyres",
+       "price": 214.0,
+       "normal_price": 214.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/225-40R18-92Y-PZERO-(PZ5)/?id=a32508fab677482c018b994ddcdf3d03",
+       "description": "Pirelli 225/40R18 92Y PZERO (PZ5) \u00b7 fitting extra"
+      },
       {
        "retailer": "Tyroola",
        "price": 214.4,
@@ -291,7 +305,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 214.4,
+     "all_time_low": 214.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -390,9 +404,23 @@
         "2026-11-19",
         361.0
        ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        264.0
+       ]
       ]
      },
      "latest": [
+      {
+       "retailer": "AC Tyres",
+       "price": 264.0,
+       "normal_price": 264.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=3354090d638b4e948c20261023021437",
+       "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL \u00b7 fitting extra"
+      },
       {
        "retailer": "Bob Jane",
        "price": 359.0,
@@ -411,7 +439,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 359.0,
+     "all_time_low": 264.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -644,9 +672,23 @@
         "2026-11-19",
         405.0
        ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        315.0
+       ]
       ]
      },
      "latest": [
+      {
+       "retailer": "AC Tyres",
+       "price": 315.0,
+       "normal_price": 315.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/225-40R18-92Y-PILOT-SPORT-4S/?id=09a474691462ca77531f9c976e392f6f",
+       "description": "Michelin 225/40R18 92Y PILOT SPORT 4S \u00b7 fitting extra"
+      },
       {
        "retailer": "Tempe Tyres",
        "price": 350.0,
@@ -689,7 +731,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 350.0,
+     "all_time_low": 315.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -715,6 +757,12 @@
         379.0
        ]
       ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        285.0
+       ]
+      ],
       "Bob Jane": [
        [
         "2026-11-19",
@@ -730,6 +778,14 @@
        "deal": "Save 30% on 4 tyres",
        "url": "https://www.tyroola.com.au/yokohama-advan-neova-ad09-semi-slick-22540r18-92w-ty6317255893.html",
        "description": "YOKOHAMA ADVAN NEOVA AD09 SEMI SLICK 225/40R18 92W"
+      },
+      {
+       "retailer": "AC Tyres",
+       "price": 285.0,
+       "normal_price": 285.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/225-40R18-92W-ADVAN-NEOVA-AD09/?id=208749dca81bfbde8f57628dd998bc8a",
+       "description": "Yokohama 225/40R18 92W ADVAN NEOVA AD09 \u00b7 fitting extra"
       },
       {
        "retailer": "Tempe Tyres",
@@ -954,9 +1010,23 @@
         "2026-11-19",
         379.0
        ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        335.0
+       ]
       ]
      },
      "latest": [
+      {
+       "retailer": "AC Tyres",
+       "price": 335.0,
+       "normal_price": 335.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/235-45R18-98W-E-PRIMACY-ST-(VOL)/?id=ce15bafd86b04f729f20261016121252",
+       "description": "Michelin 235/45R18 98W E PRIMACY ST (VOL) \u00b7 fitting extra"
+      },
       {
        "retailer": "Tyroola",
        "price": 343.0,
@@ -991,7 +1061,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 343.0,
+     "all_time_low": 335.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -1362,9 +1432,23 @@
         "2026-11-19",
         329.99
        ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        242.0
+       ]
       ]
      },
      "latest": [
+      {
+       "retailer": "AC Tyres",
+       "price": 242.0,
+       "normal_price": 242.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/235-45R18-98W-TURANZA-6-ENL/?id=ebed7a5185d748179e20261023014140",
+       "description": "Bridgestone 235/45R18 98W TURANZA 6 ENL \u00b7 fitting extra"
+      },
       {
        "retailer": "MSWT",
        "price": 301.0,
@@ -1407,7 +1491,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 301.0,
+     "all_time_low": 242.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -1604,6 +1688,12 @@
         "2026-11-19",
         399.99
        ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        130.0
+       ]
       ]
      },
      "latest": [
@@ -1614,6 +1704,14 @@
        "deal": "Save 15% on 4 tyres",
        "url": "https://www.tyroola.com.au/nexen-n-fera-primus-qx-ev-23545r18-98w-ty6a5ecfcb69.html",
        "description": "NEXEN N FERA PRIMUS QX EV 235/45R18 98W"
+      },
+      {
+       "retailer": "AC Tyres",
+       "price": 130.0,
+       "normal_price": 130.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/235-45R18-98W-NF-PRIMUS-QX-EV/?id=4530a90c1e6d44b49fe3e947972e02f5",
+       "description": "Nexen 235/45R18 98W NF PRIMUS QX EV \u00b7 fitting extra"
       },
       {
        "retailer": "Tempe Tyres",
@@ -1674,6 +1772,10 @@
    "last_ok": "2026-11-19"
   },
   "Bob Jane": {
+   "ok": true,
+   "last_ok": "2026-11-19"
+  },
+  "AC Tyres": {
    "ok": true,
    "last_ok": "2026-11-19"
   }

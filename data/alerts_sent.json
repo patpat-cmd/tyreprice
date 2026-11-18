@@ -1,12 +1,32 @@
 {
  "pirelli-pz5": {
-  "date": "2026-11-18",
-  "price": 214.4,
+  "date": "2026-11-19",
+  "price": 214.0,
   "target": null
  },
  "cheapest-ev": {
   "date": "2026-11-18",
   "price": 124.95,
+  "target": null
+ },
+ "bridgestone-potenza-sport-evo": {
+  "date": "2026-11-19",
+  "price": 264.0,
+  "target": null
+ },
+ "michelin-ps4s": {
+  "date": "2026-11-19",
+  "price": 315.0,
+  "target": null
+ },
+ "michelin-eprimacy": {
+  "date": "2026-11-19",
+  "price": 335.0,
+  "target": null
+ },
+ "bridgestone-turanza6": {
+  "date": "2026-11-19",
+  "price": 242.0,
   "target": null
  }
 }
