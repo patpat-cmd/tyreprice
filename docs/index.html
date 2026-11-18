@@ -92,7 +92,7 @@
       <p id="updated">Loading…</p>
       <div class="health" id="health"></div>
     </div>
-    <button id="open-settings" type="button">🔔 Alert settings</button>
+    <button id="open-settings" type="button" hidden>🔔 Alert settings</button>
   </header>
   <div id="sizes"></div>
 </main>
@@ -159,6 +159,7 @@ const REPO = {
 };
 const SETTINGS_PATH = "docs/alerts.json";
 const TOKEN_KEY = "tyreprice.ghtoken";
+const SHOW_ALERTS = false;      // true brings back the alert controls (target prices, Alert settings button)
 
 const $ = id => document.getElementById(id);
 const discounted = o => o.normal_price != null && o.normal_price - o.price > 0.5;   // deal lowers the price for 4
@@ -262,6 +263,7 @@ Promise.all([
 
 // ---------------------------------------------------------------- rendering
 function render() {
+  $("open-settings").hidden = !SHOW_ALERTS;
   $("updated").textContent = "Price per tyre when you buy a set of 4 (multi-buy deals included), checked every morning. Last update " +
     new Date(data.updated).toLocaleDateString("en-AU", { weekday: "long", day: "numeric", month: "long" }) + ".";
   const h = $("health"); h.replaceChildren();
@@ -288,7 +290,7 @@ function renderCard(t) {
       `<span class="meta">lowest ever ${money(t.all_time_low)}</span>` +
       (b.deal ? `<span class="deal" title="Deal price applies when you buy 4">🏷 ${esc(b.deal)}${discounted(b) ? ` · normally ${money(b.normal_price)}` : ""}</span>` : "")));
   } else {
-    card.append(el("div", "none", "Not currently listed at any tracked retailer — you'll still be alerted if it appears below your target."));
+    card.append(el("div", "none", "Not currently listed at any tracked retailer." + (SHOW_ALERTS ? " You'll still be alerted if it appears below your target." : "")));
   }
 
   // alert controls
@@ -319,7 +321,7 @@ function renderCard(t) {
     if (saleIn.checked) delete ts.sale_alerts; else ts.sale_alerts = false;
     setTyre(t.id, ts);
   });
-  card.append(row);
+  if (SHOW_ALERTS) card.append(row);
 
   if (b) {
     const wrap = el("div", "chart"); const canvas = document.createElement("canvas"); wrap.append(canvas); card.append(wrap);
@@ -331,7 +333,7 @@ function renderCard(t) {
     card.append(tbl);
     charts[t.id] = makeChart(canvas, t);
   }
-  queueMicrotask(refresh);
+  if (SHOW_ALERTS) queueMicrotask(refresh);
   return card;
 }
 
@@ -384,7 +386,7 @@ function updateTargetLine(t) {
 const isDirty = () => JSON.stringify(current) !== JSON.stringify(saved) || currentEmail !== savedEmail;
 function updateSavebar() {
   if (!current) return;
-  $("savebar").hidden = !isDirty();
+  $("savebar").hidden = !SHOW_ALERTS || !isDirty();
   $("savebar-text").textContent = token ? "You have unsaved alert changes." : "Unsaved alert changes — connect to GitHub to save them.";
 }
 window.addEventListener("beforeunload", e => { if (current && isDirty()) { e.preventDefault(); e.returnValue = ""; } });
