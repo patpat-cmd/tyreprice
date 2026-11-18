@@ -3,7 +3,7 @@
 Checks tyre prices once a day, keeps the history, draws charts, and emails you when there's a sale.
 
 - **Runs:** every morning ~7am Sydney time on GitHub Actions (free, PC can be off)
-- **Retailers:** Tyroola, Tempe Tyres, MSWT, Bob Jane, Costco (PS4S product page)
+- **Retailers:** Tyroola, Tempe Tyres, MSWT, Bob Jane, Costco (searched by size)
 - **Charts:** `https://<your-github-username>.github.io/<repo-name>/`
 - **History:** `data/prices.csv` (one row per tyre / retailer / day — opens in Excel)
 

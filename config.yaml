@@ -18,7 +18,6 @@ alerts:
 # Run-flat tyres are always skipped. Add extra words to skip with  exclude: [word, ...]
 # Optional per tyre:  target_price: 300   -> always alert when the best price is at or below this.
 # Optional per tyre:  search: "words"   -> what to type into Bob Jane's search (default: the tyre name).
-# Optional per tyre:  costco_urls: [https://www.costco.com.au/...]   -> also check these Costco product pages.
 
 sizes:
   - id: sport
@@ -47,8 +46,11 @@ sizes:
         brand: michelin
         match: [pilotsport4s]
         search: "Pilot Sport 4S"
-        costco_urls:
-          - https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191
+      - id: yokohama-ad07
+        name: Yokohama ADVAN Neova AD07
+        brand: yokohama
+        match: [ad07]
+        search: "Neova AD07"
 
   - id: ev
     label: "235/45R18 EV"

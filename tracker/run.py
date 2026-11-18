@@ -121,16 +121,6 @@ def scrape(cfg: dict, health: dict, today: str) -> list[dict]:
                     tyre_scraper_errors[name] = f"{tyre['name']}: {e!r}"
                     print(f"  {tyre['name']:<42} {name} FAILED: {e!r}", file=sys.stderr)
             tyre_offers = [o for o in candidates if matches(tyre, o) and o.in_stock is not False]
-            for url in tyre.get("costco_urls", []):
-                try:
-                    o = R.costco_product(url)
-                    if o:
-                        tyre_offers.append(o)
-                        _health_ok(health, "Costco", today)
-                    else:
-                        raise RuntimeError("no price on page")
-                except Exception as e:
-                    _health_fail(health, "Costco", today, repr(e))
             best: dict[str, R.Offer] = {}
             for o in tyre_offers:
                 if o.retailer not in best or o.set_price < best[o.retailer].set_price:
@@ -385,7 +375,7 @@ def main() -> int:
     apply_alert_settings(cfg)
     today = dt.datetime.now(ZoneInfo("Australia/Sydney")).date().isoformat()
     health = json.loads(HEALTH_STATE.read_text()) if HEALTH_STATE.exists() else {}
-    active = {*R.SIZE_SCRAPERS, *R.TYRE_SCRAPERS, "Costco"}
+    active = {*R.SIZE_SCRAPERS, *R.TYRE_SCRAPERS}
     health = {k: v for k, v in health.items() if k in active}  # forget retailers that were switched off
     sent = json.loads(ALERT_STATE.read_text()) if ALERT_STATE.exists() else {}
 

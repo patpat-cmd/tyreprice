@@ -9,12 +9,14 @@ bot-check circumvention. If a site blocks plain requests, we simply don't use it
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import re
 import time
 import urllib.robotparser
 from dataclasses import dataclass, field
 from urllib.parse import urlencode, urljoin
+from zoneinfo import ZoneInfo
 
 import requests
 from bs4 import BeautifulSoup
@@ -22,6 +24,7 @@ from bs4 import BeautifulSoup
 USER_AGENT = "tyreprice/1.0 (personal once-a-day tyre price tracker; +https://github.com)"
 TIMEOUT = 40
 _robots_cache: dict[str, urllib.robotparser.RobotFileParser] = {}
+_SYDNEY = ZoneInfo("Australia/Sydney")
 
 
 @dataclass
@@ -235,35 +238,61 @@ def _mswt_page(url: str) -> list[Offer]:
     return offers
 
 
-# ---------------------------------------------------------------- Costco (specific product pages)
-def costco_product(url: str) -> Offer | None:
-    soup = BeautifulSoup(fetch(url).text, "html.parser")
-    for s in soup.find_all("script", type="application/ld+json"):
-        try:
-            d = json.loads(s.string or "")
-        except (json.JSONDecodeError, TypeError):
+# ---------------------------------------------------------------- Costco (members only; SAP Commerce API)
+def costco(size: dict, ev_only: bool = False) -> list[Offer]:
+    """Size search gives names but no prices, so each in-size tyre's details are fetched (price + promotions)."""
+    api = "https://www.costco.com.au/rest/v2/australia/products"
+    q = f"{size['width']}/{size['profile']}R{size['rim']}"
+    size_re = re.compile(rf"\b{size['width']}/{size['profile']}Z?R{size['rim']}\b", re.I)
+    found = []
+    for page in range(3):
+        data = fetch(f"{api}/search?" + urlencode({"query": q, "pageSize": 50, "currentPage": page, "fields": "FULL",
+                                                    "lang": "en_AU", "curr": "AUD"}), accept="application/json").json()
+        for p in data.get("products", []):
+            summary = {s.get("name"): s.get("frontValue") for s in p.get("tireSummary") or []}
+            if size_re.search(p.get("name", "")) and summary.get("Runflat Tire") != "Y":
+                found.append(p)
+        if page + 1 >= (data.get("pagination") or {}).get("totalPages", 1):
+            break
+    offers = []
+    for p in found:
+        d = fetch(f"{api}/{p['code']}?fields=FULL&lang=en_AU&curr=AUD", accept="application/json").json()
+        price = (d.get("price") or {}).get("value")
+        if not price:
             continue
-        if str(d.get("@type", "")).lower() != "product":
+        name = d.get("name") or p["name"]
+        deal, price4 = _costco_deal(d.get("potentialPromotions") or [], float(price))
+        offers.append(Offer(
+            retailer="Costco", brand=name.split(" ")[0], model=name, description=name, price=float(price),
+            url="https://www.costco.com.au" + (d.get("url") or p.get("url", "")),
+            in_stock=((d.get("stock") or {}).get("stockLevelStatus") != "outOfStock") and d.get("purchasable", True),
+            deal=deal, price4=price4, extra={"members_only": True},
+        ))
+    return offers
+
+
+def _costco_deal(promos: list, price: float) -> tuple[str | None, float | None]:
+    """Costco promos are long sentences ("Purchase a set of 4 or more 18" Continental tyres and receive an instant
+    $100 off at checkout. Promo valid ..."), so build a short label and keep the end date."""
+    for pr in promos:
+        text = (pr.get("description") or "").strip()
+        if not text or pr.get("paymentPromotionFlag"):  # skip "pay with X card" offers
             continue
-        offers = d.get("offers") or {}
-        price = offers.get("price")
-        if price is None:
-            specs = offers.get("priceSpecification") or []
-            prices = [float(p["price"]) for p in specs if isinstance(p, dict) and p.get("price")]
-            price = min(prices) if prices else None
-        if price is None:
-            continue
-        name = d.get("name", "")
-        return Offer(
-            retailer="Costco",
-            brand=name.split(" ")[0],
-            model=name,
-            description=name,
-            price=float(price),
-            url=url,
-            extra={"members_only": True},
-        )
-    return None
+        until = ""
+        if pr.get("endDate"):
+            try:
+                end = dt.datetime.fromisoformat(pr["endDate"].replace("Z", "+00:00")).astimezone(_SYDNEY)
+                until = f" (until {end.day} {end:%b})"
+            except ValueError:
+                pass
+        if m := re.search(r"\$\s*(\d+)\s*(?:costco\s*)?(shop\s*card|gift\s*card)", text, re.I):
+            return f"${m[1]} {m[2].title()} on 4{until}", None
+        price4 = deal_price4(text, price)
+        if m := re.search(r"\$\s*(\d+)\s*off", text, re.I):
+            return f"${m[1]} off a set of 4{until}", price4
+        first = re.split(r"(?<=[.!])\s", text)[0]
+        return (first[:80] + ("…" if len(first) > 80 else "")) + until, price4
+    return None, None
 
 
 # ---------------------------------------------------------------- St George Tyres (Arncliffe, Sydney)
@@ -336,6 +365,7 @@ SIZE_SCRAPERS = {
     "Tyroola": tyroola,
     "Tempe Tyres": tempe,
     "MSWT": mswt,
+    "Costco": costco,
     # "St George Tyres": st_george,  # disabled: returns HTTP 403 to GitHub's servers (works from home PCs),
     #                                # and it stocked none of the tracked tyres when checked (Nov 2026).
 }
