@@ -1,1 +1,12 @@
-{}
+{
+ "pirelli-pz5": {
+  "date": "2026-11-18",
+  "price": 214.4,
+  "target": null
+ },
+ "cheapest-ev": {
+  "date": "2026-11-18",
+  "price": 124.95,
+  "target": null
+ }
+}
