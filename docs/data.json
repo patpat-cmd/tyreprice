@@ -405,21 +405,35 @@
         361.0
        ]
       ],
+      "Tyroola": [
+       [
+        "2026-11-19",
+        295.0
+       ]
+      ],
       "AC Tyres": [
        [
         "2026-11-19",
-        264.0
+        229.0
        ]
       ]
      },
      "latest": [
       {
        "retailer": "AC Tyres",
-       "price": 264.0,
-       "normal_price": 264.0,
+       "price": 229.0,
+       "normal_price": 229.0,
        "deal": null,
-       "url": "https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=3354090d638b4e948c20261023021437",
+       "url": "https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=ddc7a31ef249448ca120261006120728",
        "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL \u00b7 fitting extra"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 295.0,
+       "normal_price": 295.0,
+       "deal": null,
+       "url": "https://www.tyroola.com.au/bridgestone-potenza-sport-evo-22540r18-92y-ty6afd53179c.html",
+       "description": "BRIDGESTONE POTENZA SPORT EVO 225/40R18 92Y"
       },
       {
        "retailer": "Bob Jane",
@@ -439,7 +453,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 264.0,
+     "all_time_low": 229.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -1066,170 +1080,6 @@
      "sale_alerts": true
     },
     {
-     "id": "pirelli-pzero-elect",
-     "name": "Pirelli P Zero Elect",
-     "series": {},
-     "latest": [],
-     "latest_date": null,
-     "all_time_low": null,
-     "target_price": null,
-     "sale_alerts": true
-    },
-    {
-     "id": "conti-ecocontact6",
-     "name": "Continental EcoContact 6",
-     "series": {
-      "MSWT": [
-       [
-        "2026-11-09",
-        307.0
-       ],
-       [
-        "2026-11-10",
-        307.0
-       ],
-       [
-        "2026-11-11",
-        307.0
-       ],
-       [
-        "2026-11-12",
-        307.0
-       ],
-       [
-        "2026-11-13",
-        307.0
-       ],
-       [
-        "2026-11-14",
-        307.0
-       ],
-       [
-        "2026-11-15",
-        307.0
-       ],
-       [
-        "2026-11-16",
-        307.0
-       ],
-       [
-        "2026-11-17",
-        307.0
-       ],
-       [
-        "2026-11-18",
-        307.0
-       ],
-       [
-        "2026-11-19",
-        307.0
-       ]
-      ],
-      "Tyroola": [
-       [
-        "2026-11-09",
-        333.0
-       ],
-       [
-        "2026-11-10",
-        333.0
-       ],
-       [
-        "2026-11-11",
-        333.0
-       ],
-       [
-        "2026-11-12",
-        333.0
-       ],
-       [
-        "2026-11-13",
-        333.0
-       ],
-       [
-        "2026-11-14",
-        333.0
-       ],
-       [
-        "2026-11-15",
-        333.0
-       ],
-       [
-        "2026-11-16",
-        333.0
-       ]
-      ],
-      "Bob Jane": [
-       [
-        "2026-11-09",
-        399.0
-       ],
-       [
-        "2026-11-10",
-        399.0
-       ],
-       [
-        "2026-11-11",
-        399.0
-       ],
-       [
-        "2026-11-12",
-        399.0
-       ],
-       [
-        "2026-11-13",
-        399.0
-       ],
-       [
-        "2026-11-14",
-        399.0
-       ],
-       [
-        "2026-11-15",
-        399.0
-       ],
-       [
-        "2026-11-16",
-        399.0
-       ],
-       [
-        "2026-11-17",
-        399.0
-       ],
-       [
-        "2026-11-18",
-        399.0
-       ],
-       [
-        "2026-11-19",
-        399.0
-       ]
-      ]
-     },
-     "latest": [
-      {
-       "retailer": "MSWT",
-       "price": 307.0,
-       "normal_price": 307.0,
-       "deal": null,
-       "url": "https://mswt.com.au/tyre/continental/ECOCONTACT-6/235-45R18/03581420000",
-       "description": "CONTINENTAL ECOCONTACT 6 235/45R18 94W ContiSeal"
-      },
-      {
-       "retailer": "Bob Jane",
-       "price": 399.0,
-       "normal_price": 399.0,
-       "deal": null,
-       "url": "https://www.bobjane.com.au/products/continental-ecocontact-6-235-45r18-101-94w",
-       "description": "Continental EcoContact 6 235/45R18 101/94W"
-      }
-     ],
-     "latest_date": "2026-11-19",
-     "all_time_low": 307.0,
-     "target_price": null,
-     "sale_alerts": true
-    },
-    {
      "id": "hankook-ion-evo",
      "name": "Hankook iON evo",
      "series": {},
@@ -1240,191 +1090,19 @@
      "sale_alerts": true
     },
     {
-     "id": "bridgestone-turanza6",
-     "name": "Bridgestone Turanza 6 ENLITEN",
+     "id": "michelin-primacy5",
+     "name": "Michelin Primacy 5",
      "series": {
-      "MSWT": [
-       [
-        "2026-11-09",
-        301.0
-       ],
-       [
-        "2026-11-10",
-        301.0
-       ],
-       [
-        "2026-11-11",
-        301.0
-       ],
-       [
-        "2026-11-12",
-        301.0
-       ],
-       [
-        "2026-11-13",
-        301.0
-       ],
-       [
-        "2026-11-14",
-        301.0
-       ],
-       [
-        "2026-11-15",
-        301.0
-       ],
-       [
-        "2026-11-16",
-        301.0
-       ],
-       [
-        "2026-11-17",
-        301.0
-       ],
-       [
-        "2026-11-18",
-        301.0
-       ],
-       [
-        "2026-11-19",
-        301.0
-       ]
-      ],
       "Tyroola": [
        [
-        "2026-11-09",
-        329.0
-       ],
-       [
-        "2026-11-10",
-        329.0
-       ],
-       [
-        "2026-11-11",
-        329.0
-       ],
-       [
-        "2026-11-12",
-        329.0
-       ],
-       [
-        "2026-11-13",
-        329.0
-       ],
-       [
-        "2026-11-14",
-        329.0
-       ],
-       [
-        "2026-11-15",
-        329.0
-       ],
-       [
-        "2026-11-16",
-        329.0
-       ],
-       [
-        "2026-11-17",
-        329.0
-       ],
-       [
-        "2026-11-18",
-        329.0
-       ],
-       [
         "2026-11-19",
-        329.0
-       ]
-      ],
-      "Bob Jane": [
-       [
-        "2026-11-09",
-        349.0
-       ],
-       [
-        "2026-11-10",
-        349.0
-       ],
-       [
-        "2026-11-11",
-        349.0
-       ],
-       [
-        "2026-11-12",
-        349.0
-       ],
-       [
-        "2026-11-13",
-        349.0
-       ],
-       [
-        "2026-11-14",
-        349.0
-       ],
-       [
-        "2026-11-15",
-        349.0
-       ],
-       [
-        "2026-11-16",
-        349.0
-       ],
-       [
-        "2026-11-17",
-        349.0
-       ],
-       [
-        "2026-11-18",
-        349.0
-       ],
-       [
-        "2026-11-19",
-        349.0
+        318.0
        ]
       ],
       "Tempe Tyres": [
        [
-        "2026-11-09",
-        360.0
-       ],
-       [
-        "2026-11-10",
-        360.0
-       ],
-       [
-        "2026-11-11",
-        360.0
-       ],
-       [
-        "2026-11-12",
-        360.0
-       ],
-       [
-        "2026-11-13",
-        360.0
-       ],
-       [
-        "2026-11-14",
-        360.0
-       ],
-       [
-        "2026-11-15",
-        360.0
-       ],
-       [
-        "2026-11-16",
-        360.0
-       ],
-       [
-        "2026-11-17",
-        360.0
-       ],
-       [
-        "2026-11-18",
-        360.0
-       ],
-       [
         "2026-11-19",
-        360.0
+        299.0
        ]
       ],
       "Costco": [
@@ -1436,318 +1114,302 @@
       "AC Tyres": [
        [
         "2026-11-19",
-        242.0
+        266.0
+       ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-19",
+        351.0
        ]
       ]
      },
      "latest": [
       {
        "retailer": "AC Tyres",
-       "price": 242.0,
-       "normal_price": 242.0,
+       "price": 266.0,
+       "normal_price": 266.0,
        "deal": null,
-       "url": "https://actyres.com.au/product/235-45R18-98W-TURANZA-6-ENL/?id=ebed7a5185d748179e20261023014140",
-       "description": "Bridgestone 235/45R18 98W TURANZA 6 ENL \u00b7 fitting extra"
+       "url": "https://actyres.com.au/product/235-45R18-98Y-PRIMACY-5/?id=a01e4766f6f4932ce890950c259c13bc",
+       "description": "Michelin 235/45R18 98Y PRIMACY 5 \u00b7 fitting extra"
       },
       {
-       "retailer": "MSWT",
-       "price": 301.0,
-       "normal_price": 301.0,
+       "retailer": "Tempe Tyres",
+       "price": 299.0,
+       "normal_price": 299.0,
        "deal": null,
-       "url": "https://mswt.com.au/tyre/bridgestone/TURANZA-6/235-45R18/11005827",
-       "description": "BRIDGESTONE TURANZA 6 235/45R18 98W"
+       "url": "https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98y-primacy-5-894109",
+       "description": "Michelin 235/45R18 98Y PRIMACY 5"
       },
       {
        "retailer": "Tyroola",
-       "price": 329.0,
-       "normal_price": 329.0,
-       "deal": null,
-       "url": "https://www.tyroola.com.au/bridgestone-turanza-6-23545r18-94w-ty684f8dbeeb.html",
-       "description": "BRIDGESTONE TURANZA 6 235/45R18 94W"
+       "price": 318.0,
+       "normal_price": 318.0,
+       "deal": "Free Fitting for 4 + $150 Gift Card",
+       "url": "https://www.tyroola.com.au/michelin-primacy-5-xl-23545r18-98y-ty67bd0a2b14.html",
+       "description": "MICHELIN PRIMACY 5 XL 235/45R18 98Y"
       },
       {
        "retailer": "Costco",
        "price": 329.99,
        "normal_price": 329.99,
-       "deal": null,
-       "url": "https://www.costco.com.au/c/Bridgestone-23545R18-XL-98W-Turanza-6/tire/p/7005827",
-       "description": "Bridgestone 235/45R18 XL 98W Turanza 6"
+       "deal": "$150 Shop Card on 4 (until 31 Dec)",
+       "url": "https://www.costco.com.au/c/Michelin-23545R18-XL-98Y-PRIMACY-5/tire/p/894109",
+       "description": "Michelin 235/45R18 XL 98Y PRIMACY 5"
       },
       {
        "retailer": "Bob Jane",
-       "price": 349.0,
-       "normal_price": 349.0,
+       "price": 351.0,
+       "normal_price": 351.0,
        "deal": null,
-       "url": "https://www.bobjane.com.au/products/bridgestone-turanza-6-235-45r18-98w",
-       "description": "Bridgestone Turanza 6 235/45R18 98W"
-      },
-      {
-       "retailer": "Tempe Tyres",
-       "price": 360.0,
-       "normal_price": 360.0,
-       "deal": null,
-       "url": "https://www.tempetyres.com.au/tyreproducts?bridgestone-235/45r18-98w-turanza-6-enl-11005827",
-       "description": "Bridgestone 235/45R18 98W TURANZA 6 ENL"
+       "url": "https://www.bobjane.com.au/products/michelin-primacy-5-235-45r18-98y",
+       "description": "Michelin PRIMACY 5 235/45R18 98Y"
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 242.0,
+     "all_time_low": 266.0,
      "target_price": null,
      "sale_alerts": true
     },
     {
-     "id": "cheapest-ev",
-     "name": "Cheapest EV-rated tyre (major brands)",
+     "id": "goodyear-efficientgrip-perf2",
+     "name": "Goodyear EfficientGrip Performance 2",
+     "series": {},
+     "latest": [],
+     "latest_date": null,
+     "all_time_low": null,
+     "target_price": null,
+     "sale_alerts": true
+    },
+    {
+     "id": "bridgestone-turanza-t005-ev",
+     "name": "Bridgestone Turanza T005 EV",
      "series": {
       "Tyroola": [
        [
-        "2026-11-09",
-        147.0
-       ],
-       [
-        "2026-11-10",
-        147.0
-       ],
-       [
-        "2026-11-11",
-        147.0
-       ],
-       [
-        "2026-11-12",
-        147.0
-       ],
-       [
-        "2026-11-13",
-        147.0
-       ],
-       [
-        "2026-11-14",
-        147.0
-       ],
-       [
-        "2026-11-15",
-        147.0
-       ],
-       [
-        "2026-11-16",
-        147.0
-       ],
-       [
-        "2026-11-17",
-        147.0
-       ],
-       [
-        "2026-11-18",
-        124.95
-       ],
-       [
         "2026-11-19",
-        124.95
+        357.0
        ]
       ],
       "Tempe Tyres": [
        [
-        "2026-11-09",
-        155.0
-       ],
-       [
-        "2026-11-10",
-        155.0
-       ],
-       [
-        "2026-11-11",
-        155.0
-       ],
-       [
-        "2026-11-12",
-        155.0
-       ],
-       [
-        "2026-11-13",
-        155.0
-       ],
-       [
-        "2026-11-14",
-        155.0
-       ],
-       [
-        "2026-11-15",
-        155.0
-       ],
-       [
-        "2026-11-16",
-        155.0
-       ],
-       [
-        "2026-11-17",
-        155.0
-       ],
-       [
-        "2026-11-18",
-        155.0
-       ],
-       [
         "2026-11-19",
-        155.0
+        425.0
        ]
       ],
       "MSWT": [
        [
-        "2026-11-09",
-        229.0
-       ],
-       [
-        "2026-11-10",
-        229.0
-       ],
-       [
-        "2026-11-11",
-        229.0
-       ],
-       [
-        "2026-11-12",
-        229.0
-       ],
-       [
-        "2026-11-13",
-        229.0
-       ],
-       [
-        "2026-11-14",
-        229.0
-       ],
-       [
-        "2026-11-15",
-        229.0
-       ],
-       [
-        "2026-11-16",
-        229.0
-       ],
-       [
-        "2026-11-17",
-        229.0
-       ],
-       [
-        "2026-11-18",
-        229.0
-       ],
-       [
         "2026-11-19",
-        229.0
-       ]
-      ],
-      "Bob Jane": [
-       [
-        "2026-11-09",
-        338.0
-       ],
-       [
-        "2026-11-10",
-        321.0
-       ],
-       [
-        "2026-11-11",
-        321.0
-       ],
-       [
-        "2026-11-12",
-        321.0
-       ],
-       [
-        "2026-11-13",
-        324.0
-       ],
-       [
-        "2026-11-14",
-        321.0
-       ],
-       [
-        "2026-11-15",
-        321.0
-       ],
-       [
-        "2026-11-16",
-        321.0
-       ],
-       [
-        "2026-11-17",
-        321.0
-       ],
-       [
-        "2026-11-18",
-        324.0
-       ],
-       [
-        "2026-11-19",
-        324.0
-       ]
-      ],
-      "Costco": [
-       [
-        "2026-11-19",
-        399.99
+        310.0
        ]
       ],
       "AC Tyres": [
        [
         "2026-11-19",
-        130.0
+        353.0
+       ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-19",
+        395.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "MSWT",
+       "price": 310.0,
+       "normal_price": 310.0,
+       "deal": null,
+       "url": "https://mswt.com.au/tyre/bridgestone/TURANZA-T005-EV/235-45R18/11007378",
+       "description": "BRIDGESTONE TURANZA T005 EV EV (MG4) 235/45R18 98W ENLITEN EV"
+      },
+      {
+       "retailer": "AC Tyres",
+       "price": 353.0,
+       "normal_price": 353.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/235-45R18-98V-Turanza-T005-EV-(T0)-(B-Silent)-ENLITEN/?id=91f6a959b6b98fe102daf528937af995",
+       "description": "Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN \u00b7 fitting extra"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 357.0,
+       "normal_price": 357.0,
+       "deal": null,
+       "url": "https://www.tyroola.com.au/bridgestone-turanza-t005-ev-b-silent-23545r18-98y-ty689409a845.html",
+       "description": "BRIDGESTONE TURANZA T005 EV B-SILENT 235/45R18 98Y"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 395.0,
+       "normal_price": 395.0,
+       "deal": null,
+       "url": "https://www.bobjane.com.au/products/bridgestone-turanza-t005-ev-235-45r18-98y",
+       "description": "Bridgestone Turanza T005 EV 235/45R18 98Y"
+      },
+      {
+       "retailer": "Tempe Tyres",
+       "price": 425.0,
+       "normal_price": 425.0,
+       "deal": null,
+       "url": "https://www.tempetyres.com.au/tyreproducts?bridgestone-235/45r18-98v-turanza-t005-ev-t0-b-silent-enliten-11007598",
+       "description": "Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN"
+      }
+     ],
+     "latest_date": "2026-11-19",
+     "all_time_low": 310.0,
+     "target_price": null,
+     "sale_alerts": true
+    },
+    {
+     "id": "pirelli-cinturato-p7c2",
+     "name": "Pirelli Cinturato P7C2",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-19",
+        252.8
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-19",
+        311.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-19",
+        325.0
+       ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        266.0
+       ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-19",
+        412.0
        ]
       ]
      },
      "latest": [
       {
        "retailer": "Tyroola",
-       "price": 124.95,
-       "normal_price": 147.0,
-       "deal": "Save 15% on 4 tyres",
-       "url": "https://www.tyroola.com.au/nexen-n-fera-primus-qx-ev-23545r18-98w-ty6a5ecfcb69.html",
-       "description": "NEXEN N FERA PRIMUS QX EV 235/45R18 98W"
+       "price": 252.8,
+       "normal_price": 316.0,
+       "deal": "Save 20% on 4 tyres",
+       "url": "https://www.tyroola.com.au/pirelli-cinturato-p7-c2-xl-seal-inside-23545r18-98w-ty6335572d5b.html",
+       "description": "PIRELLI CINTURATO P7 C2 XL SEAL INSIDE 235/45R18 98W"
       },
       {
        "retailer": "AC Tyres",
-       "price": 130.0,
-       "normal_price": 130.0,
+       "price": 266.0,
+       "normal_price": 266.0,
        "deal": null,
-       "url": "https://actyres.com.au/product/235-45R18-98W-NF-PRIMUS-QX-EV/?id=4530a90c1e6d44b49fe3e947972e02f5",
-       "description": "Nexen 235/45R18 98W NF PRIMUS QX EV \u00b7 fitting extra"
+       "url": "https://actyres.com.au/product/235-45R18-98W-P7-CINT(P7C2)/?id=2514b5463e7a486fbf20260618120602",
+       "description": "Pirelli 235/45R18 98W P7 CINT(P7C2) \u00b7 fitting extra"
       },
       {
        "retailer": "Tempe Tyres",
-       "price": 155.0,
-       "normal_price": 155.0,
+       "price": 311.0,
+       "normal_price": 311.0,
        "deal": null,
-       "url": "https://www.tempetyres.com.au/tyreproducts?nexen-235/45r18-98w-nf-primus-qx-ev-14196nxc",
-       "description": "Nexen 235/45R18 98W NF PRIMUS QX EV"
+       "url": "https://www.tempetyres.com.au/tyreproducts?pirelli-235/45r18-98w-p7-cint-p7c2-3999000",
+       "description": "Pirelli 235/45R18 98W P7 CINT(P7C2)"
       },
       {
        "retailer": "MSWT",
-       "price": 229.0,
-       "normal_price": 229.0,
+       "price": 325.0,
+       "normal_price": 325.0,
        "deal": null,
-       "url": "https://mswt.com.au/tyre/continental/PREMIUMCONTACT-C/235-45R18/03156090008",
-       "description": "CONTINENTAL PREMIUMCONTACT C 235/45R18 98V (EV Suitable)"
+       "url": "https://mswt.com.au/tyre/pirelli/CINTURATO-P7-P7C2/235-45R18/3998500",
+       "description": "PIRELLI CINTURATO P7 (P7C2) 235/45R18 98W s-i XL"
       },
       {
        "retailer": "Bob Jane",
-       "price": 324.0,
-       "normal_price": 324.0,
+       "price": 412.0,
+       "normal_price": 412.0,
        "deal": null,
-       "url": "https://www.bobjane.com.au/products/kumho-ecsta-sport-all-season-pa71-235-45r18-98y-xl-ev",
-       "description": "Kumho Ecsta Sport All Season PA71 235/45R18 98Y XL EV Electric Vehicle Extra Load"
-      },
-      {
-       "retailer": "Costco",
-       "price": 399.99,
-       "normal_price": 399.99,
-       "deal": "$150 Shop Card on 4 (until 31 Dec)",
-       "url": "https://www.costco.com.au/c/Michelin-23545R18-98Y-PILOT-SPORT-4-T1/tire/p/8813934",
-       "description": "Michelin 235/45R18 98Y PILOT SPORT 4 (T1)"
+       "url": "https://www.bobjane.com.au/products/pirelli-cinturato-p7-p7c2-235-45r18-98w-xl-eco",
+       "description": "Pirelli Cinturato P7\u2122 (P7C2) 235/45R18 98W XL ECO Eco Friendly Extra Load"
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 124.95,
+     "all_time_low": 252.8,
+     "target_price": null,
+     "sale_alerts": true
+    },
+    {
+     "id": "yokohama-ae51",
+     "name": "Yokohama BluEarth-GT AE51",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-19",
+        219.1
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-19",
+        195.0
+       ]
+      ],
+      "AC Tyres": [
+       [
+        "2026-11-19",
+        165.0
+       ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-19",
+        323.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "AC Tyres",
+       "price": 165.0,
+       "normal_price": 165.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/235-45R18-94W-BluEarth-GT-AE51/?id=19f8ce87237891f7a4e104fc79df2500",
+       "description": "Yokohama 235/45R18 94W BluEarth-GT AE51 \u00b7 fitting extra"
+      },
+      {
+       "retailer": "Tempe Tyres",
+       "price": 195.0,
+       "normal_price": 195.0,
+       "deal": null,
+       "url": "https://www.tempetyres.com.au/tyreproducts?yokohama-235/45r18-94w-bluearth-gt-ae51-r4591",
+       "description": "Yokohama 235/45R18 94W BluEarth-GT AE51"
+      },
+      {
+       "retailer": "Tyroola",
+       "price": 219.1,
+       "normal_price": 313.0,
+       "deal": "Save 30% on 4 tyres",
+       "url": "https://www.tyroola.com.au/yokohama-bluearth-gt-grand-touring-ae51-23545r18-94w-ty5eb3cf6696.html",
+       "description": "YOKOHAMA BLUEARTH-GT GRAND TOURING AE51 235/45R18 94W"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 323.0,
+       "normal_price": 323.0,
+       "deal": null,
+       "url": "https://www.bobjane.com.au/products/yokohama-bluearth-gt-ae51-235-45r18-94w",
+       "description": "Yokohama BluEarth-GT AE51 235/45R18 94W"
+      }
+     ],
+     "latest_date": "2026-11-19",
+     "all_time_low": 165.0,
      "target_price": null,
      "sale_alerts": true
     }
