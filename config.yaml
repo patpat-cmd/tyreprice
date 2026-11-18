@@ -46,11 +46,11 @@ sizes:
         brand: michelin
         match: [pilotsport4s]
         search: "Pilot Sport 4S"
-      - id: yokohama-ad07
-        name: Yokohama ADVAN Neova AD07
+      - id: yokohama-ad09
+        name: Yokohama ADVAN Neova AD09
         brand: yokohama
-        match: [ad07]
-        search: "Neova AD07"
+        match: [ad09]
+        search: "Neova AD09"
 
   - id: ev
     label: "235/45R18 EV"
