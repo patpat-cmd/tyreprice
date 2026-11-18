@@ -295,6 +295,47 @@ def _costco_deal(promos: list, price: float) -> tuple[str | None, float | None]:
     return None, None
 
 
+# ---------------------------------------------------------------- AC Tyres (online; Sydney store; prices exclude fitting)
+AC_SYDNEY_STORE = "999999240306904"  # AC Tyres keeps separate stock/prices per city; Sydney is the one we can use
+
+
+def ac_tyres(size: dict, ev_only: bool = False) -> list[Offer]:
+    """The site's own size-search API (the tyre pages load prices from it). Bots are told to send operator "#",
+    which we do. The crossed-out 'couponprice' is a was-price, not a deal, so it's ignored."""
+    url = "https://web.actyres.com.au//webapi/Product/ProductBasecontroller/queryList"
+    if not _allowed("https://web.actyres.com.au/webapi/") or not _allowed("https://actyres.com.au/tagview/"):
+        raise RobotsDisallowed(url)
+    offers: list[Offer] = []
+    for page in range(1, 11):
+        body = {"storeid": AC_SYDNEY_STORE, "name": "", "ordertype": "", "width": str(size["width"]),
+                "profile": str(size["profile"]), "rim": f"R{size['rim']}", "brand": "", "loadindex": "",
+                "speedindex": "", "operator": "#", "startP": page, "stockid_ne_stock": "#", "priceasc": "priceasc",
+                "endP": 50}
+        resp = requests.post(url, json=body, headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+                             timeout=TIMEOUT)
+        time.sleep(2)
+        resp.raise_for_status()
+        data = resp.json()
+        if str(data.get("code")) != "0":
+            raise RuntimeError(f"AC Tyres API said: {data.get('message')}")
+        lst = (data.get("data") or {}).get("list") or {}
+        for x in lst.get("records") or []:
+            if not x.get("price") or not x.get("id"):
+                continue
+            name = x.get("name") or x.get("model") or ""
+            stock = float(x.get("stock") or 0)
+            offers.append(Offer(
+                retailer="AC Tyres", brand=x.get("brand", ""), model=x.get("model") or name,
+                description=f"{x.get('brand', '').title()} {name} · fitting extra", price=float(x["price"]),
+                url=f"https://actyres.com.au/product/{name.replace(' ', '-').replace('/', '-')}/?id={x['id']}",
+                in_stock=stock > 0 if x.get("stockid") in (None, "", "#") else None,
+                extra={"fitted": False},
+            ))
+        if page >= (lst.get("pages") or 1):
+            break
+    return offers
+
+
 # ---------------------------------------------------------------- St George Tyres (Arncliffe, Sydney)
 _stg_filters: dict[str, dict[str, str]] = {}
 
@@ -366,6 +407,7 @@ SIZE_SCRAPERS = {
     "Tempe Tyres": tempe,
     "MSWT": mswt,
     "Costco": costco,
+    "AC Tyres": ac_tyres,
     # "St George Tyres": st_george,  # disabled: returns HTTP 403 to GitHub's servers (works from home PCs),
     #                                # and it stocked none of the tracked tyres when checked (Nov 2026).
 }
