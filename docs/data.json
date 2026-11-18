@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "sizes": [
   {
    "id": "sport",
@@ -49,6 +49,10 @@
        [
         "2026-11-18",
         249.0
+       ],
+       [
+        "2026-11-19",
+        249.0
        ]
       ]
      },
@@ -62,7 +66,7 @@
        "description": "CONTINENTAL CONTISPORTCONTACT 7 XL 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 249.0,
      "target_price": null,
      "sale_alerts": true
@@ -111,6 +115,10 @@
        [
         "2026-11-18",
         249.0
+       ],
+       [
+        "2026-11-19",
+        249.0
        ]
       ],
       "MSWT": [
@@ -148,6 +156,10 @@
        ],
        [
         "2026-11-18",
+        259.0
+       ],
+       [
+        "2026-11-19",
         259.0
        ]
       ],
@@ -191,6 +203,10 @@
        [
         "2026-11-18",
         214.4
+       ],
+       [
+        "2026-11-19",
+        214.4
        ]
       ],
       "Bob Jane": [
@@ -233,6 +249,10 @@
        [
         "2026-11-18",
         351.0
+       ],
+       [
+        "2026-11-19",
+        351.0
        ]
       ]
      },
@@ -270,7 +290,7 @@
        "description": "Pirelli P Zero (PZ5) 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 214.4,
      "target_price": null,
      "sale_alerts": true
@@ -319,6 +339,10 @@
        [
         "2026-11-18",
         359.0
+       ],
+       [
+        "2026-11-19",
+        359.0
        ]
       ],
       "Tempe Tyres": [
@@ -361,6 +385,10 @@
        [
         "2026-11-18",
         361.0
+       ],
+       [
+        "2026-11-19",
+        361.0
        ]
       ]
      },
@@ -382,7 +410,7 @@
        "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 359.0,
      "target_price": null,
      "sale_alerts": true
@@ -431,6 +459,10 @@
        [
         "2026-11-18",
         350.0
+       ],
+       [
+        "2026-11-19",
+        350.0
        ]
       ],
       "Costco": [
@@ -472,6 +504,10 @@
        ],
        [
         "2026-11-18",
+        359.99
+       ],
+       [
+        "2026-11-19",
         359.99
        ]
       ],
@@ -515,6 +551,10 @@
        [
         "2026-11-18",
         369.0
+       ],
+       [
+        "2026-11-19",
+        369.0
        ]
       ],
       "MSWT": [
@@ -552,6 +592,10 @@
        ],
        [
         "2026-11-18",
+        397.0
+       ],
+       [
+        "2026-11-19",
         397.0
        ]
       ],
@@ -595,6 +639,10 @@
        [
         "2026-11-18",
         405.0
+       ],
+       [
+        "2026-11-19",
+        405.0
        ]
       ]
      },
@@ -611,7 +659,7 @@
        "retailer": "Costco",
        "price": 359.99,
        "normal_price": 359.99,
-       "deal": null,
+       "deal": "$150 Shop Card on 4 (until 31 Dec)",
        "url": "https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191",
        "description": "Michelin 225/40R18 92Y PILOT SPORT 4S"
       },
@@ -640,8 +688,76 @@
        "description": "Michelin PILOT SPORT 4 S 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 350.0,
+     "target_price": null,
+     "sale_alerts": true
+    },
+    {
+     "id": "yokohama-ad09",
+     "name": "Yokohama ADVAN Neova AD09",
+     "series": {
+      "Tyroola": [
+       [
+        "2026-11-19",
+        268.1
+       ]
+      ],
+      "Tempe Tyres": [
+       [
+        "2026-11-19",
+        320.0
+       ]
+      ],
+      "MSWT": [
+       [
+        "2026-11-19",
+        379.0
+       ]
+      ],
+      "Bob Jane": [
+       [
+        "2026-11-19",
+        443.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Tyroola",
+       "price": 268.1,
+       "normal_price": 383.0,
+       "deal": "Save 30% on 4 tyres",
+       "url": "https://www.tyroola.com.au/yokohama-advan-neova-ad09-semi-slick-22540r18-92w-ty6317255893.html",
+       "description": "YOKOHAMA ADVAN NEOVA AD09 SEMI SLICK 225/40R18 92W"
+      },
+      {
+       "retailer": "Tempe Tyres",
+       "price": 320.0,
+       "normal_price": 320.0,
+       "deal": null,
+       "url": "https://www.tempetyres.com.au/tyreproducts?yokohama-2254018-92w-advan-neova-ad09-r7889",
+       "description": "Yokohama 225/40R18 92W Advan Neova AD09"
+      },
+      {
+       "retailer": "MSWT",
+       "price": 379.0,
+       "normal_price": 379.0,
+       "deal": null,
+       "url": "https://mswt.com.au/tyre/yokohama/ADVAN-NEOVA-AD09/225-40R18/2254018AD09",
+       "description": "YOKOHAMA ADVAN NEOVA AD09 225/40R18 92W"
+      },
+      {
+       "retailer": "Bob Jane",
+       "price": 443.0,
+       "normal_price": 443.0,
+       "deal": null,
+       "url": "https://www.bobjane.com.au/products/yokohama-advan-neova-ad09-225-40r18-92w",
+       "description": "Yokohama ADVAN Neova AD09 225/40R18 92W"
+      }
+     ],
+     "latest_date": "2026-11-19",
+     "all_time_low": 268.1,
      "target_price": null,
      "sale_alerts": true
     }
@@ -695,6 +811,10 @@
        [
         "2026-11-18",
         343.0
+       ],
+       [
+        "2026-11-19",
+        343.0
        ]
       ],
       "Tempe Tyres": [
@@ -736,6 +856,10 @@
        ],
        [
         "2026-11-18",
+        370.0
+       ],
+       [
+        "2026-11-19",
         370.0
        ]
       ],
@@ -779,6 +903,10 @@
        [
         "2026-11-18",
         375.0
+       ],
+       [
+        "2026-11-19",
+        375.0
        ]
       ],
       "Bob Jane": [
@@ -821,6 +949,10 @@
        [
         "2026-11-18",
         379.0
+       ],
+       [
+        "2026-11-19",
+        379.0
        ]
       ]
      },
@@ -858,7 +990,7 @@
        "description": "Michelin E PRIMACY 235/45R18 98W Volvo XL EV Electric Vehicle Extra Load Volvo"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 343.0,
      "target_price": null,
      "sale_alerts": true
@@ -917,6 +1049,10 @@
        [
         "2026-11-18",
         307.0
+       ],
+       [
+        "2026-11-19",
+        307.0
        ]
       ],
       "Tyroola": [
@@ -993,6 +1129,10 @@
        [
         "2026-11-18",
         399.0
+       ],
+       [
+        "2026-11-19",
+        399.0
        ]
       ]
      },
@@ -1014,7 +1154,7 @@
        "description": "Continental EcoContact 6 235/45R18 101/94W"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 307.0,
      "target_price": null,
      "sale_alerts": true
@@ -1073,6 +1213,10 @@
        [
         "2026-11-18",
         301.0
+       ],
+       [
+        "2026-11-19",
+        301.0
        ]
       ],
       "Tyroola": [
@@ -1114,6 +1258,10 @@
        ],
        [
         "2026-11-18",
+        329.0
+       ],
+       [
+        "2026-11-19",
         329.0
        ]
       ],
@@ -1157,6 +1305,10 @@
        [
         "2026-11-18",
         349.0
+       ],
+       [
+        "2026-11-19",
+        349.0
        ]
       ],
       "Tempe Tyres": [
@@ -1199,6 +1351,16 @@
        [
         "2026-11-18",
         360.0
+       ],
+       [
+        "2026-11-19",
+        360.0
+       ]
+      ],
+      "Costco": [
+       [
+        "2026-11-19",
+        329.99
        ]
       ]
      },
@@ -1220,6 +1382,14 @@
        "description": "BRIDGESTONE TURANZA 6 235/45R18 94W"
       },
       {
+       "retailer": "Costco",
+       "price": 329.99,
+       "normal_price": 329.99,
+       "deal": null,
+       "url": "https://www.costco.com.au/c/Bridgestone-23545R18-XL-98W-Turanza-6/tire/p/7005827",
+       "description": "Bridgestone 235/45R18 XL 98W Turanza 6"
+      },
+      {
        "retailer": "Bob Jane",
        "price": 349.0,
        "normal_price": 349.0,
@@ -1236,7 +1406,7 @@
        "description": "Bridgestone 235/45R18 98W TURANZA 6 ENL"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 301.0,
      "target_price": null,
      "sale_alerts": true
@@ -1285,6 +1455,10 @@
        [
         "2026-11-18",
         124.95
+       ],
+       [
+        "2026-11-19",
+        124.95
        ]
       ],
       "Tempe Tyres": [
@@ -1326,6 +1500,10 @@
        ],
        [
         "2026-11-18",
+        155.0
+       ],
+       [
+        "2026-11-19",
         155.0
        ]
       ],
@@ -1369,6 +1547,10 @@
        [
         "2026-11-18",
         229.0
+       ],
+       [
+        "2026-11-19",
+        229.0
        ]
       ],
       "Bob Jane": [
@@ -1411,6 +1593,16 @@
        [
         "2026-11-18",
         324.0
+       ],
+       [
+        "2026-11-19",
+        324.0
+       ]
+      ],
+      "Costco": [
+       [
+        "2026-11-19",
+        399.99
        ]
       ]
      },
@@ -1446,9 +1638,17 @@
        "deal": null,
        "url": "https://www.bobjane.com.au/products/kumho-ecsta-sport-all-season-pa71-235-45r18-98y-xl-ev",
        "description": "Kumho Ecsta Sport All Season PA71 235/45R18 98Y XL EV Electric Vehicle Extra Load"
+      },
+      {
+       "retailer": "Costco",
+       "price": 399.99,
+       "normal_price": 399.99,
+       "deal": "$150 Shop Card on 4 (until 31 Dec)",
+       "url": "https://www.costco.com.au/c/Michelin-23545R18-98Y-PILOT-SPORT-4-T1/tire/p/8813934",
+       "description": "Michelin 235/45R18 98Y PILOT SPORT 4 (T1)"
       }
      ],
-     "latest_date": "2026-11-18",
+     "latest_date": "2026-11-19",
      "all_time_low": 124.95,
      "target_price": null,
      "sale_alerts": true
@@ -1459,23 +1659,23 @@
  "health": {
   "Tyroola": {
    "ok": true,
-   "last_ok": "2026-11-18"
+   "last_ok": "2026-11-19"
   },
   "Tempe Tyres": {
    "ok": true,
-   "last_ok": "2026-11-18"
+   "last_ok": "2026-11-19"
   },
   "MSWT": {
    "ok": true,
-   "last_ok": "2026-11-18"
+   "last_ok": "2026-11-19"
   },
   "Costco": {
    "ok": true,
-   "last_ok": "2026-11-18"
+   "last_ok": "2026-11-19"
   },
   "Bob Jane": {
    "ok": true,
-   "last_ok": "2026-11-18"
+   "last_ok": "2026-11-19"
   }
  }
 }
