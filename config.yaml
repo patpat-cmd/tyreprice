@@ -70,12 +70,11 @@ sizes:
         brand: hankook
         match: [ionevo]
         search: "Hankook iON evo"
-      - id: michelin-primacy5
-        name: Michelin Primacy 5
+      - id: michelin-primacy5-energy
+        name: Michelin Primacy 5 Energy (EV)
         brand: michelin
-        match: [primacy5]
-        exclude: [energy]   # Primacy 5 Energy is a different variant
-        search: "Primacy 5"
+        match: [primacy5energy]   # the EV variant only, not the regular Primacy 5
+        search: "Primacy 5 Energy"
       - id: goodyear-efficientgrip-perf2
         name: Goodyear EfficientGrip Performance 2
         brand: goodyear
