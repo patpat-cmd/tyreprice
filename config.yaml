@@ -57,35 +57,40 @@ sizes:
     width: 235
     profile: 45
     rim: 18
-    tyres:
+    tyres:   # touring tyres for the EV
       - id: michelin-eprimacy
         name: Michelin e.Primacy
         brand: michelin
         match: [eprimacy]
         search: "e.Primacy"
-      - id: pirelli-pzero-elect
-        name: Pirelli P Zero Elect
-        brand: pirelli
-        match: [elect]
-        search: "P Zero Elect"
-      - id: conti-ecocontact6
-        name: Continental EcoContact 6
-        brand: continental
-        match: [ecocontact6]
-        search: "EcoContact 6"
       - id: hankook-ion-evo
         name: Hankook iON evo
         brand: hankook
         match: [ionevo]
         search: "Hankook iON evo"
-      - id: bridgestone-turanza6
-        name: Bridgestone Turanza 6 ENLITEN
+      - id: michelin-primacy5
+        name: Michelin Primacy 5
+        brand: michelin
+        match: [primacy5]
+        exclude: [energy]   # Primacy 5 Energy is a different variant
+        search: "Primacy 5"
+      - id: goodyear-efficientgrip-perf2
+        name: Goodyear EfficientGrip Performance 2
+        brand: goodyear
+        match: [efficientgripperformance2]   # not the older gen 1 "EfficientGrip Performance"
+        search: "EfficientGrip Performance 2"
+      - id: bridgestone-turanza-t005-ev
+        name: Bridgestone Turanza T005 EV
         brand: bridgestone
-        match: [turanza6]
-        search: "Turanza 6"
-      - id: cheapest-ev
-        name: Cheapest EV-rated tyre (major brands)
-        ev_only: true
-        search: "EV"
-        # Limited to major brands - otherwise this is always an unknown $89 budget tyre.
-        brands: [michelin, pirelli, continental, bridgestone, hankook, goodyear, dunlop, yokohama, kumho, toyo, falken, nexen]
+        match: [turanzat005ev]   # stops before "EVO", so T005 EVO / T005A don't match
+        search: "Turanza T005 EV"
+      - id: pirelli-cinturato-p7c2
+        name: Pirelli Cinturato P7C2
+        brand: pirelli
+        match: [p7c2]   # older Cinturato P7 is listed as plain "P7" / "P7 CINT"
+        search: "Cinturato P7 C2"
+      - id: yokohama-ae51
+        name: Yokohama BluEarth-GT AE51
+        brand: yokohama
+        match: [ae51]
+        search: "BluEarth-GT AE51"
