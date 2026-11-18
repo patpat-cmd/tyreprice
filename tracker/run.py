@@ -179,6 +179,8 @@ def daily_best(history: list[dict], tyre_id: str) -> dict[str, dict]:
 # ------------------------------------------------------------------ alerts
 def find_alerts(cfg: dict, history: list[dict], today: str, sent: dict) -> list[dict]:
     a = cfg.get("alerts", {})
+    if a.get("enabled", True) is False:
+        return []
     pct = float(a.get("percent_below_average", 10))
     window = int(a.get("average_window_days", 30))
     min_days = int(a.get("min_history_days", 7))

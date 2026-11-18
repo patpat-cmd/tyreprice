@@ -3,6 +3,8 @@
 # The alert email address is NOT stored here (the repo is public) - it's the ALERT_TO secret.
 
 alerts:
+  # Price alert emails. false = never email about prices (emails about a broken retailer still go out).
+  enabled: false
   # Alert when today's best price is this % below the average best price of the last N days.
   percent_below_average: 10
   average_window_days: 30
