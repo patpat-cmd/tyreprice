@@ -1090,84 +1090,70 @@
      "sale_alerts": true
     },
     {
-     "id": "michelin-primacy5",
-     "name": "Michelin Primacy 5",
+     "id": "michelin-primacy5-energy",
+     "name": "Michelin Primacy 5 Energy (EV)",
      "series": {
       "Tyroola": [
        [
         "2026-11-19",
-        318.0
+        325.0
        ]
       ],
       "Tempe Tyres": [
        [
         "2026-11-19",
-        299.0
-       ]
-      ],
-      "Costco": [
-       [
-        "2026-11-19",
-        329.99
+        338.0
        ]
       ],
       "AC Tyres": [
        [
         "2026-11-19",
-        266.0
+        303.0
        ]
       ],
       "Bob Jane": [
        [
         "2026-11-19",
-        351.0
+        338.0
        ]
       ]
      },
      "latest": [
       {
        "retailer": "AC Tyres",
-       "price": 266.0,
-       "normal_price": 266.0,
+       "price": 303.0,
+       "normal_price": 303.0,
        "deal": null,
-       "url": "https://actyres.com.au/product/235-45R18-98Y-PRIMACY-5/?id=a01e4766f6f4932ce890950c259c13bc",
-       "description": "Michelin 235/45R18 98Y PRIMACY 5 \u00b7 fitting extra"
-      },
-      {
-       "retailer": "Tempe Tyres",
-       "price": 299.0,
-       "normal_price": 299.0,
-       "deal": null,
-       "url": "https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98y-primacy-5-894109",
-       "description": "Michelin 235/45R18 98Y PRIMACY 5"
+       "url": "https://actyres.com.au/product/235-45R18-98W-PRIMACY-5-ENERGY-DT/?id=3ca120826d414a12a920260811120615",
+       "description": "Michelin 235/45R18 98W PRIMACY 5 ENERGY DT \u00b7 fitting extra"
       },
       {
        "retailer": "Tyroola",
-       "price": 318.0,
-       "normal_price": 318.0,
+       "price": 325.0,
+       "normal_price": 325.0,
        "deal": "Free Fitting for 4 + $150 Gift Card",
-       "url": "https://www.tyroola.com.au/michelin-primacy-5-xl-23545r18-98y-ty67bd0a2b14.html",
-       "description": "MICHELIN PRIMACY 5 XL 235/45R18 98Y"
+       "url": "https://www.tyroola.com.au/michelin-primacy-5-energy-xl-dt-23545r18-98w-ty69e882d64c.html",
+       "description": "MICHELIN PRIMACY 5 ENERGY XL DT 235/45R18 98W"
       },
       {
-       "retailer": "Costco",
-       "price": 329.99,
-       "normal_price": 329.99,
-       "deal": "$150 Shop Card on 4 (until 31 Dec)",
-       "url": "https://www.costco.com.au/c/Michelin-23545R18-XL-98Y-PRIMACY-5/tire/p/894109",
-       "description": "Michelin 235/45R18 XL 98Y PRIMACY 5"
+       "retailer": "Tempe Tyres",
+       "price": 338.0,
+       "normal_price": 338.0,
+       "deal": null,
+       "url": "https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98w-primacy-5-energy-dt-531832",
+       "description": "Michelin 235/45R18 98W PRIMACY 5 ENERGY DT"
       },
       {
        "retailer": "Bob Jane",
-       "price": 351.0,
-       "normal_price": 351.0,
+       "price": 338.0,
+       "normal_price": 338.0,
        "deal": null,
-       "url": "https://www.bobjane.com.au/products/michelin-primacy-5-235-45r18-98y",
-       "description": "Michelin PRIMACY 5 235/45R18 98Y"
+       "url": "https://www.bobjane.com.au/products/michelin-primacy-5-energy-235-45r18-98w-ev",
+       "description": "Michelin PRIMACY 5 ENERGY 235/45R18 98W EV Electric Vehicle"
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 266.0,
+     "all_time_low": 303.0,
      "target_price": null,
      "sale_alerts": true
     },
