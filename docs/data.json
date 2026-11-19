@@ -414,17 +414,17 @@
       "AC Tyres": [
        [
         "2026-11-19",
-        229.0
+        264.0
        ]
       ]
      },
      "latest": [
       {
        "retailer": "AC Tyres",
-       "price": 229.0,
-       "normal_price": 229.0,
+       "price": 264.0,
+       "normal_price": 264.0,
        "deal": null,
-       "url": "https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=ddc7a31ef249448ca120261006120728",
+       "url": "https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=3354090d638b4e948c20261023021437",
        "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL \u00b7 fitting extra"
       },
       {
@@ -453,7 +453,7 @@
       }
      ],
      "latest_date": "2026-11-19",
-     "all_time_low": 229.0,
+     "all_time_low": 264.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -838,248 +838,6 @@
    "label": "235/45R18 EV",
    "tyres": [
     {
-     "id": "michelin-eprimacy",
-     "name": "Michelin e.Primacy",
-     "series": {
-      "Tyroola": [
-       [
-        "2026-11-09",
-        343.0
-       ],
-       [
-        "2026-11-10",
-        343.0
-       ],
-       [
-        "2026-11-11",
-        343.0
-       ],
-       [
-        "2026-11-12",
-        343.0
-       ],
-       [
-        "2026-11-13",
-        343.0
-       ],
-       [
-        "2026-11-14",
-        343.0
-       ],
-       [
-        "2026-11-15",
-        343.0
-       ],
-       [
-        "2026-11-16",
-        343.0
-       ],
-       [
-        "2026-11-17",
-        343.0
-       ],
-       [
-        "2026-11-18",
-        343.0
-       ],
-       [
-        "2026-11-19",
-        343.0
-       ]
-      ],
-      "Tempe Tyres": [
-       [
-        "2026-11-09",
-        370.0
-       ],
-       [
-        "2026-11-10",
-        370.0
-       ],
-       [
-        "2026-11-11",
-        370.0
-       ],
-       [
-        "2026-11-12",
-        370.0
-       ],
-       [
-        "2026-11-13",
-        370.0
-       ],
-       [
-        "2026-11-14",
-        370.0
-       ],
-       [
-        "2026-11-15",
-        370.0
-       ],
-       [
-        "2026-11-16",
-        370.0
-       ],
-       [
-        "2026-11-17",
-        370.0
-       ],
-       [
-        "2026-11-18",
-        370.0
-       ],
-       [
-        "2026-11-19",
-        370.0
-       ]
-      ],
-      "MSWT": [
-       [
-        "2026-11-09",
-        375.0
-       ],
-       [
-        "2026-11-10",
-        375.0
-       ],
-       [
-        "2026-11-11",
-        375.0
-       ],
-       [
-        "2026-11-12",
-        375.0
-       ],
-       [
-        "2026-11-13",
-        375.0
-       ],
-       [
-        "2026-11-14",
-        375.0
-       ],
-       [
-        "2026-11-15",
-        375.0
-       ],
-       [
-        "2026-11-16",
-        375.0
-       ],
-       [
-        "2026-11-17",
-        375.0
-       ],
-       [
-        "2026-11-18",
-        375.0
-       ],
-       [
-        "2026-11-19",
-        375.0
-       ]
-      ],
-      "Bob Jane": [
-       [
-        "2026-11-09",
-        379.0
-       ],
-       [
-        "2026-11-10",
-        379.0
-       ],
-       [
-        "2026-11-11",
-        379.0
-       ],
-       [
-        "2026-11-12",
-        379.0
-       ],
-       [
-        "2026-11-13",
-        379.0
-       ],
-       [
-        "2026-11-14",
-        379.0
-       ],
-       [
-        "2026-11-15",
-        379.0
-       ],
-       [
-        "2026-11-16",
-        379.0
-       ],
-       [
-        "2026-11-17",
-        379.0
-       ],
-       [
-        "2026-11-18",
-        379.0
-       ],
-       [
-        "2026-11-19",
-        379.0
-       ]
-      ],
-      "AC Tyres": [
-       [
-        "2026-11-19",
-        335.0
-       ]
-      ]
-     },
-     "latest": [
-      {
-       "retailer": "AC Tyres",
-       "price": 335.0,
-       "normal_price": 335.0,
-       "deal": null,
-       "url": "https://actyres.com.au/product/235-45R18-98W-E-PRIMACY-ST-(VOL)/?id=ce15bafd86b04f729f20261016121252",
-       "description": "Michelin 235/45R18 98W E PRIMACY ST (VOL) \u00b7 fitting extra"
-      },
-      {
-       "retailer": "Tyroola",
-       "price": 343.0,
-       "normal_price": 343.0,
-       "deal": "$150 GIFT CARD on 4 tyres",
-       "url": "https://www.tyroola.com.au/michelin-e-primacy-st-xl-vol-volvo-23545r18-98w-ty68a81e9e69.html",
-       "description": "MICHELIN E PRIMACY ST XL VOL Volvo 235/45R18 98W"
-      },
-      {
-       "retailer": "Tempe Tyres",
-       "price": 370.0,
-       "normal_price": 370.0,
-       "deal": null,
-       "url": "https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98w-e-primacy-st-vol-995827",
-       "description": "Michelin 235/45R18 98W E PRIMACY ST (VOL)"
-      },
-      {
-       "retailer": "MSWT",
-       "price": 375.0,
-       "normal_price": 375.0,
-       "deal": null,
-       "url": "https://mswt.com.au/tyre/michelin/E-PRIMACY/235-45R18/995827",
-       "description": "MICHELIN E.PRIMACY 235/45R18 18R ST"
-      },
-      {
-       "retailer": "Bob Jane",
-       "price": 379.0,
-       "normal_price": 379.0,
-       "deal": null,
-       "url": "https://www.bobjane.com.au/products/michelin-e-primacy-235-45r18-98w-volvo-xl-ev",
-       "description": "Michelin E PRIMACY 235/45R18 98W Volvo XL EV Electric Vehicle Extra Load Volvo"
-      }
-     ],
-     "latest_date": "2026-11-19",
-     "all_time_low": 335.0,
-     "target_price": null,
-     "sale_alerts": true
-    },
-    {
      "id": "hankook-ion-evo",
      "name": "Hankook iON evo",
      "series": {},
@@ -1192,7 +950,7 @@
       "AC Tyres": [
        [
         "2026-11-19",
-        353.0
+        388.0
        ]
       ],
       "Bob Jane": [
@@ -1212,20 +970,20 @@
        "description": "BRIDGESTONE TURANZA T005 EV EV (MG4) 235/45R18 98W ENLITEN EV"
       },
       {
-       "retailer": "AC Tyres",
-       "price": 353.0,
-       "normal_price": 353.0,
-       "deal": null,
-       "url": "https://actyres.com.au/product/235-45R18-98V-Turanza-T005-EV-(T0)-(B-Silent)-ENLITEN/?id=91f6a959b6b98fe102daf528937af995",
-       "description": "Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN \u00b7 fitting extra"
-      },
-      {
        "retailer": "Tyroola",
        "price": 357.0,
        "normal_price": 357.0,
        "deal": null,
        "url": "https://www.tyroola.com.au/bridgestone-turanza-t005-ev-b-silent-23545r18-98y-ty689409a845.html",
        "description": "BRIDGESTONE TURANZA T005 EV B-SILENT 235/45R18 98Y"
+      },
+      {
+       "retailer": "AC Tyres",
+       "price": 388.0,
+       "normal_price": 388.0,
+       "deal": null,
+       "url": "https://actyres.com.au/product/235-45R18-98V-Turanza-T005-EV-(T0)-(B-Silent)-ENLITEN/?id=885c4c2b2d8449ae8c20261023023957",
+       "description": "Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN \u00b7 fitting extra"
       },
       {
        "retailer": "Bob Jane",

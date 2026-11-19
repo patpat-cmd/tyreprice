@@ -266,15 +266,10 @@ date,size,tyre_id,retailer,price,description,url,price4,deal
 2026-11-18,sport,pirelli-pz5,MSWT,259.00,PIRELLI P ZERO PZ5 225/40R18 92Y,https://mswt.com.au/tyre/pirelli/P-ZERO-PZ5/225-40R18/4244200,,
 2026-11-18,sport,pirelli-pz5,Bob Jane,351.00,Pirelli P Zero (PZ5) 225/40R18 92Y,https://www.bobjane.com.au/products/pirelli-p-zero-pz5-225-40r18-92y,,
 2026-11-19,ev,bridgestone-turanza-t005-ev,MSWT,310.00,BRIDGESTONE TURANZA T005 EV EV (MG4) 235/45R18 98W ENLITEN EV,https://mswt.com.au/tyre/bridgestone/TURANZA-T005-EV/235-45R18/11007378,,
-2026-11-19,ev,bridgestone-turanza-t005-ev,AC Tyres,353.00,Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN · fitting extra,https://actyres.com.au/product/235-45R18-98V-Turanza-T005-EV-(T0)-(B-Silent)-ENLITEN/?id=91f6a959b6b98fe102daf528937af995,,
 2026-11-19,ev,bridgestone-turanza-t005-ev,Tyroola,357.00,BRIDGESTONE TURANZA T005 EV B-SILENT 235/45R18 98Y,https://www.tyroola.com.au/bridgestone-turanza-t005-ev-b-silent-23545r18-98y-ty689409a845.html,,
+2026-11-19,ev,bridgestone-turanza-t005-ev,AC Tyres,388.00,Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN · fitting extra,https://actyres.com.au/product/235-45R18-98V-Turanza-T005-EV-(T0)-(B-Silent)-ENLITEN/?id=885c4c2b2d8449ae8c20261023023957,,
 2026-11-19,ev,bridgestone-turanza-t005-ev,Bob Jane,395.00,Bridgestone Turanza T005 EV 235/45R18 98Y,https://www.bobjane.com.au/products/bridgestone-turanza-t005-ev-235-45r18-98y,,
 2026-11-19,ev,bridgestone-turanza-t005-ev,Tempe Tyres,425.00,Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN,https://www.tempetyres.com.au/tyreproducts?bridgestone-235/45r18-98v-turanza-t005-ev-t0-b-silent-enliten-11007598,,
-2026-11-19,ev,michelin-eprimacy,AC Tyres,335.00,Michelin 235/45R18 98W E PRIMACY ST (VOL) · fitting extra,https://actyres.com.au/product/235-45R18-98W-E-PRIMACY-ST-(VOL)/?id=ce15bafd86b04f729f20261016121252,,
-2026-11-19,ev,michelin-eprimacy,Tyroola,343.00,MICHELIN E PRIMACY ST XL VOL Volvo 235/45R18 98W,https://www.tyroola.com.au/michelin-e-primacy-st-xl-vol-volvo-23545r18-98w-ty68a81e9e69.html,,$150 GIFT CARD on 4 tyres
-2026-11-19,ev,michelin-eprimacy,Tempe Tyres,370.00,Michelin 235/45R18 98W E PRIMACY ST (VOL),https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98w-e-primacy-st-vol-995827,,
-2026-11-19,ev,michelin-eprimacy,MSWT,375.00,MICHELIN E.PRIMACY 235/45R18 18R ST,https://mswt.com.au/tyre/michelin/E-PRIMACY/235-45R18/995827,,
-2026-11-19,ev,michelin-eprimacy,Bob Jane,379.00,Michelin E PRIMACY 235/45R18 98W Volvo XL EV Electric Vehicle Extra Load Volvo,https://www.bobjane.com.au/products/michelin-e-primacy-235-45r18-98w-volvo-xl-ev,,
 2026-11-19,ev,michelin-primacy5-energy,AC Tyres,303.00,Michelin 235/45R18 98W PRIMACY 5 ENERGY DT · fitting extra,https://actyres.com.au/product/235-45R18-98W-PRIMACY-5-ENERGY-DT/?id=3ca120826d414a12a920260811120615,,
 2026-11-19,ev,michelin-primacy5-energy,Tyroola,325.00,MICHELIN PRIMACY 5 ENERGY XL DT 235/45R18 98W,https://www.tyroola.com.au/michelin-primacy-5-energy-xl-dt-23545r18-98w-ty69e882d64c.html,,Free Fitting for 4 + $150 Gift Card
 2026-11-19,ev,michelin-primacy5-energy,Tempe Tyres,338.00,Michelin 235/45R18 98W PRIMACY 5 ENERGY DT,https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98w-primacy-5-energy-dt-531832,,
@@ -288,7 +283,7 @@ date,size,tyre_id,retailer,price,description,url,price4,deal
 2026-11-19,ev,yokohama-ae51,Tempe Tyres,195.00,Yokohama 235/45R18 94W BluEarth-GT AE51,https://www.tempetyres.com.au/tyreproducts?yokohama-235/45r18-94w-bluearth-gt-ae51-r4591,,
 2026-11-19,ev,yokohama-ae51,Tyroola,313.00,YOKOHAMA BLUEARTH-GT GRAND TOURING AE51 235/45R18 94W,https://www.tyroola.com.au/yokohama-bluearth-gt-grand-touring-ae51-23545r18-94w-ty5eb3cf6696.html,219.10,Save 30% on 4 tyres
 2026-11-19,ev,yokohama-ae51,Bob Jane,323.00,Yokohama BluEarth-GT AE51 235/45R18 94W,https://www.bobjane.com.au/products/yokohama-bluearth-gt-ae51-235-45r18-94w,,
-2026-11-19,sport,bridgestone-potenza-sport-evo,AC Tyres,229.00,Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL · fitting extra,https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=ddc7a31ef249448ca120261006120728,,
+2026-11-19,sport,bridgestone-potenza-sport-evo,AC Tyres,264.00,Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL · fitting extra,https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=3354090d638b4e948c20261023021437,,
 2026-11-19,sport,bridgestone-potenza-sport-evo,Tyroola,295.00,BRIDGESTONE POTENZA SPORT EVO 225/40R18 92Y,https://www.tyroola.com.au/bridgestone-potenza-sport-evo-22540r18-92y-ty6afd53179c.html,,
 2026-11-19,sport,bridgestone-potenza-sport-evo,Bob Jane,359.00,Bridgestone POTENZA SPORT EVO 225/40R18 92Y XL EV Electric Vehicle Extra Load,https://www.bobjane.com.au/products/bridgestone-potenza-sport-evo-225-40r18-92y-xl-ev,,
 2026-11-19,sport,bridgestone-potenza-sport-evo,Tempe Tyres,361.00,Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL,https://www.tempetyres.com.au/tyreproducts?bridgestone-225/40r18-92y-potenza-sport-evo-enl-11006947,,
