@@ -9,7 +9,7 @@ so multi-buy deals (e.g. "buy 3 get 1 free", "30% off 4") are counted and shown 
 - **History:** `data/prices.csv` (one row per tyre / retailer / day — opens in Excel; `price4` / `deal` columns hold set-of-4 deals)
 - **Tracked:** 225/40R18 sporty — Continental SportContact 7, Pirelli P Zero PZ5, Bridgestone Potenza Sport EVO,
   Michelin Pilot Sport 4S, Yokohama ADVAN Neova AD09.
-  235/45R18 EV touring — Michelin e.Primacy, Hankook iON evo, Michelin Primacy 5 Energy (EV variant only),
+  235/45R18 EV touring — Hankook iON evo, Michelin Primacy 5 Energy (EV variant only; replaces the older e.Primacy),
   Goodyear EfficientGrip Performance 2, Bridgestone Turanza T005 EV, Pirelli Cinturato P7C2, Yokohama BluEarth-GT AE51.
   A blank card means no retailer has that tyre in stock in that size today.
 

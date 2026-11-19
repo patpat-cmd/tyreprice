@@ -60,11 +60,6 @@ sizes:
     profile: 45
     rim: 18
     tyres:   # touring tyres for the EV
-      - id: michelin-eprimacy
-        name: Michelin e.Primacy
-        brand: michelin
-        match: [eprimacy]
-        search: "e.Primacy"
       - id: hankook-ion-evo
         name: Hankook iON evo
         brand: hankook
