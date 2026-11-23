@@ -3,7 +3,7 @@ name: Daily tyre prices
 on:
   schedule:
     - cron: "0 20 * * *"   # 20:00 UTC = 7am Sydney (summer) / 6am (winter)
-  workflow_dispatch:        # "Run workflow" button / "Check prices now" on the chart page
+  workflow_dispatch:        # "Run workflow" button (or "Check prices now" on the chart page when SHOW_ALERTS is on)
     inputs:
       test_email:
         description: "Only send a test alert email (no price check)"

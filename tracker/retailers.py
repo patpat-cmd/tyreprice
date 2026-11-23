@@ -1,8 +1,9 @@
 """Retailer scrapers.
 
-Each scraper takes a size dict (width/profile/rim) and returns a list of Offer objects
-for every tyre the retailer lists in that size. Matching to the tyres you care about
-happens later in match.py, so scrapers stay dumb and easy to fix when a site changes.
+Size scrapers (SIZE_SCRAPERS) take a size dict (width/profile/rim) and return a list of Offer
+objects for every tyre the retailer lists in that size; per-tyre scrapers (TYRE_SCRAPERS, e.g.
+Bob Jane) take (size, tyre) and search for that one tyre. Matching to the tyres you care about
+happens later in run.py, so scrapers stay dumb and easy to fix when a site changes.
 
 Rules we follow: honest User-Agent, robots.txt respected, a few requests per day, no
 bot-check circumvention. If a site blocks plain requests, we simply don't use it.

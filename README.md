@@ -5,7 +5,7 @@ so multi-buy deals (e.g. "buy 3 get 1 free", "30% off 4") are counted and shown 
 
 - **Runs:** every morning ~7am Sydney time on GitHub Actions (free, PC can be off)
 - **Retailers:** Tyroola, Tempe Tyres, MSWT, Bob Jane, Costco (searched by size), AC Tyres (Sydney store; prices exclude fitting)
-- **Charts:** `https://<your-github-username>.github.io/<repo-name>/`
+- **Charts:** https://patpat-cmd.github.io/tyreprice/
 - **History:** `data/prices.csv` (one row per tyre / retailer / day — opens in Excel; `price4` / `deal` columns hold set-of-4 deals)
 - **Tracked:** 225/40R18 sporty — Continental SportContact 7, Pirelli P Zero PZ5, Bridgestone Potenza Sport EVO,
   Michelin Pilot Sport 4S, Yokohama ADVAN Neova AD09.
@@ -56,7 +56,8 @@ matching ignores case/spaces, so `pilotsport4s` matches "PILOT SPORT 4 S". Run-f
    - `SMTP_USER` — the Gmail address that sends the emails
    - `SMTP_PASSWORD` — a Gmail **App Password** for that account
      (Google Account → Security → 2-Step Verification must be on → App passwords → create one)
-   - `ALERT_TO` — where emails go
+   - `ALERT_TO` — where emails go (a repo *variable* `ALERT_TO`, which the chart page's Alert settings
+     writes, takes precedence over this secret)
 3. **Settings → Pages →** Source: *Deploy from a branch*, Branch: `main`, folder `/docs`.
 4. **Actions** tab → *Daily tyre prices* → **Run workflow** to test it now.
 
@@ -66,4 +67,16 @@ matching ignores case/spaces, so `pilotsport4s` matches "PILOT SPORT 4 S". Run-f
 pip install -r requirements.txt
 python -m tracker.run --dry-run   # scrape and print, change nothing
 python -m tracker.run             # full run (prints the email instead of sending unless SMTP_* env vars set)
+python -m tracker.run --test-email  # send a sample alert built from the latest prices (needs SMTP_* and ALERT_TO)
 ```
+
+## Files
+
+- `config.yaml` — tyres, sizes and alert rules
+- `tracker/retailers.py` — one scraper per retailer (`SIZE_SCRAPERS` / `TYRE_SCRAPERS` at the bottom)
+- `tracker/run.py` — matching, history, alerts, chart data
+- `data/prices.csv` — price history; `data/health.json` — scraper failure counts;
+  `data/alerts_sent.json` — last alert per tyre (stops repeats within a week)
+- `docs/` — the chart page (`index.html`), its data (`data.json`, rebuilt each run) and
+  `alerts.json` (alert settings saved from the page; overrides `config.yaml`)
+- `.github/workflows/daily.yml` — the daily schedule; commits `data/` and `docs/data.json`
