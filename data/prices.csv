@@ -455,3 +455,43 @@ date,size,tyre_id,retailer,price,description,url,price4,deal
 2026-11-23,sport,yokohama-ad09,Tempe Tyres,320.00,Yokohama 225/40R18 92W Advan Neova AD09,https://www.tempetyres.com.au/tyreproducts?yokohama-2254018-92w-advan-neova-ad09-r7889,,
 2026-11-23,sport,yokohama-ad09,MSWT,379.00,YOKOHAMA ADVAN NEOVA AD09 225/40R18 92W,https://mswt.com.au/tyre/yokohama/ADVAN-NEOVA-AD09/225-40R18/2254018AD09,,
 2026-11-23,sport,yokohama-ad09,Bob Jane,443.00,Yokohama ADVAN Neova AD09 225/40R18 92W,https://www.bobjane.com.au/products/yokohama-advan-neova-ad09-225-40r18-92w,,
+2026-11-24,ev,bridgestone-turanza-t005-ev,MSWT,310.00,BRIDGESTONE TURANZA T005 EV EV (MG4) 235/45R18 98W ENLITEN EV,https://mswt.com.au/tyre/bridgestone/TURANZA-T005-EV/235-45R18/11007378,,
+2026-11-24,ev,bridgestone-turanza-t005-ev,AC Tyres,353.00,Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN · fitting extra,https://actyres.com.au/product/235-45R18-98V-Turanza-T005-EV-(T0)-(B-Silent)-ENLITEN/?id=91f6a959b6b98fe102daf528937af995,,
+2026-11-24,ev,bridgestone-turanza-t005-ev,Tyroola,357.00,BRIDGESTONE TURANZA T005 EV B-SILENT 235/45R18 98Y,https://www.tyroola.com.au/bridgestone-turanza-t005-ev-b-silent-23545r18-98y-ty689409a845.html,,
+2026-11-24,ev,bridgestone-turanza-t005-ev,Bob Jane,395.00,Bridgestone Turanza T005 EV 235/45R18 98Y,https://www.bobjane.com.au/products/bridgestone-turanza-t005-ev-235-45r18-98y,,
+2026-11-24,ev,bridgestone-turanza-t005-ev,Tempe Tyres,425.00,Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN,https://www.tempetyres.com.au/tyreproducts?bridgestone-235/45r18-98v-turanza-t005-ev-t0-b-silent-enliten-11007598,,
+2026-11-24,ev,michelin-primacy5-energy,AC Tyres,303.00,Michelin 235/45R18 98W PRIMACY 5 ENERGY DT · fitting extra,https://actyres.com.au/product/235-45R18-98W-PRIMACY-5-ENERGY-DT/?id=3ca120826d414a12a920260811120615,,
+2026-11-24,ev,michelin-primacy5-energy,Tyroola,325.00,MICHELIN PRIMACY 5 ENERGY XL DT 235/45R18 98W,https://www.tyroola.com.au/michelin-primacy-5-energy-xl-dt-23545r18-98w-ty69e882d64c.html,,Free Fitting for 4 + $150 Gift Card
+2026-11-24,ev,michelin-primacy5-energy,Tempe Tyres,338.00,Michelin 235/45R18 98W PRIMACY 5 ENERGY DT,https://www.tempetyres.com.au/tyreproducts?michelin-235/45r18-98w-primacy-5-energy-dt-531832,,
+2026-11-24,ev,michelin-primacy5-energy,Bob Jane,338.00,Michelin PRIMACY 5 ENERGY 235/45R18 98W EV Electric Vehicle,https://www.bobjane.com.au/products/michelin-primacy-5-energy-235-45r18-98w-ev,,
+2026-11-24,ev,pirelli-cinturato-p7c2,Tyroola,316.00,PIRELLI CINTURATO P7 C2 XL SEAL INSIDE 235/45R18 98W,https://www.tyroola.com.au/pirelli-cinturato-p7-c2-xl-seal-inside-23545r18-98w-ty6335572d5b.html,252.80,Save 20% on 4 tyres
+2026-11-24,ev,pirelli-cinturato-p7c2,AC Tyres,266.00,Pirelli 235/45R18 98W P7 CINT(P7C2) · fitting extra,https://actyres.com.au/product/235-45R18-98W-P7-CINT(P7C2)/?id=2514b5463e7a486fbf20260618120602,,
+2026-11-24,ev,pirelli-cinturato-p7c2,Tempe Tyres,311.00,Pirelli 235/45R18 98W P7 CINT(P7C2),https://www.tempetyres.com.au/tyreproducts?pirelli-235/45r18-98w-p7-cint-p7c2-3999000,,
+2026-11-24,ev,pirelli-cinturato-p7c2,MSWT,325.00,PIRELLI CINTURATO P7 (P7C2) 235/45R18 98W s-i XL,https://mswt.com.au/tyre/pirelli/CINTURATO-P7-P7C2/235-45R18/3998500,,
+2026-11-24,ev,pirelli-cinturato-p7c2,Bob Jane,412.00,Pirelli Cinturato P7™ (P7C2) 235/45R18 98W XL ECO Eco Friendly Extra Load,https://www.bobjane.com.au/products/pirelli-cinturato-p7-p7c2-235-45r18-98w-xl-eco,,
+2026-11-24,ev,yokohama-ae51,AC Tyres,165.00,Yokohama 235/45R18 94W BluEarth-GT AE51 · fitting extra,https://actyres.com.au/product/235-45R18-94W-BluEarth-GT-AE51/?id=19f8ce87237891f7a4e104fc79df2500,,
+2026-11-24,ev,yokohama-ae51,Tempe Tyres,195.00,Yokohama 235/45R18 94W BluEarth-GT AE51,https://www.tempetyres.com.au/tyreproducts?yokohama-235/45r18-94w-bluearth-gt-ae51-r4591,,
+2026-11-24,ev,yokohama-ae51,Tyroola,313.00,YOKOHAMA BLUEARTH-GT GRAND TOURING AE51 235/45R18 94W,https://www.tyroola.com.au/yokohama-bluearth-gt-grand-touring-ae51-23545r18-94w-ty5eb3cf6696.html,219.10,Save 30% on 4 tyres
+2026-11-24,ev,yokohama-ae51,MSWT,297.00,YOKOHAMA BLUEARTH GT AE51 235/45R18 94W,https://mswt.com.au/tyre/yokohama/BLUEARTH-GT-AE51/235-45R18/2354518AE51,,
+2026-11-24,ev,yokohama-ae51,Bob Jane,323.00,Yokohama BluEarth-GT AE51 235/45R18 94W,https://www.bobjane.com.au/products/yokohama-bluearth-gt-ae51-235-45r18-94w,,
+2026-11-24,sport,bridgestone-potenza-sport-evo,AC Tyres,229.00,Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL · fitting extra,https://actyres.com.au/product/225-40R18-92Y-POTENZA-SPORT-EVO-ENL/?id=ddc7a31ef249448ca120261006120728,,
+2026-11-24,sport,bridgestone-potenza-sport-evo,Tyroola,295.00,BRIDGESTONE POTENZA SPORT EVO 225/40R18 92Y,https://www.tyroola.com.au/bridgestone-potenza-sport-evo-22540r18-92y-ty6afd53179c.html,,
+2026-11-24,sport,bridgestone-potenza-sport-evo,Bob Jane,359.00,Bridgestone POTENZA SPORT EVO 225/40R18 92Y XL EV Electric Vehicle Extra Load,https://www.bobjane.com.au/products/bridgestone-potenza-sport-evo-225-40r18-92y-xl-ev,,
+2026-11-24,sport,bridgestone-potenza-sport-evo,Tempe Tyres,361.00,Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL,https://www.tempetyres.com.au/tyreproducts?bridgestone-225/40r18-92y-potenza-sport-evo-enl-11006947,,
+2026-11-24,sport,conti-sc7,Tyroola,249.00,CONTINENTAL CONTISPORTCONTACT 7 XL 225/40R18 92Y,https://www.tyroola.com.au/continental-contisportcontact-7-xl-22540r18-92y-ty64f001414d.html,,
+2026-11-24,sport,michelin-ps4s,AC Tyres,315.00,Michelin 225/40R18 92Y PILOT SPORT 4S · fitting extra,https://actyres.com.au/product/225-40R18-92Y-PILOT-SPORT-4S/?id=09a474691462ca77531f9c976e392f6f,,
+2026-11-24,sport,michelin-ps4s,Tempe Tyres,350.00,Michelin 225/40R18 92Y Pilot Sport 4S,https://www.tempetyres.com.au/tyreproducts?michelin-2254018-92y-pilot-sport-4s-576191,,
+2026-11-24,sport,michelin-ps4s,Costco,359.99,Michelin 225/40R18 92Y PILOT SPORT 4S,https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191,,$150 Shop Card on 4 (until 31 Dec)
+2026-11-24,sport,michelin-ps4s,Tyroola,369.00,MICHELIN PILOT SPORT 4 S XL 225/40R18 92Y,https://www.tyroola.com.au/michelin-pilot-sport-4-s-xl-22540r18-92y-ty62d50c5336.html,,$150 GIFT CARD on 4 tyres
+2026-11-24,sport,michelin-ps4s,MSWT,397.00,MICHELIN PILOT SPORT 4S 225/40R18 92Y,https://mswt.com.au/tyre/michelin/PILOT-SPORT-4S/225-40R18/576191,,
+2026-11-24,sport,michelin-ps4s,Bob Jane,405.00,Michelin PILOT SPORT 4 S 225/40R18 92Y,https://www.bobjane.com.au/products/michelin-pilot-sport-4-s-225-40r18-92y,,
+2026-11-24,sport,pirelli-pz5,AC Tyres,214.00,Pirelli 225/40R18 92Y PZERO (PZ5) · fitting extra,https://actyres.com.au/product/225-40R18-92Y-PZERO-(PZ5)/?id=a32508fab677482c018b994ddcdf3d03,,
+2026-11-24,sport,pirelli-pz5,Tyroola,268.00,PIRELLI PZERO PZ5 XL 225/40ZR18 92Y,https://www.tyroola.com.au/pirelli-pzero-pz5-xl-22540zr18-92y-ty68bfcb3816.html,214.40,Save 20% on 4 tyres
+2026-11-24,sport,pirelli-pz5,Tempe Tyres,249.00,Pirelli 225/40R18 92Y PZERO (PZ5),https://www.tempetyres.com.au/tyreproducts?pirelli-225/40r18-92y-pzero-pz5-4244200,,
+2026-11-24,sport,pirelli-pz5,MSWT,259.00,PIRELLI P ZERO PZ5 225/40R18 92Y,https://mswt.com.au/tyre/pirelli/P-ZERO-PZ5/225-40R18/4244200,,
+2026-11-24,sport,pirelli-pz5,Bob Jane,351.00,Pirelli P Zero (PZ5) 225/40R18 92Y,https://www.bobjane.com.au/products/pirelli-p-zero-pz5-225-40r18-92y,,
+2026-11-24,sport,yokohama-ad09,Tyroola,383.00,YOKOHAMA ADVAN NEOVA AD09 SEMI SLICK 225/40R18 92W,https://www.tyroola.com.au/yokohama-advan-neova-ad09-semi-slick-22540r18-92w-ty6317255893.html,268.10,Save 30% on 4 tyres
+2026-11-24,sport,yokohama-ad09,AC Tyres,285.00,Yokohama 225/40R18 92W ADVAN NEOVA AD09 · fitting extra,https://actyres.com.au/product/225-40R18-92W-ADVAN-NEOVA-AD09/?id=208749dca81bfbde8f57628dd998bc8a,,
+2026-11-24,sport,yokohama-ad09,Tempe Tyres,320.00,Yokohama 225/40R18 92W Advan Neova AD09,https://www.tempetyres.com.au/tyreproducts?yokohama-2254018-92w-advan-neova-ad09-r7889,,
+2026-11-24,sport,yokohama-ad09,MSWT,379.00,YOKOHAMA ADVAN NEOVA AD09 225/40R18 92W,https://mswt.com.au/tyre/yokohama/ADVAN-NEOVA-AD09/225-40R18/2254018AD09,,
+2026-11-24,sport,yokohama-ad09,Bob Jane,443.00,Yokohama ADVAN Neova AD09 225/40R18 92W,https://www.bobjane.com.au/products/yokohama-advan-neova-ad09-225-40r18-92w,,
