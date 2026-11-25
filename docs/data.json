@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24",
+ "updated": "2026-11-25",
  "sizes": [
   {
    "id": "sport",
@@ -73,6 +73,10 @@
        [
         "2026-11-24",
         249.0
+       ],
+       [
+        "2026-11-25",
+        249.0
        ]
       ]
      },
@@ -86,7 +90,7 @@
        "description": "CONTINENTAL CONTISPORTCONTACT 7 XL 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 249.0,
      "target_price": null,
      "sale_alerts": true
@@ -159,6 +163,10 @@
        [
         "2026-11-24",
         249.0
+       ],
+       [
+        "2026-11-25",
+        249.0
        ]
       ],
       "MSWT": [
@@ -216,6 +224,10 @@
        ],
        [
         "2026-11-24",
+        259.0
+       ],
+       [
+        "2026-11-25",
         259.0
        ]
       ],
@@ -283,6 +295,10 @@
        [
         "2026-11-24",
         214.4
+       ],
+       [
+        "2026-11-25",
+        214.4
        ]
       ],
       "Bob Jane": [
@@ -349,6 +365,10 @@
        [
         "2026-11-24",
         351.0
+       ],
+       [
+        "2026-11-25",
+        351.0
        ]
       ],
       "AC Tyres": [
@@ -374,6 +394,10 @@
        ],
        [
         "2026-11-24",
+        214.0
+       ],
+       [
+        "2026-11-25",
         214.0
        ]
       ]
@@ -420,7 +444,7 @@
        "description": "Pirelli P Zero (PZ5) 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 214.0,
      "target_price": null,
      "sale_alerts": true
@@ -493,6 +517,10 @@
        [
         "2026-11-24",
         359.0
+       ],
+       [
+        "2026-11-25",
+        359.0
        ]
       ],
       "Tempe Tyres": [
@@ -559,6 +587,10 @@
        [
         "2026-11-24",
         361.0
+       ],
+       [
+        "2026-11-25",
+        361.0
        ]
       ],
       "AC Tyres": [
@@ -585,6 +617,10 @@
        [
         "2026-11-24",
         229.0
+       ],
+       [
+        "2026-11-25",
+        229.0
        ]
       ],
       "Tyroola": [
@@ -610,6 +646,10 @@
        ],
        [
         "2026-11-24",
+        295.0
+       ],
+       [
+        "2026-11-25",
         295.0
        ]
       ]
@@ -648,7 +688,7 @@
        "description": "Bridgestone 225/40R18 92Y POTENZA SPORT EVO ENL"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 229.0,
      "target_price": null,
      "sale_alerts": true
@@ -721,6 +761,10 @@
        [
         "2026-11-24",
         350.0
+       ],
+       [
+        "2026-11-25",
+        350.0
        ]
       ],
       "Costco": [
@@ -787,6 +831,10 @@
        [
         "2026-11-24",
         359.99
+       ],
+       [
+        "2026-11-25",
+        359.99
        ]
       ],
       "Tyroola": [
@@ -853,6 +901,10 @@
        [
         "2026-11-24",
         369.0
+       ],
+       [
+        "2026-11-25",
+        369.0
        ]
       ],
       "MSWT": [
@@ -910,6 +962,10 @@
        ],
        [
         "2026-11-24",
+        397.0
+       ],
+       [
+        "2026-11-25",
         397.0
        ]
       ],
@@ -977,6 +1033,10 @@
        [
         "2026-11-24",
         405.0
+       ],
+       [
+        "2026-11-25",
+        405.0
        ]
       ],
       "AC Tyres": [
@@ -1003,6 +1063,10 @@
        [
         "2026-11-24",
         315.0
+       ],
+       [
+        "2026-11-25",
+        315.0
        ]
       ]
      },
@@ -1027,7 +1091,7 @@
        "retailer": "Costco",
        "price": 359.99,
        "normal_price": 359.99,
-       "deal": "$150 Shop Card on 4 (until 31 Dec)",
+       "deal": "$150 Shop Card on 4 (until 30 Nov)",
        "url": "https://www.costco.com.au/c/Michelin-22540R18-92Y-PILOT-SPORT-4S/tire/p/576191",
        "description": "Michelin 225/40R18 92Y PILOT SPORT 4S"
       },
@@ -1056,7 +1120,7 @@
        "description": "Michelin PILOT SPORT 4 S 225/40R18 92Y"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 315.0,
      "target_price": null,
      "sale_alerts": true
@@ -1089,6 +1153,10 @@
        [
         "2026-11-24",
         268.1
+       ],
+       [
+        "2026-11-25",
+        268.1
        ]
       ],
       "AC Tyres": [
@@ -1114,6 +1182,10 @@
        ],
        [
         "2026-11-24",
+        285.0
+       ],
+       [
+        "2026-11-25",
         285.0
        ]
       ],
@@ -1163,6 +1235,10 @@
        [
         "2026-11-24",
         379.0
+       ],
+       [
+        "2026-11-25",
+        379.0
        ]
       ],
       "Bob Jane": [
@@ -1189,6 +1265,10 @@
        [
         "2026-11-24",
         443.0
+       ],
+       [
+        "2026-11-25",
+        443.0
        ]
       ]
      },
@@ -1210,14 +1290,6 @@
        "description": "Yokohama 225/40R18 92W ADVAN NEOVA AD09 \u00b7 fitting extra"
       },
       {
-       "retailer": "Tempe Tyres",
-       "price": 320.0,
-       "normal_price": 320.0,
-       "deal": null,
-       "url": "https://www.tempetyres.com.au/tyreproducts?yokohama-2254018-92w-advan-neova-ad09-r7889",
-       "description": "Yokohama 225/40R18 92W Advan Neova AD09"
-      },
-      {
        "retailer": "MSWT",
        "price": 379.0,
        "normal_price": 379.0,
@@ -1234,7 +1306,7 @@
        "description": "Yokohama ADVAN Neova AD09 225/40R18 92W"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 268.1,
      "target_price": null,
      "sale_alerts": true
@@ -1248,10 +1320,26 @@
     {
      "id": "hankook-ion-evo",
      "name": "Hankook iON evo",
-     "series": {},
-     "latest": [],
-     "latest_date": null,
-     "all_time_low": null,
+     "series": {
+      "Bob Jane": [
+       [
+        "2026-11-25",
+        432.0
+       ]
+      ]
+     },
+     "latest": [
+      {
+       "retailer": "Bob Jane",
+       "price": 432.0,
+       "normal_price": 432.0,
+       "deal": null,
+       "url": "https://www.bobjane.com.au/products/hankook-ion-evo-as-235-45r18-98w-xl-ev",
+       "description": "Hankook iON evo AS 235/45R18 98W XL EV Electric Vehicle Extra Load"
+      }
+     ],
+     "latest_date": "2026-11-25",
+     "all_time_low": 432.0,
      "target_price": null,
      "sale_alerts": true
     },
@@ -1283,6 +1371,10 @@
        [
         "2026-11-24",
         303.0
+       ],
+       [
+        "2026-11-25",
+        303.0
        ]
       ],
       "Tyroola": [
@@ -1308,6 +1400,10 @@
        ],
        [
         "2026-11-24",
+        325.0
+       ],
+       [
+        "2026-11-25",
         325.0
        ]
       ],
@@ -1335,6 +1431,10 @@
        [
         "2026-11-24",
         338.0
+       ],
+       [
+        "2026-11-25",
+        338.0
        ]
       ],
       "Bob Jane": [
@@ -1360,6 +1460,10 @@
        ],
        [
         "2026-11-24",
+        338.0
+       ],
+       [
+        "2026-11-25",
         338.0
        ]
       ]
@@ -1398,7 +1502,7 @@
        "description": "Michelin PRIMACY 5 ENERGY 235/45R18 98W EV Electric Vehicle"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 303.0,
      "target_price": null,
      "sale_alerts": true
@@ -1441,6 +1545,10 @@
        [
         "2026-11-24",
         310.0
+       ],
+       [
+        "2026-11-25",
+        310.0
        ]
       ],
       "Tyroola": [
@@ -1462,6 +1570,10 @@
        ],
        [
         "2026-11-24",
+        357.0
+       ],
+       [
+        "2026-11-25",
         357.0
        ]
       ],
@@ -1489,6 +1601,10 @@
        [
         "2026-11-24",
         353.0
+       ],
+       [
+        "2026-11-25",
+        353.0
        ]
       ],
       "Bob Jane": [
@@ -1515,6 +1631,10 @@
        [
         "2026-11-24",
         395.0
+       ],
+       [
+        "2026-11-25",
+        395.0
        ]
       ],
       "Tempe Tyres": [
@@ -1540,6 +1660,10 @@
        ],
        [
         "2026-11-24",
+        425.0
+       ],
+       [
+        "2026-11-25",
         425.0
        ]
       ]
@@ -1586,7 +1710,7 @@
        "description": "Bridgestone 235/45R18 98V Turanza T005 EV (T0) (B-Silent) ENLITEN"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 310.0,
      "target_price": null,
      "sale_alerts": true
@@ -1619,6 +1743,10 @@
        [
         "2026-11-24",
         252.8
+       ],
+       [
+        "2026-11-25",
+        252.8
        ]
       ],
       "AC Tyres": [
@@ -1644,6 +1772,10 @@
        ],
        [
         "2026-11-24",
+        266.0
+       ],
+       [
+        "2026-11-25",
         266.0
        ]
       ],
@@ -1671,6 +1803,10 @@
        [
         "2026-11-24",
         311.0
+       ],
+       [
+        "2026-11-25",
+        311.0
        ]
       ],
       "MSWT": [
@@ -1692,6 +1828,10 @@
        ],
        [
         "2026-11-24",
+        325.0
+       ],
+       [
+        "2026-11-25",
         325.0
        ]
       ],
@@ -1718,6 +1858,10 @@
        ],
        [
         "2026-11-24",
+        412.0
+       ],
+       [
+        "2026-11-25",
         412.0
        ]
       ]
@@ -1764,7 +1908,7 @@
        "description": "Pirelli Cinturato P7\u2122 (P7C2) 235/45R18 98W XL ECO Eco Friendly Extra Load"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 252.8,
      "target_price": null,
      "sale_alerts": true
@@ -1797,6 +1941,10 @@
        [
         "2026-11-24",
         165.0
+       ],
+       [
+        "2026-11-25",
+        165.0
        ]
       ],
       "Tempe Tyres": [
@@ -1822,6 +1970,10 @@
        ],
        [
         "2026-11-24",
+        195.0
+       ],
+       [
+        "2026-11-25",
         195.0
        ]
       ],
@@ -1849,6 +2001,10 @@
        [
         "2026-11-24",
         219.1
+       ],
+       [
+        "2026-11-25",
+        219.1
        ]
       ],
       "Bob Jane": [
@@ -1875,11 +2031,19 @@
        [
         "2026-11-24",
         323.0
+       ],
+       [
+        "2026-11-25",
+        323.0
        ]
       ],
       "MSWT": [
        [
         "2026-11-24",
+        297.0
+       ],
+       [
+        "2026-11-25",
         297.0
        ]
       ]
@@ -1926,7 +2090,7 @@
        "description": "Yokohama BluEarth-GT AE51 235/45R18 94W"
       }
      ],
-     "latest_date": "2026-11-24",
+     "latest_date": "2026-11-25",
      "all_time_low": 165.0,
      "target_price": null,
      "sale_alerts": true
@@ -1937,27 +2101,27 @@
  "health": {
   "Tyroola": {
    "ok": true,
-   "last_ok": "2026-11-24"
+   "last_ok": "2026-11-25"
   },
   "Tempe Tyres": {
    "ok": true,
-   "last_ok": "2026-11-24"
+   "last_ok": "2026-11-25"
   },
   "MSWT": {
    "ok": true,
-   "last_ok": "2026-11-24"
+   "last_ok": "2026-11-25"
   },
   "Costco": {
    "ok": true,
-   "last_ok": "2026-11-24"
+   "last_ok": "2026-11-25"
   },
   "Bob Jane": {
    "ok": true,
-   "last_ok": "2026-11-24"
+   "last_ok": "2026-11-25"
   },
   "AC Tyres": {
    "ok": true,
-   "last_ok": "2026-11-24"
+   "last_ok": "2026-11-25"
   }
  }
 }
