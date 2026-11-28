@@ -1,32 +1,32 @@
 {
  "Tyroola": {
-  "last_ok": "2026-11-27",
+  "last_ok": "2026-11-28",
   "fails": 0,
   "last_error": null
  },
  "Tempe Tyres": {
-  "last_ok": "2026-11-27",
+  "last_ok": "2026-11-28",
   "fails": 0,
   "last_error": null
  },
  "MSWT": {
   "last_ok": "2026-11-26",
-  "fails": 1,
+  "fails": 2,
   "last_error": "235/45R18 EV: RuntimeError('no tyres found - page layout may have changed')",
-  "last_fail": "2026-11-27"
+  "last_fail": "2026-11-28"
  },
  "Costco": {
-  "last_ok": "2026-11-27",
+  "last_ok": "2026-11-28",
   "fails": 0,
   "last_error": null
  },
  "Bob Jane": {
-  "last_ok": "2026-11-27",
+  "last_ok": "2026-11-28",
   "fails": 0,
   "last_error": null
  },
  "AC Tyres": {
-  "last_ok": "2026-11-27",
+  "last_ok": "2026-11-28",
   "fails": 0,
   "last_error": null
  }
